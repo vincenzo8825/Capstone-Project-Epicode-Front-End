@@ -1,0 +1,353 @@
+{
+  "users": [
+    {
+      "email": "mario@rossi.it",
+      "password": "$2a$10$J7eKkQ6mlr4nKWdH4kfhTeIgeCAacxiw3xp0VGJeiFTA9jaUE1ZvW",
+      "nome": "mario",
+      "id": 1
+    },
+    {
+      "email": "wuwy@mailinator.com",
+      "password": "$2a$10$TkuiE8j6K3WkiWW.7MXQ/OmR76WjpgveYNYUbMKqAAVMuF1SPs56e",
+      "nome": "Qui qui illo omnis d",
+      "id": 2
+    },
+    {
+      "email": "jebavepuw@mailinator.com",
+      "password": "$2a$10$5IC8iPFrl23BFyz9n1567.tyuUr2m5wZZcIEj08wM9.FaiBhOG472",
+      "nome": "Eius dolor libero vo",
+      "id": 3
+    },
+    {
+      "email": "tyte@mailinator.com",
+      "password": "$2a$10$v/CEzEX.3FNEoP7QKVXxAuizpiHUTbo.p20S4roYL/Kch8nyX1eiu",
+      "nome": "Ut quo est ipsam do",
+      "id": 4
+    },
+    {
+      "email": "pibuka@mailinator.com",
+      "password": "$2a$10$q2fxiDN81mpEKRJ5Zu0yV.RjfNjbfiLbGiXya2pn3rkcxhRZ3.eze",
+      "nome": "Ad accusantium repre",
+      "id": 5
+    }
+  ],
+  "corsi": [
+    {
+      "durata": "4 settimane",
+      "livello": "Sviluppo Web",
+      "autore": "John Doe",
+      "nome": "Corso di Sviluppo Web Avanzato",
+      "descrizione": "Questo corso avanzato di sviluppo web copre una vasta gamma di tecnologie e framework, inclusi Angular, React e Vue. Impara a progettare e sviluppare applicazioni web complesse.",
+      "prezzo": "229.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "6 settimane",
+      "livello": "Sviluppo Web",
+      "autore": "Jane Smith",
+      "nome": "Corso Approfondito di Design Grafico",
+      "descrizione": "Un corso approfondito di design grafico che copre principi fondamentali di design, strumenti come Adobe Creative Suite e la progettazione di loghi, brochure e materiali pubblicitari.",
+      "prezzo": "199.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "8 settimane",
+      "livello": "Sviluppo Web",
+      "autore": "Robert Johnson",
+      "nome": "Corso Avanzato di Machine Learning",
+      "descrizione": "Esplora il campo del machine learning con questo corso avanzato. Acquisisci competenze nell'implementazione di algoritmi di machine learning e nell'analisi dei dati.",
+      "prezzo": "249.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "5 settimane",
+      "livello": "Sviluppo Web",
+      "autore": "Emily Brown",
+      "nome": "Corso Pratico di App Mobile con React Native",
+      "descrizione": "Un corso pratico sull'implementazione di applicazioni mobili per iOS e Android. Utilizza React Native per sviluppare app cross-platform in modo efficiente.",
+      "prezzo": "179.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "7 settimane",
+      "livello": "Sviluppo Web",
+      "autore": "Michael Wilson",
+      "nome": "Corso Avanzato di UI/UX Design",
+      "descrizione": "Approfondisci le tue competenze in UI/UX design con questo corso. Impara a progettare interfacce utente efficaci e coinvolgenti per diverse piattaforme.",
+      "prezzo": "219.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "6 settimane",
+      "livello": "Data Science",
+      "autore": "Elena Rodriguez",
+      "nome": "Corso di Data Science Avanzato",
+      "descrizione": "Esplora il mondo della data science con questo corso. Acquisisci competenze nell'estrazione e nell'analisi dei dati per prendere decisioni informate.",
+      "prezzo": "229.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "8 settimane",
+      "livello": "Data Science",
+      "autore": "David Martinez",
+      "nome": "Corso Avanzato di Progettazione UI/UX",
+      "descrizione": "Corso avanzato sulla gestione del processo di progettazione dell'interfaccia utente e la collaborazione con gli sviluppatori.",
+      "prezzo": "259.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "5 settimane",
+      "livello": "Data Science",
+      "autore": "Laura Davis",
+      "nome": "Corso Pratico di Machine Learning",
+      "descrizione": "Corso pratico sull'applicazione di algoritmi di machine learning per risolvere problemi del mondo reale.",
+      "prezzo": "199.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "7 settimane",
+      "livello": "Data Science",
+      "autore": "Christopher Taylor",
+      "nome": "Corso Avanzato di Reti Neurali",
+      "descrizione": "Approfondisci le tue competenze nelle reti neurali e nell'apprendimento profondo per il machine learning avanzato.",
+      "prezzo": "279.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "6 settimane",
+      "livello": "Data Science",
+      "autore": "Olivia Moore",
+      "nome": "Corso di Analisi dei Dati con Machine Learning",
+      "descrizione": "Impara a utilizzare il machine learning per l'estrazione e l'analisi dei dati.",
+      "prezzo": "219.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "5 settimane",
+      "livello": "UI/UX Design",
+      "autore": "Daniel Clark",
+      "nome": "Corso Introduttivo di Design UI/UX",
+      "descrizione": "Corso introduttivo sui principi fondamentali del design dell'interfaccia utente per creare esperienze utente efficaci.",
+      "prezzo": "149.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "7 settimane",
+      "livello": "UI/UX Design",
+      "autore": "Sophia Adams",
+      "nome": "Corso Avanzato di Progettazione UI/UX",
+      "descrizione": "Approfondisci le tue competenze nella progettazione centrata sull'utente, compresi test utente e prototipazione.",
+      "prezzo": "179.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "6 settimane",
+      "livello": "UI/UX Design",
+      "autore": "Alex Turner",
+      "nome": "Corso Avanzato di Prototipazione UI/UX",
+      "descrizione": "Corso avanzato sulla gestione del processo di progettazione dell'interfaccia utente e la collaborazione con gli sviluppatori.",
+      "prezzo": "189.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "8 settimane",
+      "livello": "UI/UX Design",
+      "autore": "Emma Wright",
+      "nome": "Corso di Progettazione UI/UX Multi-Platform",
+      "descrizione": "Impara a progettare interfacce utente efficaci per diverse piattaforme, tra cui web e dispositivi mobili.",
+      "prezzo": "199.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "6 settimane",
+      "livello": "UI/UX Design",
+      "autore": "James Miller",
+      "nome": "Corso Pratico di Prototipazione UI/UX",
+      "descrizione": "Corso pratico sulla prototipazione e progettazione di interfacce utente coinvolgenti.",
+      "prezzo": "169.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "4 settimane",
+      "livello": "Mobile App Development",
+      "autore": "Sophie Roberts",
+      "nome": "Corso Introduttivo allo Sviluppo di App Mobili",
+      "descrizione": "Corso introduttivo allo sviluppo di applicazioni mobili per iOS e Android.",
+      "prezzo": "129.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "6 settimane",
+      "livello": "Mobile App Development",
+      "autore": "David Harris",
+      "nome": "Corso Pratico di App Mobile con React Native",
+      "descrizione": "Un corso pratico sull'implementazione di applicazioni mobili per iOS e Android. Utilizza React Native per sviluppare app cross-platform in modo efficiente.",
+      "prezzo": "179.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "8 settimane",
+      "livello": "Mobile App Development",
+      "autore": "Oliver Turner",
+      "nome": "Corso Avanzato di Sviluppo App Mobili",
+      "descrizione": "Approfondisci le tue competenze nello sviluppo di app mobili avanzate con funzionalità avanzate.",
+      "prezzo": "219.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "5 settimane",
+      "livello": "Mobile App Development",
+      "autore": "Isabella Moore",
+      "nome": "Corso Pratico di Sviluppo App Mobili",
+      "descrizione": "Corso pratico sull'implementazione di applicazioni mobili per iOS e Android.",
+      "prezzo": "159.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "7 settimane",
+      "livello": "Mobile App Development",
+      "autore": "Nathan Thompson",
+      "nome": "Corso di Sviluppo App Mobili Cross-Platform",
+      "descrizione": "Impara a sviluppare app mobili cross-platform con tecnologie moderne come Flutter.",
+      "prezzo": "199.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "6 settimane",
+      "livello": "Machine Learning",
+      "autore": "Emma Lewis",
+      "nome": "Corso Introduttivo di Machine Learning",
+      "descrizione": "Corso introduttivo che copre i concetti fondamentali del machine learning e le sue applicazioni.",
+      "prezzo": "109.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "8 settimane",
+      "livello": "Machine Learning",
+      "autore": "Daniel Turner",
+      "nome": "Corso Avanzato di Apprendimento Supervisionato e Non Supervisionato in Machine Learning",
+      "descrizione": "Corso avanzato sull'apprendimento supervisionato e non supervisionato in machine learning.",
+      "prezzo": "129.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "5 settimane",
+      "livello": "Machine Learning",
+      "autore": "Sophie Wright",
+      "nome": "Corso Pratico di Applicazione di Algoritmi di Machine Learning",
+      "descrizione": "Corso pratico sull'applicazione di algoritmi di machine learning per risolvere problemi del mondo reale.",
+      "prezzo": "99.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "7 settimane",
+      "livello": "Machine Learning",
+      "autore": "James Miller",
+      "nome": "Corso Avanzato di Reti Neurali per il Machine Learning Avanzato",
+      "descrizione": "Approfondisci le tue competenze nelle reti neurali e nell'apprendimento profondo per il machine learning avanzato.",
+      "prezzo": "149.99",
+      "valuta": "EUR"
+    },
+    {
+      "durata": "6 settimane",
+      "livello": "Machine Learning",
+      "autore": "Isaac Davis",
+      "nome": "Corso di Utilizzo del Machine Learning per l'Estrazione e l'Analisi dei Dati",
+      "descrizione": "Impara a utilizzare il machine learning per l'estrazione e l'analisi dei dati.",
+      "prezzo": "119.99",
+      "valuta": "EUR"
+    }
+  ],
+  "preferiti": [
+    {
+      "durata": "6 settimane",
+      "livello": "Avanzato",
+      "autore": "Autore2",
+      "nome": "Corso2",
+      "descrizione": "Descrizione2",
+      "id": 1
+    }
+  ],
+  "lezioni": [
+    {
+      "categoria": "Sviluppo Web",
+      "titolo": "Introduzione a Angular",
+      "istruttore": "John Doe",
+      "durata": "2 ore",
+      "prezzo": 19.99,
+      "valuta": "EUR"
+    },
+    {
+      "categoria": "Sviluppo Web",
+      "titolo": "React.js per Principianti",
+      "istruttore": "Jane Smith",
+      "durata": "2.5 ore",
+      "prezzo": 24.99,
+      "valuta": "EUR"
+    },
+    {
+      "categoria": "Sviluppo Web",
+      "titolo": "Node.js Avanzato",
+      "istruttore": "Alex Johnson",
+      "durata": "3 ore",
+      "prezzo": 29.99,
+      "valuta": "EUR"
+    },
+    {
+      "categoria": "Sviluppo Web",
+      "titolo": "Vue.js Essentials",
+      "istruttore": "Emily Brown",
+      "durata": "2.5 ore",
+      "prezzo": 22.99,
+      "valuta": "EUR"
+    },
+    {
+      "categoria": "Sviluppo Web",
+      "titolo": "Responsive Design con CSS",
+      "istruttore": "Chris Williams",
+      "durata": "3.5 ore",
+      "prezzo": 26.99,
+      "valuta": "EUR"
+    },
+    {
+      "categoria": "Design Grafico",
+      "titolo": "Principi di Design Visivo",
+      "istruttore": "Sophia Davis",
+      "durata": "2.5 ore",
+      "prezzo": 22.99,
+      "valuta": "EUR"
+    },
+    {
+      "categoria": "Design Grafico",
+      "titolo": "Photoshop Masterclass",
+      "istruttore": "John Doe",
+      "durata": "4 ore",
+      "prezzo": 29.99,
+      "valuta": "EUR"
+    },
+    {
+      "categoria": "Design Grafico",
+      "titolo": "Illustrator per Designer",
+      "istruttore": "Jane Smith",
+      "durata": "3.5 ore",
+      "prezzo": 26.99,
+      "valuta": "EUR"
+    },
+    {
+      "categoria": "Design Grafico",
+      "titolo": "Color Theory in Design",
+      "istruttore": "Alex Johnson",
+      "durata": "2.5 ore",
+      "prezzo": 19.99,
+      "valuta": "EUR"
+    },
+    {
+      "categoria": "Design Grafico",
+      "titolo": "Web Design Moderno",
+      "istruttore": "Emily Brown",
+      "durata": "3 ore",
+      "prezzo": 24.99,
+      "valuta": "EUR"
+    }
+  ]
+}

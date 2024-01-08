@@ -1,0 +1,149 @@
+.community-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+
+  // Trending Topics Section
+  .trending-topics-section {
+    margin-bottom: 20px;
+
+    .trending-topic {
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 10px;
+
+      .topic-name {
+        font-weight: bold;
+        color: #3498db; // Colore blu per il nome del topic
+      }
+
+      .topic-count {
+        color: #2ecc71; // Colore verde per il conteggio delle discussioni
+      }
+    }
+  }
+
+  // Recent Activity Section
+  .recent-activity-section {
+    margin-bottom: 20px;
+
+    .activity {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+
+      .user-info {
+        margin-right: 10px;
+        font-weight: bold;
+        color: #e74c3c; // Colore rosso per le informazioni dell'utente
+      }
+    }
+  }
+
+  // Discussion Section
+  .discussion-section {
+    margin-bottom: 20px;
+
+    // User's Discussion Form
+    .user-discussion-form {
+      margin-bottom: 20px;
+
+      form {
+        display: flex;
+        flex-direction: column;
+
+        .full-width {
+          width: 100%;
+          margin-bottom: 15px;
+        }
+      }
+    }
+
+    // Display Discussions (Real and Fake)
+    .discussions {
+      .discussion {
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin-bottom: 15px;
+
+        .user-name {
+          font-weight: bold;
+          color: #3498db; // Colore blu per il nome dell'utente
+        }
+
+        .discussion-title {
+          color: #2ecc71; // Colore verde per il titolo della discussione
+        }
+
+        .tags {
+          margin-top: 10px;
+
+          .tag {
+            margin-right: 5px;
+            background-color: #ecf0f1; // Colore di sfondo grigio per i tag
+            padding: 2px 5px;
+            border-radius: 3px;
+          }
+        }
+
+        button {
+          margin-top: 10px;
+          background-color: #3498db; // Colore blu per il pulsante
+          color: #fff; // Colore bianco per il testo del pulsante
+          &:hover {
+            background-color: #2980b9; // Cambia il colore al passaggio del mouse
+          }
+        }
+      }
+    }
+  }
+
+  // Review Section
+  .review-section {
+    // User's Review Form
+    .user-review-form {
+      margin-bottom: 20px;
+
+      form {
+        display: flex;
+        flex-direction: column;
+
+        .full-width {
+          width: 100%;
+          margin-bottom: 15px;
+        }
+      }
+    }
+
+    // Display Reviews (Real and Fake)
+    .reviews {
+      .review {
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin-bottom: 15px;
+
+        .user-name {
+          font-weight: bold;
+          color: #e74c3c; // Colore rosso per il nome dell'utente
+        }
+
+        .user-rating {
+          margin-top: 10px;
+
+          mat-icon {
+            font-size: 20px;
+            color: #f39c12; // Colore oro per le stelle
+          }
+        }
+
+        .review-text {
+          margin-top: 10px;
+          color: #333; // Colore nero per il testo della recensione
+        }
+      }
+    }
+  }
+}

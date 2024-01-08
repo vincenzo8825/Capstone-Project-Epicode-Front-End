@@ -1,0 +1,45 @@
+<!-- auth.component.html -->
+<div class="container-fluid">
+
+  <!-- Title Section -->
+  <h5 class="text-center mb-5 title">Benvenuto su TutoringPlatform</h5>
+
+  <!-- Login and Registration Section -->
+  <div class="row justify-content-center align-items-center grid-container">
+
+    <!-- Login Card -->
+    <div class="col-md-5">
+      <mat-card class="combined-card">
+        <mat-card-content>
+          <div class="section">
+            <h2 class="section-title">Accedi</h2>
+            <p class="card-text">Unisciti a noi per esplorare nuovi orizzonti di apprendimento.</p>
+            <button mat-raised-button color="primary" class="w-75 custom-button" routerLink="/auth/login">Accedi</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Separator -->
+    <div class="col-md-1">
+      <div class="separator d-md-none"></div>
+    </div>
+
+    <!-- Registration Card -->
+    <div class="col-md-5">
+      <mat-card class="combined-card">
+        <mat-card-content>
+          <div class="section">
+            <h2 class="section-title">Non sei ancora registrato?</h2>
+            <p class="card-text">Unisciti a noi per esplorare nuovi orizzonti di apprendimento.</p>
+            <button mat-raised-button color="accent" class="w-75 custom-button" routerLink="/auth/register">Registrati</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+  </div>
+
+  <!-- Router Outlet for Rendering Login/Register Components -->
+  <router-outlet></router-outlet>
+</div>

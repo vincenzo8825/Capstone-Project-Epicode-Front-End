@@ -1,0 +1,92 @@
+/* preferiti.component.scss */
+.corsi-container {
+  max-width: 900px;
+  margin: 20px auto;
+
+  h2 {
+    font-size: 24px;
+    color: #333;
+  }
+
+  .corso-card {
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    mat-card {
+      mat-card-header {
+        .corso-image {
+          mat-icon {
+            font-size: 48px; /* or your preferred size */
+          }
+        }
+
+        mat-card-title-group {
+          mat-card-title {
+            font-size: 20px;
+            color: #333;
+          }
+
+          mat-card-subtitle {
+            font-size: 16px;
+            color: #555;
+          }
+        }
+      }
+
+      mat-card-content {
+        p {
+          font-size: 14px;
+          color: #555;
+
+          &.livello {
+            font-size: 16px;
+          }
+
+          &.categoria {
+            font-size: 16px;
+            color: #555;
+          }
+
+          &.descrizione {
+            margin-bottom: 15px;
+          }
+
+          &.durata {
+            font-size: 16px;
+          }
+
+          &.prezzo {
+            font-size: 14px;
+            margin-bottom: 15px;
+          }
+        }
+      }
+
+      mat-card-actions {
+        button {
+          padding: 10px;
+          cursor: pointer;
+          border: none;
+          border-radius: 4px;
+          font-size: 14px;
+
+          &.mat-button-base {
+            &:first-child {
+              background-color: #dc3545;
+              color: #fff;
+            }
+
+            &:last-child {
+              background-color: #28a745;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}

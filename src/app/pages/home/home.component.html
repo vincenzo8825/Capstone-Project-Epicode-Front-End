@@ -1,0 +1,36 @@
+<!-- home.component.html -->
+<div class="home-container">
+
+  <!-- Hero Section -->
+  <div class="hero-section" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
+    <h1 class="title">Esplora nuovi orizzonti con TutoringPlatform</h1>
+    <p class="subtitle">Dove l'apprendimento diventa un'avventura</p>
+    <button mat-raised-button color="primary" routerLink="/dashboard">Inizia Ora</button>
+  </div>
+
+  <!-- Features Section -->
+  <div class="features-section" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="16px">
+
+    <!-- Feature: Corsi di Qualità -->
+    <div class="feature" fxLayout="column" fxLayoutAlign="center center">
+      <mat-icon class="feature-icon">book</mat-icon>
+      <h2 class="feature-title">Corsi di Qualità</h2>
+      <p class="feature-description">Scegli tra una vasta gamma di corsi tenuti dagli esperti del settore.</p>
+    </div>
+
+    <div class="feature" fxLayout="column" fxLayoutAlign="center center">
+      <mat-icon class="feature-icon">people</mat-icon>
+      <h2 class="feature-title" routerLink="/community">Community Attiva</h2>
+      <p class="feature-description">Entra a far parte di una comunità attiva e condividi le tue esperienze di apprendimento.</p>
+    </div>
+
+    <!-- Feature: Certificazioni Riconosciute -->
+    <div class="feature" fxLayout="column" fxLayoutAlign="center center">
+      <mat-icon class="feature-icon">verified_user</mat-icon>
+      <h2 class="feature-title">Certificazioni Riconosciute</h2>
+      <p class="feature-description">Ottieni certificazioni riconosciute che valorizzeranno il tuo percorso di apprendimento.</p>
+    </div>
+
+  </div>
+</div>
+

@@ -1,0 +1,99 @@
+<!-- payment.component.html -->
+<div class="payment-container">
+  <h2>Riepilogo dell'Ordine</h2>
+  <p>Totale da pagare: {{ totaledapagare }}€</p>
+
+  <!-- Altri dettagli e logica di pagamento qui -->
+
+  <!-- Visualizza i dettagli dell'ordine, puoi personalizzare questa sezione a tuo piacimento -->
+  <div class="order-details">
+    <!-- Dettagli dei corsi -->
+    <div *ngFor="let corso of carrelloCorsi">
+      <p>{{ corso.nome }} - {{ corso.prezzo }}</p>
+    </div>
+
+    <!-- Dettagli delle lezioni -->
+    <div *ngFor="let lezione of carrelloLezioni">
+      <p>{{ lezione.titolo }} - {{ lezione.prezzo }} {{ lezione.valuta }}</p>
+    </div>
+
+    <!-- Totale dell'ordine -->
+    <h3>Totale: {{ totaledapagare }}</h3>
+  </div>
+
+  <!-- Sezione di pagamento -->
+  <div class="payment-section">
+    <!-- Metodi di pagamento -->
+    <button (click)="selectPaymentMethod('cartaDiCredito')" class="btn btn-pagamento">Carta di Credito</button>
+    <button (click)="selectPaymentMethod('paypal')" class="btn btn-pagamento">PayPal</button>
+    <button (click)="selectPaymentMethod('iban')" class="btn btn-pagamento">IBAN</button>
+
+   <!-- Form per il pagamento con carta di credito -->
+<!-- Form per il pagamento con carta di credito -->
+<form *ngIf="selectedPaymentMethod === 'cartaDiCredito'" [formGroup]="cartaDiCreditoForm" (ngSubmit)="pagamentoCartaDiCredito()">
+  <label for="ccNumber">Numero Carta di Credito</label>
+  <input type="text" id="ccNumber" name="ccNumber" formControlName="ccNumber" placeholder="Inserisci il numero della carta" maxlength="16">
+
+  <label for="ccExpiry">Scadenza Carta di Credito (MM/AA)</label>
+  <input type="text" id="ccExpiry" name="ccExpiry" formControlName="ccExpiry" placeholder="MM/AA" maxlength="5">
+
+  <!-- Aggiungi una guida visiva per il formato della data di scadenza -->
+  <div *ngIf="cartaDiCreditoForm.get('ccExpiry')?.hasError('pattern') && cartaDiCreditoForm.get('ccExpiry')?.touched">
+    <small>La data di scadenza deve essere nel formato MM/AA.</small>
+  </div>
+  <div *ngIf="cartaDiCreditoForm.get('ccExpiry')?.hasError('maxlength') && cartaDiCreditoForm.get('ccExpiry')?.touched">
+    <small>La data di scadenza deve essere nel formato MM/AA.</small>
+  </div>
+
+  <label for="ccCVV">CVV</label>
+  <input type="text" id="ccCVV" name="ccCVV" formControlName="ccCVV" placeholder="Inserisci il CVV" maxlength="3">
+
+  <!-- Aggiungi una guida visiva per il formato del CVV -->
+  <div *ngIf="cartaDiCreditoForm.get('ccCVV')?.hasError('pattern') && cartaDiCreditoForm.get('ccCVV')?.touched">
+    <small>Il CVV deve contenere solo numeri.</small>
+  </div>
+  <div *ngIf="cartaDiCreditoForm.get('ccCVV')?.hasError('maxlength') && cartaDiCreditoForm.get('ccCVV')?.touched">
+    <small>Il CVV deve contenere 3 cifre.</small>
+  </div>
+
+  <!-- Aggiungi il pulsante di sottomissione -->
+  <button type="submit" class="btn btn-pagamento">Paga con Carta di Credito</button>
+</form>
+
+
+
+    <!-- Form per il pagamento con PayPal -->
+    <form *ngIf="selectedPaymentMethod === 'paypal'" [formGroup]="paypalForm">
+      <label for="paypalEmail">Email PayPal</label>
+      <input type="email" id="paypalEmail" name="paypalEmail" formControlName="paypalEmail" placeholder="Inserisci l'indirizzo email PayPal" />
+
+      <!-- Guida visiva -->
+      <div class="guide-text" *ngIf="paypalForm.get('paypalEmail')?.hasError('email') && paypalForm.get('paypalEmail')?.touched">
+        <small>L'indirizzo email deve essere valido.</small>
+      </div>
+
+      <button (click)="effettuaPagamentoPayPal()" class="btn btn-pagamento">Paga con PayPal</button>
+    </form>
+
+
+
+    <!-- Form per il pagamento con IBAN -->
+    <!-- Form per il pagamento con IBAN -->
+<form *ngIf="selectedPaymentMethod === 'iban'" [formGroup]="ibanForm">
+  <label for="iban">IBAN</label>
+  <input type="text" id="iban" name="iban" formControlName="iban" placeholder="Inserisci l'IBAN" maxlength="16">
+
+  <label for="intestatario">Intestatario</label>
+  <input type="text" id="intestatario" name="intestatario" formControlName="intestatario" placeholder="Inserisci l'intestatario">
+
+  <label for="nomeBanca">Nome Banca</label>
+  <input type="text" id="nomeBanca" name="nomeBanca" formControlName="nomeBanca" placeholder="Inserisci il nome della banca">
+
+  <button (click)="pagamentoIBAN()" class="btn btn-pagamento">Paga con IBAN</button>
+</form>
+
+
+    <!-- Pulsante per confermare l'ordine -->
+    <button (click)="confermaOrdine()" class="btn btn-conferma">Conferma Ordine</button>
+  </div>
+</div>

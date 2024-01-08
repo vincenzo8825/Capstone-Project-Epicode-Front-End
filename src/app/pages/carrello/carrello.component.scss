@@ -1,0 +1,134 @@
+.carrello-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  h2, h3 {
+    color: #333;
+    margin-bottom: 15px;
+  }
+
+  h2 {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 22px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .corso-card {
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    mat-card {
+      border-radius: inherit;
+
+      mat-card-header {
+        .corso-image {
+          background-color: #3498db;
+          color: #fff;
+          font-size: 50px;
+        }
+
+        mat-card-title-group {
+          mat-card-title {
+            font-weight: bold;
+            color: #333;
+          }
+
+          mat-card-subtitle {
+            color: #777;
+          }
+        }
+      }
+
+      mat-card-content {
+        p {
+          color: #555;
+          margin-bottom: 8px;
+        }
+
+        .livello {
+          font-size: 16px;
+          font-weight: bold;
+        }
+
+        .durata, .prezzo {
+          font-size: 14px;
+        }
+      }
+
+      mat-card-actions {
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+          padding: 10px 15px;
+          cursor: pointer;
+          border: none;
+          border-radius: 4px;
+          font-size: 14px;
+          transition: background-color 0.3s, color 0.3s;
+          margin-left: 10px;
+
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+
+        .btn-rimuovi {
+          background-color: #dc3545;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .carrello-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+
+    h3 {
+      font-size: 20px;
+      color: #333;
+    }
+
+    button {
+      background-color: #28a745;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: darken(#28a745, 10%);
+      }
+    }
+
+    .btn-svuota,
+    .btn-acquista {
+      background-color: #512DA8;
+      color: #fff;
+
+      &:hover {
+        background-color: darken(#512DA8, 10%);
+      }
+    }
+  }
+}

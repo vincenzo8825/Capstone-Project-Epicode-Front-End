@@ -1,0 +1,58 @@
+<!-- preferiti.component.html -->
+<div class="corsi-container">
+  <h2>I Tuoi Preferiti</h2>
+
+  <!-- Visualizza preferiti corsi -->
+  <div *ngFor="let corso of preferitiCorsi" class="corso-card mat-elevation-z2">
+    <mat-card>
+      <mat-card-header>
+        <!-- Puoi aggiungere un'icona predefinita al posto dell'immagine -->
+        <div mat-card-avatar class="corso-image">
+          <mat-icon>insert_photo</mat-icon>
+        </div>
+        <mat-card-title-group>
+          <mat-card-title>{{ corso.nome }}</mat-card-title>
+          <mat-card-subtitle>{{ corso.autore }}</mat-card-subtitle>
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="livello">{{ corso.livello }}</p>
+        <p class="descrizione">{{ corso.descrizione }}</p>
+        <p class="prezzo">Durata: {{ corso.durata }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="warn" (click)="rimuoviDaPreferitiCorso(corso)">
+          <mat-icon>favorite</mat-icon> Rimuovi dai Preferiti
+        </button>
+        <button mat-button color="primary" (click)="aggiungiAlCarrello(corso)">Aggiungi al Carrello</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <!-- Visualizza preferiti lezioni -->
+  <div *ngFor="let lezione of preferitiLezioni" class="corso-card mat-elevation-z2">
+    <mat-card>
+      <mat-card-header>
+        <!-- Puoi aggiungere un'icona predefinita al posto dell'immagine -->
+        <div mat-card-avatar class="corso-image">
+          <mat-icon>insert_photo</mat-icon>
+        </div>
+        <mat-card-title-group>
+          <mat-card-title>{{ lezione.titolo }}</mat-card-title>
+          <mat-card-subtitle>{{ lezione.istruttore }}</mat-card-subtitle>
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="categoria">{{ lezione.categoria }}</p>
+        <p class="durata">Durata: {{ lezione.durata }}</p>
+        <p class="prezzo">Prezzo: {{ lezione.prezzo }} {{ lezione.valuta }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="warn" (click)="rimuoviDaPreferitiLezione(lezione)">
+          <mat-icon>favorite</mat-icon> Rimuovi dai Preferiti
+        </button>
+        <button mat-button color="primary" (click)="aggiungiAlCarrello(lezione)">Aggiungi al Carrello</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

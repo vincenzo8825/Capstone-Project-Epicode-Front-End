@@ -1,0 +1,25 @@
+<!-- dashboard.component.html -->
+<div class="dashboard-container">
+  <h2>Benvenuto nel tuo dashboard!</h2>
+
+  <div class="toggle-buttons">
+    <button (click)="toggleView('corsi')" [class.active]="currentView === 'corsi'">Corsi</button>
+    <button (click)="toggleView('lezioni')" [class.active]="currentView === 'lezioni'">Lezioni</button>
+  </div>
+
+  <div class="content-container">
+    <h2>{{ currentView === 'corsi' ? 'Elenco dei Corsi' : 'Elenco delle Lezioni' }}</h2>
+
+    <div *ngIf="currentView === 'corsi'">
+      <!-- Contenuto specifico per la sezione Corsi -->
+    </div>
+
+    <div *ngIf="currentView === 'lezioni'">
+      <!-- Contenuto specifico per la sezione Lezioni -->
+    </div>
+  </div>
+</div>
+
+<!-- Aggiunta di *ngIf per condizionare la visualizzazione dei componenti -->
+<app-corsi *ngIf="currentView === 'corsi'"></app-corsi>
+<app-lezioni *ngIf="currentView === 'lezioni'"></app-lezioni>

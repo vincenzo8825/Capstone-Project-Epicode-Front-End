@@ -1,0 +1,36 @@
+/* chi-siamo.component.scss */
+.chi-siamo-container {
+  max-width: 800px;
+  margin: 50px auto;
+  text-align: center;
+
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+
+  section {
+    margin-bottom: 40px;
+
+    h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.25rem;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

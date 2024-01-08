@@ -1,0 +1,67 @@
+<!-- carrello.component.html -->
+<div class="carrello-container">
+  <h2>Il Tuo Carrello</h2>
+
+  <!-- Visualizza corsi -->
+  <h3>Corsi nel Carrello:</h3>
+  <ul>
+    <li *ngFor="let corso of carrelloCorsi" class="corso-card mat-elevation-z2">
+      <mat-card>
+        <mat-card-header>
+          <!-- Puoi aggiungere un'icona predefinita al posto dell'immagine -->
+          <div mat-card-avatar class="corso-image">
+            <mat-icon>insert_photo</mat-icon>
+          </div>
+          <mat-card-title-group>
+            <mat-card-title>{{ corso.nome }}</mat-card-title>
+            <mat-card-subtitle>{{ corso.autore }}</mat-card-subtitle>
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="livello">{{ corso.livello }}</p>
+          <p class="durata">Durata: {{ corso.durata }}</p>
+          <p class="prezzo">Prezzo: {{ corso.prezzo }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="rimuoviDalCarrelloCorso(corso)" class="btn btn-rimuovi">Rimuovi dal Carrello</button>
+        </mat-card-actions>
+      </mat-card>
+    </li>
+  </ul>
+
+  <!-- Visualizza lezioni -->
+  <h3>Lezioni nel Carrello:</h3>
+  <ul>
+    <li *ngFor="let lezione of carrelloLezioni" class="corso-card mat-elevation-z2">
+      <mat-card>
+        <mat-card-header>
+          <!-- Puoi aggiungere un'icona predefinita al posto dell'immagine -->
+          <div mat-card-avatar class="corso-image">
+            <mat-icon>insert_photo</mat-icon>
+          </div>
+          <mat-card-title-group>
+            <mat-card-title>{{ lezione.titolo }}</mat-card-title>
+            <mat-card-subtitle>{{ lezione.istruttore }}</mat-card-subtitle>
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="categoria">{{ lezione.categoria }}</p>
+          <p class="durata">Durata: {{ lezione.durata }}</p>
+          <p class="prezzo">Prezzo: {{ lezione.prezzo | number:'1.2-2' }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="rimuoviDalCarrelloLezione(lezione)" class="btn btn-rimuovi">Rimuovi dal Carrello</button>
+        </mat-card-actions>
+      </mat-card>
+    </li>
+  </ul>
+
+  <!-- Azioni generali del carrello -->
+  <div *ngIf="carrelloCorsi.length > 0 || carrelloLezioni.length > 0" class="carrello-actions">
+    <h3>Totale:Euro {{ totaleGenerale }}</h3>
+    <button mat-button (click)="svuotaCarrello()" class="btn btn-svuota">Svuota Carrello</button>
+    <button mat-button (click)="confermaAcquistoTutto()" class="btn btn-acquista">Acquista Tutto</button>
+  </div>
+
+  <!-- Sezione del totale e pagamento -->
+</div>

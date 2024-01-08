@@ -1,0 +1,44 @@
+/* terms-and-conditions.component.scss */
+
+$primary-color: #007bff; // Colore primario per i link
+
+.terms-and-conditions-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  color: #333; // Colore del testo principale
+
+  h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: $primary-color; // Colore primario per l'intestazione
+  }
+
+  h3 {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: $primary-color; // Colore primario per sottointestazioni
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+
+  a {
+    color: $primary-color; // Colore del link
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: darken($primary-color, 20%); // Scurisci il colore del link al passaggio del mouse
+      text-decoration: underline;
+    }
+  }
+
+  // Aggiungi stili per la classe specifica se necessario
+
+}

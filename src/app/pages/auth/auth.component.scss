@@ -1,0 +1,113 @@
+.container-fluid {
+  // Proprietà esistenti rimangono invariate
+  background: url('https://source.unsplash.com/1920x1080/?books') center/cover no-repeat;
+  animation: fadeIn 1.5s ease;
+
+  .title, h5.title {
+    color: #3498db;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .title {
+    font-size: 1.5rem; // Standardizzato per dispositivi mobili
+    margin-bottom: 5px;
+  }
+
+  h5.title {
+    font-size: 0.8rem; // Standardizzato per dispositivi mobili
+    margin-top: 5px;
+  }
+
+  .row {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .combined-card {
+      width: calc(90% - 20px);
+      max-width: 300px;
+      margin: 0 10px 20px;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      background: linear-gradient(45deg, #3498db, #6ab1f7);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.03); // Effetto di hover sottile
+      }
+
+      .section {
+        margin-bottom: 10px;
+
+        .section-title {
+          font-size: 1.2rem;
+          color: #fff;
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-text {
+          font-size: 0.8rem;
+          color: #f2f2f2;
+        }
+
+        .custom-button {
+          width: 100%;
+          padding: 15px; // Aumento del padding per usabilità mobile
+          font-size: 1rem;
+          font-weight: bold;
+          background: #2980b9;
+          color: #ffffff;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background-color 0.3s ease, transform 0.3s ease;
+
+          &:hover {
+            background: #2574a9;
+            transform: translateY(-3px); // Sottile animazione hover
+          }
+        }
+      }
+
+      .separator {
+        background-color: #fff;
+        height: 2px;
+        width: 100%;
+        margin: 10px 0;
+      }
+    }
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  // Media Queries per dispositivi di diverse dimensioni
+  @media only screen and (min-width: 400px) {
+    .title { font-size: 2rem; }
+    h5.title { font-size: 1rem; }
+    .combined-card { max-width: 400px; }
+  }
+
+  // Ulteriori media queries per dimensioni specifiche
+  @media only screen and (min-width: 576px) {
+    // Personalizzazioni per dispositivi di questa fascia di dimensione
+  }
+
+  @media only screen and (min-width: 768px) {
+    .combined-card {
+      width: calc(48% - 20px); // Ajustamento della larghezza
+    }
+  }
+
+  @media only screen and (min-width: 900px) {
+    // Personalizzazioni per schermi più grandi
+  }
+
+  @media only screen and (min-width: 1200px) {
+    .combined-card { max-width: 600px; }
+  }
+}

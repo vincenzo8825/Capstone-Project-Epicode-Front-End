@@ -1,0 +1,10 @@
+<!-- auth-register.component.html -->
+<div class="registration-container">
+  <h5>Registrazione</h5>
+  <form>
+    <input [(ngModel)]="registerData.nome" name="nome" type="text" class="form-control" placeholder="Nome">
+    <input [(ngModel)]="registerData.email" name="email" type="email" class="form-control" placeholder="Email">
+    <input [(ngModel)]="registerData.password" name="password" type="password" class="form-control" placeholder="Password">
+    <button (click)="save()" class="btn btn-primary">Registrami</button>
+  </form>
+</div>

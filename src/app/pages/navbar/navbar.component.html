@@ -1,0 +1,42 @@
+<!-- navbar.component.html -->
+<mat-toolbar color="primary">
+  <span class="logo">
+    <a routerLink="/">
+      <mat-icon>school</mat-icon> Il Tuo Logo
+    </a>
+  </span>
+
+  <button mat-icon-button class="hamburger-button" (click)="toggleNavList()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span class="nav-list" [class.open]="isNavListOpen">
+    <a mat-button routerLink="/" routerLinkActive="active" (click)="closeNavList()">
+      <mat-icon>home</mat-icon> Home
+    </a>
+
+    <a mat-button routerLink="/chi-siamo" routerLinkActive="active" (click)="closeNavList()">
+      <mat-icon>info</mat-icon> Chi Siamo
+    </a>
+
+    <a mat-button routerLink="/preferiti" routerLinkActive="active" *ngIf="isLoggedIn$ | async" (click)="closeNavList()">
+      <mat-icon>favorite</mat-icon> Preferiti
+      <div *ngIf="preferitiCount > 0" class="notification-badge">{{ getPreferitiNotificationCount() }}</div>
+    </a>
+
+    <a mat-button routerLink="/carrello" routerLinkActive="active" *ngIf="isLoggedIn$ | async" (click)="closeNavList()">
+      <mat-icon>shopping_cart</mat-icon> Carrello
+      <div *ngIf="carrelloCount > 0" class="notification-badge">{{ getCarrelloNotificationCount() }}</div>
+    </a>
+
+    <ng-container *ngIf="isLoggedIn$ | async; let user">
+      <a mat-button (click)="onLogout()" (click)="closeNavList()">
+        <mat-icon>exit_to_app</mat-icon> Logout ({{ userName || 'Nome Utente' }})
+      </a>
+    </ng-container>
+
+    <a mat-button *ngIf="!(isLoggedIn$ | async)" routerLink="/auth" routerLinkActive="active" (click)="closeNavList()">
+      <mat-icon>lock_open</mat-icon> Login
+    </a>
+  </span>
+</mat-toolbar>

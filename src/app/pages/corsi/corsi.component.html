@@ -1,0 +1,81 @@
+<!-- corsi.component.html -->
+
+<div class="corsi-container">
+  <h2>Corsi</h2>
+
+  <!-- Sezione Panoramica Corsi Online -->
+  <section>
+    <h3>Panoramica Corsi Online</h3>
+
+    <!-- Filtra per Categoria -->
+    <mat-form-field appearance="fill">
+      <mat-label>Seleziona Categoria:</mat-label>
+      <mat-select [(ngModel)]="categoriaSelezionata" id="categoriaSelezionata">
+        <mat-option *ngFor="let categoria of categorieCorsi" [value]="categoria.nome">{{ categoria.nome }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Elenco corsi in base alla categoria selezionata -->
+    <div *ngFor="let corso of categoriaSelezionataCorsi" class="corso-card mat-elevation-z2">
+      <mat-card>
+        <mat-card-header>
+          <!-- Puoi aggiungere un'icona predefinita al posto dell'immagine -->
+          <div mat-card-avatar class="corso-image">
+            <mat-icon>insert_photo</mat-icon>
+          </div>
+          <mat-card-title-group>
+            <mat-card-title>{{ corso.nome }}</mat-card-title>
+            <mat-card-subtitle>{{ corso.autore }}</mat-card-subtitle>
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="livello">{{ corso.livello }}</p>
+          <p class="descrizione">{{ corso.descrizione }}</p>
+          <p class="prezzo">Prezzo: {{ corso.prezzo }} {{ corso.valuta }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="warn" (click)="addToFavorites(corso)">
+            <mat-icon>favorite</mat-icon> Aggiungi ai Preferiti
+          </button>
+          <button mat-button color="primary" (click)="addToCart(corso)">Aggiungi al Carrello</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <!-- Ripeti lo stesso modello per le altre categorie -->
+    <div *ngFor="let categoria of categorieCorsi">
+      <div *ngIf="categoriaSelezionata === categoria.nome">
+        <h3>{{ categoria.nome }}</h3>
+        <!-- Elenco corsi per la categoria -->
+        <div *ngFor="let corso of categoria.corsi" class="corso-card mat-elevation-z2">
+          <mat-card>
+            <mat-card-header>
+              <!-- Puoi aggiungere un'icona predefinita al posto dell'immagine -->
+              <div mat-card-avatar class="corso-image">
+                <mat-icon>insert_photo</mat-icon>
+              </div>
+              <mat-card-title-group>
+                <mat-card-title>{{ corso.nome }}</mat-card-title>
+                <mat-card-subtitle>{{ corso.autore }}</mat-card-subtitle>
+              </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content>
+              <p class="livello">{{ corso.livello }}</p>
+              <p class="descrizione">{{ corso.descrizione }}</p>
+              <p class="prezzo">Prezzo: {{ corso.prezzo }} {{ corso.valuta }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button color="warn" (click)="addToFavorites(corso)">
+                <mat-icon>favorite</mat-icon> Aggiungi ai Preferiti
+              </button>
+              <button mat-button color="primary" (click)="addToCart(corso)">Aggiungi al Carrello</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Includi il componente delle lezioni -->
+
+</div>
