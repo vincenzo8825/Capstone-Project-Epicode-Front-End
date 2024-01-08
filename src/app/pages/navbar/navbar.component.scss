@@ -1,23 +1,22 @@
 .mat-toolbar {
-  background-color: #512da8; // Colore di sfondo della barra delle applicazioni (navbar)
-  justify-content: space-between; // Per spostare i contenuti ai lati opposti
-  align-items: center; // Per centrare verticalmente il contenuto
+  background-color: #512da8;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
 
-  .logo {
-    a {
-      color: #fff;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
+  .logo, .nav-list a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
 
-      mat-icon {
-        margin-right: 8px;
-      }
+    mat-icon {
+      margin-right: 8px;
     }
   }
 
   .hamburger-button {
-    display: none; // Nascondi il bottone dell'hamburger su desktop
+    display: none;
   }
 
   .nav-list {
@@ -25,59 +24,68 @@
     gap: 16px;
 
     a {
-      color: #fff;
-      text-decoration: none;
-      display: flex;
+      display: inline-flex; // Cambiato da 'flex' a 'inline-flex'
       align-items: center;
+      position: relative;
 
-      mat-icon {
-        margin-right: 4px;
-      }
-
-      .notification-badge {
-        background-color: red;
-        color: white;
-        border-radius: 50%;
-        padding: 1px 6px;
-        font-size: 12px;
-        position: relative;
-        top: -10px;
-        right: -10px;
-      }
-
-      &.active {
-        background-color: #311b92; // Colore di sfondo per l'elemento di navigazione attivo
-      }
-
-      &:hover {
-        background-color: #4527a0; // Colore di sfondo per l'elemento di navigazione al passaggio del mouse
+      &:hover, &.active {
+        background-color: #4527a0;
       }
     }
 
-    @media only screen and (max-width: 768px) {
-      flex-direction: column; // Imposta la direzione della colonna su dispositivi mobili
-      position: absolute;
-      top: 56px; // Altezza della barra delle applicazioni su desktop
-      left: 0;
-      width: 100%;
-      background-color: #512da8; // Colore di sfondo della lista di navigazione su dispositivi mobili
-      padding: 16px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      display: none; // Nascondi la lista di navigazione su mobile all'inizio
-
-      &.open {
-        display: flex; // Mostra la lista di navigazione quando la classe .open è presente
-      }
+    .notification-badge {
+      background-color: #ff3333;
+      color: white;
+      border-radius: 50%;
+      padding: 2px;
+      width: 18px;
+      height: 18px;
+      font-size: 10px;
+      display: inline-flex; // Assicura che il badge si comporti come un elemento inline
+      justify-content: center;
+      align-items: center;
+      margin-left: 8px; // Distanza dal testo
     }
   }
 
   @media only screen and (max-width: 768px) {
     .hamburger-button {
-      display: block; // Mostra il bottone dell'hamburger solo su dispositivi mobili
+      display: block;
     }
 
     .nav-list {
-      display: none; // Nascondi la lista di navigazione su desktop all'inizio
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 250px;
+      background-color: #512da8;
+      padding: 56px 16px 16px;
+      box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      display: none;
+
+      &.open {
+        display: flex;
+        transform: translateX(0);
+      }
     }
+  }
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+
+  &.open {
+    display: block;
   }
 }
