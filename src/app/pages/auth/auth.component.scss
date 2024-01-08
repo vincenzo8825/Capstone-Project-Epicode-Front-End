@@ -1,106 +1,81 @@
 .container-fluid {
   background: url('https://source.unsplash.com/1920x1080/?books') center/cover no-repeat;
-  animation: fadeIn 1.5s ease;
+  animation: fadeIn 2s ease-out;
+  font-family: 'Roboto', sans-serif;
+  color: #f2f2f2;
 
   .title, h5.title {
     color: #3498db;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
   }
 
-  .title {
-    font-size: 1.4rem;
-    margin-bottom: 5px;
-  }
-
-  h5.title {
-    font-size: 0.75rem;
-    margin-top: 5px;
-  }
+  .title { font-size: 2em; margin-bottom: 0.5em; }
+  h5.title { font-size: 1em; margin-top: 0.5em; }
 
   .row {
-    margin-top: 20px; // Aggiunto spazio superiore
+    margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
 
     .combined-card {
-      width: calc(95% - 20px); // Leggermente allargato
-      max-width: 320px;
-      margin: 0 10px 20px;
-      padding: 15px;
-      border-radius: 12px; // Maggiore arrotondamento dei bordi
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); // Ombra più evidente
-      background: #4527a0;
-      transition: transform 0.4s ease, box-shadow 0.4s ease; // Transizioni più fluide
+      width: calc(100% - 40px); // XS
+      margin: 20px;
+      padding: 20px;
+      border-radius: 15px;
+      background: linear-gradient(145deg, #3c2493, #4b2bbf);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 
       &:hover {
-        transform: scale(1.06); // Effetto di hover leggermente amplificato
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); // Ombra più pronunciata
+        transform: scale(1.05);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
       }
 
-      .section {
-        margin-bottom: 15px; // Leggermente aumentato lo spazio inferiore
+      .section-title {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+      }
 
-        .section-title {
-          font-size: 1.3rem; // Leggermente ingrandito
-          color: #fff;
-          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); // Effetto testo più evidente
-        }
+      .card-text {
+        font-size: 1em;
+        line-height: 1.6;
+      }
 
-        .card-text {
-          font-size: 0.85rem; // Leggermente ingrandito
-          color: #f2f2f2;
-        }
+      .custom-button {
+        padding: 15px 30px;
+        font-size: 1.2em;
+        background: #6D42BA;
+        border-radius: 10px;
+        transition: all 0.3s ease;
 
-        .custom-button {
-          width: 100%;
-          padding: 12px; // Leggermente aumentato il padding
-          font-size: 1rem; // Leggermente ingrandito
-          font-weight: bold;
-          background: #6D42BA;
-          color: #ffffff;
-          border: none;
-          border-radius: 10px; // Arrotondato i bordi dei pulsanti
-          cursor: pointer;
-          transition: background-color 0.4s ease, transform 0.4s ease;
-
-          &:hover {
-            background: #2574a9;
-            transform: translateY(-4px); // Animazione hover leggermente amplificata
-          }
+        &:hover {
+          background: #7e53c1;
+          transform: translateY(-5px);
         }
       }
 
       .separator {
-        background-color: #fff;
+        background-color: #eaeaea;
         height: 2px;
-        width: 100%;
-        margin: 15px 0; // Aumentato lo spazio inferiore
+        margin: 20px 0;
       }
     }
   }
 
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  // Media Queries
-  @media only screen and (min-width: 400px) {
-    .title { font-size: 1.6rem; }
-    h5.title { font-size: 0.9rem; }
-    .combined-card { max-width: 380px; } // Leggermente più largo
+  @media only screen and (min-width: 576px) {
+    .combined-card { width: calc(50% - 40px); } // SM
   }
 
   @media only screen and (min-width: 768px) {
-    .combined-card {
-      width: calc(45% - 20px);
-    }
+    .combined-card { width: calc(50% - 40px); } // MD
   }
 
   @media only screen and (min-width: 992px) {
-    .row {
-      justify-content: space-between; // Spaziatura uniforme tra le card
-    }
+    .combined-card { width: calc(33% - 40px); } // LG
+  }
+
+  @media only screen and (min-width: 1200px) {
+    .combined-card { width: calc(25% - 40px); } // XL
   }
 }

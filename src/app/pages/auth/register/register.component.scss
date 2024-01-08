@@ -1,34 +1,79 @@
-/* auth-register.component.scss */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 .registration-container {
-  max-width: 400px;
+  max-width: 400px; // Dimensione ridotta del form
   margin: auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 35px; // Padding leggermente ridotto
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 2s ease-out;
 
   h5 {
+    font-size: 2.5rem; // Dimensione del titolo ridotta
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     text-align: center;
+    margin-bottom: 25px;
   }
 
   form {
-    margin-top: 20px;
-
     input {
       width: 100%;
-      margin-bottom: 10px;
-      padding: 8px;
-      box-sizing: border-box;
+      margin-bottom: 15px; // Spazio tra i campi ridotto
+      padding: 12px; // Padding ridotto
+      font-size: 1.2rem; // Dimensione font ridotta
+      color: #fff;
+      background-color: rgba(255, 255, 255, 0.2);
+      border: none;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+      border-radius: 0;
+
+      &:focus {
+        outline: none;
+        border-bottom-color: rgba(255, 255, 255, 1);
+        box-shadow: 0 0 12px rgba(52, 152, 219, 0.6);
+      }
     }
 
     button {
       width: 100%;
-      padding: 10px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
+      padding: 14px 0; // Padding leggermente ridotto
+      font-size: 1.5rem; // Dimensione font leggermente ridotta
+      color: #6a11cb;
+      background: #fff;
+      border: 2px solid transparent;
+      border-radius: 10px;
       cursor: pointer;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+
+      &:hover {
+        color: #fff;
+        background: transparent;
+        border-color: #fff;
+      }
     }
+  }
+}
+
+// Media Queries
+@media only screen and (max-width: 768px) {
+  .registration-container {
+    max-width: 350px; // Ulteriore riduzione per tablet
+    padding: 25px;
+    h5 { font-size: 2.2rem; }
+    form button { font-size: 1.3rem; }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .registration-container {
+    max-width: 95%; // Massima larghezza per smartphone
+    padding: 20px;
+    h5 { font-size: 1.8rem; }
+    form button { font-size: 1.2rem; }
   }
 }
