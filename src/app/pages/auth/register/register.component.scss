@@ -4,76 +4,81 @@
 }
 
 .registration-container {
-  max-width: 400px; // Dimensione ridotta del form
+  max-width: 300px;
   margin: auto;
-  padding: 35px; // Padding leggermente ridotto
+  padding: 15px;
   background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
   animation: fadeIn 2s ease-out;
 
   h5 {
-    font-size: 2.5rem; // Dimensione del titolo ridotta
+    font-size: 1.8rem;
     color: #fff;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
   }
 
-  form {
-    input {
-      width: 100%;
-      margin-bottom: 15px; // Spazio tra i campi ridotto
-      padding: 12px; // Padding ridotto
-      font-size: 1.2rem; // Dimensione font ridotta
-      color: #fff;
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 10px;
+
+    .mat-form-field-infix {
       background-color: rgba(255, 255, 255, 0.2);
-      border: none;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.7);
       border-radius: 0;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .mat-input-element {
+      padding: 8px;
+      font-size: 0.9rem;
+      color: #fff;
 
       &:focus {
         outline: none;
         border-bottom-color: rgba(255, 255, 255, 1);
-        box-shadow: 0 0 12px rgba(52, 152, 219, 0.6);
+        box-shadow: 0 0 10px rgba(52, 152, 219, 0.6);
       }
     }
+  }
 
-    button {
-      width: 100%;
-      padding: 14px 0; // Padding leggermente ridotto
-      font-size: 1.5rem; // Dimensione font leggermente ridotta
-      color: #6a11cb;
-      background: #fff;
-      border: 2px solid transparent;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  button {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1.2rem;
+    color: #6a11cb;
+    background: #fff;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 
-      &:hover {
-        color: #fff;
-        background: transparent;
-        border-color: #fff;
-      }
+    &:hover {
+      color: #fff;
+      background: transparent;
+      border-color: #fff;
     }
   }
 }
 
-// Media Queries
+/* Media Queries per dispositivi più piccoli */
 @media only screen and (max-width: 768px) {
   .registration-container {
-    max-width: 350px; // Ulteriore riduzione per tablet
-    padding: 25px;
-    h5 { font-size: 2.2rem; }
-    form button { font-size: 1.3rem; }
+    max-width: 70%; /* Ulteriore riduzione della larghezza */
+    padding: 10px;
+    h5 { font-size: 1.4rem; }
+    mat-form-field .mat-input-element { font-size: 0.8rem; }
+    button { font-size: 1rem; padding: 8px 0; }
   }
 }
 
 @media only screen and (max-width: 480px) {
   .registration-container {
-    max-width: 95%; // Massima larghezza per smartphone
-    padding: 20px;
-    h5 { font-size: 1.8rem; }
-    form button { font-size: 1.2rem; }
+    max-width: 60%; /* Riduzione significativa della larghezza */
+    padding: 8px; /* Riduzione del padding */
+    h5 { font-size: 1.2rem; } /* Riduzione della dimensione del font */
+    mat-form-field .mat-input-element { font-size: 0.7rem; } /* Riduzione della dimensione del font */
+    button { font-size: 0.9rem; padding: 6px 0; } /* Riduzione della dimensione e del padding del pulsante */
   }
 }

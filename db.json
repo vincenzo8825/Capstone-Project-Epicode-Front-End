@@ -41,6 +41,12 @@
       "password": "$2a$10$tqswecErU3jzVi.giypRl.jPJBoOflDftGQcRIB6x35atWLM6oGPm",
       "nome": "Vel aut recusandae ",
       "id": 7
+    },
+    {
+      "email": "vincenzo@rossi.it",
+      "password": "$2a$10$pWjoVXNfqH5JpwyppAs1a.e3wfSLrNJXrNDd1WMqkn46NM4JCm0yq",
+      "nome": "vincenzo",
+      "id": 8
     }
   ],
   "corsi": [
