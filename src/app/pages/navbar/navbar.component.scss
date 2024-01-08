@@ -1,8 +1,7 @@
-// navbar.component.scss
 .mat-toolbar {
-  background-color: #512da8; /* Colore di sfondo della barra delle applicazioni (navbar) */
-  justify-content: space-between; /* Per spostare i contenuti ai lati opposti */
-  align-items: center; /* Per centrare verticalmente il contenuto */
+  background-color: #512da8; // Colore di sfondo della barra delle applicazioni (navbar)
+  justify-content: space-between; // Per spostare i contenuti ai lati opposti
+  align-items: center; // Per centrare verticalmente il contenuto
 
   .logo {
     a {
@@ -18,65 +17,67 @@
   }
 
   .hamburger-button {
-    display: none; /* Nascondi il bottone dell'hamburger su desktop */
+    display: none; // Nascondi il bottone dell'hamburger su desktop
   }
 
   .nav-list {
     display: flex;
     gap: 16px;
 
-    @media only screen and (max-width: 768px) {
-      flex-direction: column; /* Imposta la direzione della colonna su dispositivi mobili */
-      position: absolute;
-      top: 56px; /* Altezza della barra delle applicazioni su desktop */
-      left: 0;
-      width: 100%;
-      background-color: #512da8; /* Colore di sfondo della lista di navigazione su dispositivi mobili */
-      padding: 16px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      display: none; /* Nascondi la lista di navigazione su mobile all'inizio */
+    a {
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
 
-      &.open {
-        display: flex; /* Mostra la lista di navigazione quando la classe .open è presente */
+      mat-icon {
+        margin-right: 4px;
       }
 
-      a {
-        color: #fff;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
+      .notification-badge {
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        padding: 1px 6px;
+        font-size: 12px;
+        position: relative;
+        top: -10px;
+        right: -10px;
+      }
 
-        mat-icon {
-          margin-right: 4px;
-        }
+      &.active {
+        background-color: #311b92; // Colore di sfondo per l'elemento di navigazione attivo
+      }
 
-        &.active {
-          background-color: #311b92; /* Colore di sfondo per l'elemento di navigazione attivo su dispositivi mobili */
-        }
+      &:hover {
+        background-color: #4527a0; // Colore di sfondo per l'elemento di navigazione al passaggio del mouse
+      }
+    }
 
-        &:hover {
-          background-color: #4527a0; /* Colore di sfondo per l'elemento di navigazione al passaggio del mouse su dispositivi mobili */
-        }
+    @media only screen and (max-width: 768px) {
+      flex-direction: column; // Imposta la direzione della colonna su dispositivi mobili
+      position: absolute;
+      top: 56px; // Altezza della barra delle applicazioni su desktop
+      left: 0;
+      width: 100%;
+      background-color: #512da8; // Colore di sfondo della lista di navigazione su dispositivi mobili
+      padding: 16px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: none; // Nascondi la lista di navigazione su mobile all'inizio
 
-        .notification-badge {
-          background-color: #ff4081; /* Colore di sfondo del badge di notifica su dispositivi mobili */
-          color: #fff;
-          border-radius: 50%;
-          padding: 4px 8px;
-          font-size: 0.8rem;
-          margin-left: 4px;
-        }
+      &.open {
+        display: flex; // Mostra la lista di navigazione quando la classe .open è presente
       }
     }
   }
 
   @media only screen and (max-width: 768px) {
     .hamburger-button {
-      display: block; /* Mostra il bottone dell'hamburger solo su dispositivi mobili */
+      display: block; // Mostra il bottone dell'hamburger solo su dispositivi mobili
     }
 
     .nav-list {
-      display: none; /* Nascondi la lista di navigazione su desktop all'inizio */
+      display: none; // Nascondi la lista di navigazione su desktop all'inizio
     }
   }
 }

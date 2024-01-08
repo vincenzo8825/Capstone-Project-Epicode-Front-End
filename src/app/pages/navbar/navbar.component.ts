@@ -43,13 +43,15 @@ export class NavbarComponent implements OnInit {
   }
 
   private updatePreferitiCount() {
-    const preferiti = this.sharedService.getPreferitiLezioni();
-    this.preferitiCount = preferiti.length;
+    const preferitiLezioni = this.sharedService.getPreferitiLezioni();
+    const preferitiCorsi = this.sharedService.getPreferitiCorsi();
+    this.preferitiCount = preferitiLezioni.length + preferitiCorsi.length;
   }
 
   private updateCarrelloCount() {
-    const carrello = this.sharedService.getCarrelloLezioni();
-    this.carrelloCount = carrello.length;
+    const carrelloLezioni = this.sharedService.getCarrelloLezioni();
+    const carrelloCorsi = this.sharedService.getCarrelloCorsi();
+    this.carrelloCount = carrelloLezioni.length + carrelloCorsi.length;
   }
 
   getNotificationCount(count: number): string {

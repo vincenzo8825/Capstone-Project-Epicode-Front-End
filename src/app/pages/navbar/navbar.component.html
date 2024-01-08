@@ -21,13 +21,13 @@
 
     <a mat-button routerLink="/preferiti" routerLinkActive="active" *ngIf="isLoggedIn$ | async" (click)="closeNavList()">
       <mat-icon>favorite</mat-icon> Preferiti
-      <div *ngIf="preferitiCount > 0" class="notification-badge">{{ getPreferitiNotificationCount() }}</div>
-    </a>
+      <span class="notification-badge" *ngIf="preferitiCount > 0">{{ preferitiCount }}</span>
+  </a>
 
-    <a mat-button routerLink="/carrello" routerLinkActive="active" *ngIf="isLoggedIn$ | async" (click)="closeNavList()">
+  <a mat-button routerLink="/carrello" routerLinkActive="active" *ngIf="isLoggedIn$ | async" (click)="closeNavList()">
       <mat-icon>shopping_cart</mat-icon> Carrello
-      <div *ngIf="carrelloCount > 0" class="notification-badge">{{ getCarrelloNotificationCount() }}</div>
-    </a>
+      <span class="notification-badge" *ngIf="carrelloCount > 0">{{ carrelloCount }}</span>
+  </a>
 
     <ng-container *ngIf="isLoggedIn$ | async; let user">
       <a mat-button (click)="onLogout()" (click)="closeNavList()">
