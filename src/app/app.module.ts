@@ -14,12 +14,14 @@ import { CommunityModule } from './pages/community/community.module';
 import { TermsAndConditionsModule } from './pages/terms-and-conditions/terms-and-conditions.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { LavoraConNoiModule } from './pages/lavora-con-noi/lavora-con-noi.module';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,8 @@ import { MatIconModule } from '@angular/material/icon';
     TermsAndConditionsModule,
     MatToolbarModule,
     MatIconModule,
+    LavoraConNoiModule
+
 
     // Aggiungi il modulo Carrello
   ],

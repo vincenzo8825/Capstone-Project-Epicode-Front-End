@@ -13,7 +13,12 @@ export class FooterComponent {
   navigateToTermsAndConditions(): void {
     this.router.navigate(['/terms-and-conditions']);
   }
+
   navigateToPrivacyPolicy(): void {
     this.router.navigate(['/privacy-policy']);
+  }
+
+  navigateToLavoraConNoi(): void {
+    this.router.navigate(['/lavora-con-noi']);
   }
 }
