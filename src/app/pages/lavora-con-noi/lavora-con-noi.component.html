@@ -24,54 +24,99 @@
 
 
   <!-- Sezione Posizioni Aperte -->
-  <mat-card>
-    <mat-card-title>Posizioni Aperte</mat-card-title>
-    <mat-card-content>
+  <!-- Sezione Posizioni Aperte -->
+<mat-card>
+  <mat-card-title>Posizioni Aperte</mat-card-title>
+  <mat-card-content>
       <!-- Sviluppatore Web Front-End -->
       <div>
-        <h3>Sviluppatore Web Front-End</h3>
-        <p>Ricerchiamo uno sviluppatore web front-end con esperienza nella creazione di interfacce utente accattivanti e responsive. Responsabilità include la progettazione e l'implementazione di soluzioni web innovative.</p>
-        <p><strong>Requisiti:</strong> Competenze in HTML, CSS, JavaScript, framework come React o Angular. <strong>Preferenziali:</strong> Esperienza con UX/UI design. <strong>Contratto:</strong> Tempo pieno, remoto.</p>
-        <button mat-raised-button color="primary" (click)="apriFormCandidatura(0)">Candidati</button>
+          <h3>Sviluppatore Web Front-End</h3>
+          <p>Ricerchiamo uno sviluppatore web front-end con esperienza nella creazione di interfacce utente accattivanti e responsive. Responsabilità include la progettazione e l'implementazione di soluzioni web innovative.</p>
+          <p><strong>Requisiti:</strong> Competenze in HTML, CSS, JavaScript, framework come React o Angular. <strong>Preferenziali:</strong> Esperienza con UX/UI design. <strong>Contratto:</strong> Tempo pieno, remoto.</p>
+          <button mat-raised-button color="primary" (click)="apriFormCandidatura(0)">Candidati</button>
+          <div *ngIf="posizioneSelezionataIndex === 0">
+            <form [formGroup]="candidaturaForms[0]" (ngSubmit)="onSubmitCandidatura(0)">
+              <mat-form-field appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="nome">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Cognome</mat-label>
+                <input matInput formControlName="cognome">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email">
+              </mat-form-field>
+              <div class="file-upload-wrapper">
+                <input type="file" formControlName="file" accept=".pdf,.doc,.docx">
+              </div>
+              <button mat-raised-button color="primary" type="submit">Invia Candidatura</button>
+            </form>
+
+          </div>
       </div>
 
       <!-- Esperto di Machine Learning -->
       <div>
-        <h3>Esperto di Machine Learning</h3>
-        <p>Stiamo cercando un esperto in machine learning per sviluppare e tenere corsi innovativi. Il candidato ideale avrà una solida conoscenza di algoritmi di apprendimento automatico e data science.</p>
-        <p><strong>Requisiti:</strong> Esperienza con Python, TensorFlow o PyTorch. <strong>Preferenziali:</strong> Dottorato in un campo correlato. <strong>Contratto:</strong> Part-time, freelance.</p>
-        <button mat-raised-button color="primary" (click)="apriFormCandidatura(1)">Candidati</button>
+          <h3>Esperto di Machine Learning</h3>
+          <p>Stiamo cercando un esperto in machine learning per sviluppare e tenere corsi innovativi. Il candidato ideale avrà una solida conoscenza di algoritmi di apprendimento automatico e data science.</p>
+          <p><strong>Requisiti:</strong> Esperienza con Python, TensorFlow o PyTorch. <strong>Preferenziali:</strong> Dottorato in un campo correlato. <strong>Contratto:</strong> Part-time, freelance.</p>
+          <button mat-raised-button color="primary" (click)="apriFormCandidatura(1)">Candidati</button>
+          <div *ngIf="posizioneSelezionataIndex === 1">
+            <form [formGroup]="candidaturaForms[1]" (ngSubmit)="onSubmitCandidatura(1)">
+              <mat-form-field appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="nome">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Cognome</mat-label>
+                <input matInput formControlName="cognome">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email">
+              </mat-form-field>
+              <div class="file-upload-wrapper">
+                <input type="file" formControlName="file" accept=".pdf,.doc,.docx">
+              </div>
+              <button mat-raised-button color="primary" type="submit">Invia Candidatura</button>
+            </form>
+
+          </div>
       </div>
 
       <!-- Designer Grafico per Corsi Online -->
       <div>
-        <h3>Designer Grafico per Corsi Online</h3>
-        <p>Cerchiamo un designer grafico creativo per sviluppare materiale didattico visivo per corsi online. Il ruolo richiede capacità di tradurre concetti complessi in grafiche intuitive e coinvolgenti.</p>
-        <p><strong>Requisiti:</strong> Abilità con software di grafica come Adobe Creative Suite. <strong>Preferenziali:</strong> Esperienza in ambito educativo. <strong>Contratto:</strong> Contratto a progetto.</p>
-        <button mat-raised-button color="primary" (click)="apriFormCandidatura(2)">Candidati</button>
-      </div>
+          <h3>Designer Grafico per Corsi Online</h3>
+          <p>Cerchiamo un designer grafico creativo per sviluppare materiale didattico visivo per corsi online. Il ruolo richiede capacità di tradurre concetti complessi in grafiche intuitive e coinvolgenti.</p>
+          <p><strong>Requisiti:</strong> Abilità con software di grafica come Adobe Creative Suite. <strong>Preferenziali:</strong> Esperienza in ambito educativo. <strong>Contratto:</strong> Contratto a progetto.</p>
+          <button mat-raised-button color="primary" (click)="apriFormCandidatura(2)">Candidati</button>
+          <div *ngIf="posizioneSelezionataIndex === 2">
+            <form [formGroup]="candidaturaForms[2]" (ngSubmit)="onSubmitCandidatura(2)">
+              <mat-form-field appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="nome">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Cognome</mat-label>
+                <input matInput formControlName="cognome">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email">
+              </mat-form-field>
+              <div class="file-upload-wrapper">
+                <input type="file" formControlName="file" accept=".pdf,.doc,.docx">
+              </div>
+              <button mat-raised-button color="primary" type="submit">Invia Candidatura</button>
+            </form>
 
-      <!-- Form di Candidatura Dinamico per la Posizione Selezionata -->
-      <div *ngIf="mostraFormCandidatura && posizioneSelezionataIndex >= 0">
-        <form [formGroup]="candidaturaForms[posizioneSelezionataIndex]" (ngSubmit)="onSubmitCandidatura(posizioneSelezionataIndex)">
-          <mat-form-field appearance="fill">
-            <mat-label>Nome</mat-label>
-            <input matInput formControlName="nome">
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Cognome</mat-label>
-            <input matInput formControlName="cognome">
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Email</mat-label>
-            <input matInput type="email" formControlName="email">
-          </mat-form-field>
-          <input type="file" formControlName="file" accept=".pdf,.doc,.docx">
-          <button mat-raised-button color="primary" type="submit">Invia Candidatura</button>
-        </form>
+          </div>
       </div>
-    </mat-card-content>
-  </mat-card>
+  </mat-card-content>
+</mat-card>
+
 
  <!-- Sezione Autocandidatura -->
  <mat-card>
