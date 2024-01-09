@@ -10,6 +10,10 @@
     margin: 0 auto;
   }
 
+  .white-text {
+    color: #fff; // Imposta il colore del testo su bianco
+  }
+
   .footer-section {
     flex: 1;
     margin-right: 16px;
@@ -20,15 +24,19 @@
       margin-bottom: 8px;
     }
 
-    p {
-      color: #fff;
+    p, a {
+      color: #fff; // Imposta sia il testo che i link su bianco
       font-size: 1rem;
       margin-bottom: 8px;
       display: flex;
       align-items: center;
+    }
 
-      mat-icon {
-        margin-right: 5px;
+    mat-list-item {
+      cursor: pointer; // Aggiunge un indicatore di puntatore al mouse
+
+      &:hover .white-text {
+        color: #b39ddb; // Cambia il colore del testo al passaggio del mouse
       }
     }
 
@@ -40,7 +48,6 @@
         display: flex;
         align-items: center;
         text-decoration: none;
-        color: #fff;
         transition: color 0.3s ease;
 
         &:hover {
@@ -75,10 +82,15 @@
     .footer-section {
       margin-bottom: 12px;
       text-align: center;
-    }
 
-    mat-list-item {
-      padding: 6px;
+      p, a {
+        text-align: center;
+        justify-content: center;
+      }
+
+      mat-list-item {
+        padding: 6px;
+      }
     }
   }
 }

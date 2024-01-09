@@ -29,20 +29,24 @@
 </mat-list>
 </div>
 
-    <div class="footer-section">
-      <h3>Link Utili</h3>
-      <mat-list>
-        <mat-list-item (click)="navigateToTermsAndConditions()" class="white-text"><mat-icon class="white-text">description</mat-icon> <span class="white-text">Termini e Condizioni</span></mat-list-item>
-        <mat-list-item (click)="navigateToPrivacyPolicy()" class="white-text"><mat-icon class="white-text">privacy_tip</mat-icon> <span class="white-text">Privacy Policy</span></mat-list-item>
+<div class="footer-section">
+  <h3>Link Utili</h3>
+  <mat-list>
+    <mat-list-item (click)="navigateToTermsAndConditions()">
+      <mat-icon>description</mat-icon>
+      <span class="white-text">Termini e Condizioni</span>
+    </mat-list-item>
+    <mat-list-item (click)="navigateToPrivacyPolicy()">
+      <mat-icon>privacy_tip</mat-icon>
+      <span class="white-text">Privacy Policy</span>
+    </mat-list-item>
+    <!-- Aggiungi altri link utili se necessario -->
+  </mat-list>
+</div>
 
+</div>
 
-
-        <!-- Aggiungi altri link utili se necessario -->
-      </mat-list>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2023 TutoringPlatform. Tutti i diritti riservati.</p>
-  </div>
+<div class="footer-bottom">
+<p>&copy; 2023 TutoringPlatform. Tutti i diritti riservati.</p>
+</div>
 </footer>

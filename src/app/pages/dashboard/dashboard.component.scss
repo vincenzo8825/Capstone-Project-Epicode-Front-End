@@ -4,37 +4,40 @@
   align-items: center;
   padding: 20px;
   font-family: 'Roboto', sans-serif;
-  min-height: calc(100vh - 100px); // sottraendo l'altezza della navbar e del footer
+  min-height: calc(100vh - 100px);
 
   h2 {
-    margin-bottom: 20px;
     color: #512DA8;
     font-size: 24px;
+    margin-bottom: 25px;
+    text-align: center;
   }
 
   .toggle-buttons {
     display: flex;
-    gap: 10px;
+    gap: 15px;
+    margin-bottom: 25px;
 
     button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 25px;
+      padding: 12px 25px;
+      border: 2px solid transparent;
+      border-radius: 30px;
       background-color: #512DA8;
       color: #fff;
       cursor: pointer;
       font-size: 16px;
-      transition: background-color 0.3s, transform 0.2s;
+      transition: all 0.2s ease-in-out;
 
       &:hover {
-        background-color: #005bb5;
-        transform: scale(1.1);
+        background-color: #7B1FA2;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
       }
 
       &.active {
         background-color: #fff;
         color: #4285f4;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-color: #4285f4;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
     }
   }
@@ -45,21 +48,23 @@
     margin-top: 20px;
 
     h2 {
-      margin-bottom: 10px;
       color: #512DA8;
-      font-size: 20px;
+      font-size: 22px;
+      margin-bottom: 20px;
+      text-align: left;
     }
 
     div {
-      padding: 20px;
-      border-radius: 12px;
+      padding: 25px;
+      border-radius: 15px;
       background-color: #fff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-      transition: box-shadow 0.3s;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 25px;
+      transition: transform 0.2s ease-in-out;
 
       &:hover {
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
       }
     }
   }
@@ -67,15 +72,16 @@
   @media screen and (max-width: 768px) {
     .toggle-buttons {
       flex-direction: column;
-    }
+      align-items: stretch;
 
-    .toggle-buttons button {
-      width: 100%;
-      margin-bottom: 10px;
+      button {
+        width: 100%;
+        margin-bottom: 10px;
+      }
     }
 
     .content-container {
-      max-width: 100%;
+      max-width: 95%;
     }
   }
 }
