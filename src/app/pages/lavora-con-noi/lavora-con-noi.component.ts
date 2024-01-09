@@ -18,24 +18,23 @@ export class LavoraConNoiComponent implements OnInit {
   candidaturaForms!: FormGroup[];
   contattoForm!: FormGroup;
   posizioniAperte!: PosizioneAperta[];
-  posizioneSelezionataIndex: number = -1;
   mostraFormCandidatura: boolean = false;
+  posizioneSelezionataIndex: number = -1;
 
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
-    // Inizializza i form
+    // Inizializzazione dei form
     this.autoCandidaturaForm = this.createFormGroup();
     this.contattoForm = this.createFormGroup();
 
-    // Definisci le posizioni aperte fittizie
+    // Posizioni aperte fittizie
     this.posizioniAperte = [
-      { id: 1, titolo: 'Tutor di Matematica', descrizione: 'Insegnamento di matematica avanzata.' },
-      { id: 2, titolo: 'Sviluppatore Web', descrizione: 'Sviluppo front-end e back-end.' },
-      // Aggiungi altre posizioni fittizie qui
+      { id: 1, titolo: 'Sviluppatore Web Front-End', descrizione: 'Descrizione Sviluppatore Web Front-End...' },
+      { id: 2, titolo: 'Esperto di Machine Learning', descrizione: 'Descrizione Esperto di Machine Learning...' },
+      { id: 3, titolo: 'Designer Grafico per Corsi Online', descrizione: 'Descrizione Designer Grafico...' },
+      // Altre posizioni...
     ];
-
-    // Inizializza un form per ciascuna posizione aperta
     this.candidaturaForms = this.posizioniAperte.map(() => this.createFormGroup());
   }
 
@@ -45,12 +44,13 @@ export class LavoraConNoiComponent implements OnInit {
       cognome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       file: [null, Validators.required],
-      messaggio: [''] // Solo per il form dei contatti
+      messaggio: ['']  // Aggiunto solo per il form dei contatti
     });
   }
 
   onSubmitForm(form: FormGroup, tipo: string) {
     if (form.valid) {
+      // Logica per gestire l'invio del form
       Swal.fire('Successo!', `La tua ${tipo} è stata inviata con successo.`, 'success');
     } else {
       Swal.fire('Errore!', 'Per favore, completa tutti i campi richiesti.', 'error');
@@ -65,16 +65,19 @@ export class LavoraConNoiComponent implements OnInit {
         `La tua candidatura per "${this.posizioniAperte[index].titolo}" è stata inviata con successo.`,
         'success'
       );
-      this.mostraFormCandidatura = false; // Nascondi il form di candidatura
-      this.posizioneSelezionataIndex = -1; // Resetta la posizione selezionata
+      this.resetCandidaturaForm();
     } else {
       Swal.fire('Errore!', 'Per favore, completa tutti i campi richiesti.', 'error');
     }
   }
 
-  // Funzione per mostrare il form di candidatura per una posizione specifica
+  resetCandidaturaForm() {
+    this.mostraFormCandidatura = false;
+    this.posizioneSelezionataIndex = -1;
+  }
+
   apriFormCandidatura(index: number) {
-    this.posizioneSelezionataIndex = index;
     this.mostraFormCandidatura = true;
+    this.posizioneSelezionataIndex = index;
   }
 }

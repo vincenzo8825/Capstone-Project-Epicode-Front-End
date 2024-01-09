@@ -8,44 +8,71 @@
   </mat-card>
 
   <mat-card class="perche-lavorare-section">
-      <mat-card-title>Perché Lavorare con Noi</mat-card-title>
-      <mat-card-content>
-          <p>Lavorare con noi significa entrare in una comunità dedicata all'eccellenza educativa e all'innovazione.</p>
-          <!-- Aggiungi qui altri dettagli -->
-      </mat-card-content>
-  </mat-card>
+    <mat-card-title>Perché Lavorare con Noi</mat-card-title>
+    <mat-card-content>
+        <p>Lavorare con noi significa entrare in una comunità dedicata all'eccellenza educativa e all'innovazione. Siamo impegnati a fornire un ambiente di lavoro stimolante e supportivo, dove ogni membro del team ha l'opportunità di fare la differenza.</p>
+        <ul>
+            <li><strong>Impatto Educativo:</strong> La nostra missione è quella di ispirare e educare la prossima generazione di professionisti nel campo del web, del design e della tecnologia.</li>
+            <li><strong>Sviluppo Professionale:</strong> Offriamo ai nostri tutor formazione continua, risorse e opportunità per sviluppare le loro competenze e carriere.</li>
+            <li><strong>Comunità Collaborativa:</strong> Promuoviamo un ambiente collaborativo dove idee e conoscenze vengono condivise liberamente tra colleghi e studenti.</li>
+            <li><strong>Tecnologia all'Avanguardia:</strong> Utilizziamo e insegniamo le tecnologie più recenti, tenendo il passo con le tendenze e le innovazioni del settore.</li>
+            <li><strong>Flessibilità:</strong> Riconosciamo l'importanza dell'equilibrio tra lavoro e vita privata e offriamo orari di lavoro flessibili per adattarsi a diverse esigenze.</li>
+        </ul>
+    </mat-card-content>
+</mat-card>
+
 
 
   <!-- Sezione Posizioni Aperte -->
   <mat-card>
-      <mat-card-title>Posizioni Aperte</mat-card-title>
-      <mat-card-content>
-          <!-- Esempi di posizioni aperte fittizie -->
-          <div *ngFor="let posizione of posizioniAperte; let i = index">
-              <h3>{{ posizione.titolo }}</h3>
-              <p>{{ posizione.descrizione }}</p>
-              <button mat-raised-button color="primary" (click)="mostraFormCandidatura = true; posizioneSelezionataIndex = i">Candidati</button>
-              <div *ngIf="mostraFormCandidatura && posizioneSelezionataIndex === i">
-                  <form [formGroup]="candidaturaForms[i]" (ngSubmit)="onSubmitCandidatura(i)">
-                      <mat-form-field appearance="fill">
-                          <mat-label>Nome</mat-label>
-                          <input matInput formControlName="nome">
-                      </mat-form-field>
-                      <mat-form-field appearance="fill">
-                          <mat-label>Cognome</mat-label>
-                          <input matInput formControlName="cognome">
-                      </mat-form-field>
-                      <mat-form-field appearance="fill">
-                          <mat-label>Email</mat-label>
-                          <input matInput type="email" formControlName="email">
-                      </mat-form-field>
-                      <input type="file" formControlName="file" accept=".pdf,.doc,.docx">
-                      <button mat-raised-button color="primary" type="submit">Invia Candidatura</button>
-                  </form>
-              </div>
-          </div>
-      </mat-card-content>
+    <mat-card-title>Posizioni Aperte</mat-card-title>
+    <mat-card-content>
+      <!-- Sviluppatore Web Front-End -->
+      <div>
+        <h3>Sviluppatore Web Front-End</h3>
+        <p>Ricerchiamo uno sviluppatore web front-end con esperienza nella creazione di interfacce utente accattivanti e responsive. Responsabilità include la progettazione e l'implementazione di soluzioni web innovative.</p>
+        <p><strong>Requisiti:</strong> Competenze in HTML, CSS, JavaScript, framework come React o Angular. <strong>Preferenziali:</strong> Esperienza con UX/UI design. <strong>Contratto:</strong> Tempo pieno, remoto.</p>
+        <button mat-raised-button color="primary" (click)="apriFormCandidatura(0)">Candidati</button>
+      </div>
+
+      <!-- Esperto di Machine Learning -->
+      <div>
+        <h3>Esperto di Machine Learning</h3>
+        <p>Stiamo cercando un esperto in machine learning per sviluppare e tenere corsi innovativi. Il candidato ideale avrà una solida conoscenza di algoritmi di apprendimento automatico e data science.</p>
+        <p><strong>Requisiti:</strong> Esperienza con Python, TensorFlow o PyTorch. <strong>Preferenziali:</strong> Dottorato in un campo correlato. <strong>Contratto:</strong> Part-time, freelance.</p>
+        <button mat-raised-button color="primary" (click)="apriFormCandidatura(1)">Candidati</button>
+      </div>
+
+      <!-- Designer Grafico per Corsi Online -->
+      <div>
+        <h3>Designer Grafico per Corsi Online</h3>
+        <p>Cerchiamo un designer grafico creativo per sviluppare materiale didattico visivo per corsi online. Il ruolo richiede capacità di tradurre concetti complessi in grafiche intuitive e coinvolgenti.</p>
+        <p><strong>Requisiti:</strong> Abilità con software di grafica come Adobe Creative Suite. <strong>Preferenziali:</strong> Esperienza in ambito educativo. <strong>Contratto:</strong> Contratto a progetto.</p>
+        <button mat-raised-button color="primary" (click)="apriFormCandidatura(2)">Candidati</button>
+      </div>
+
+      <!-- Form di Candidatura Dinamico per la Posizione Selezionata -->
+      <div *ngIf="mostraFormCandidatura && posizioneSelezionataIndex >= 0">
+        <form [formGroup]="candidaturaForms[posizioneSelezionataIndex]" (ngSubmit)="onSubmitCandidatura(posizioneSelezionataIndex)">
+          <mat-form-field appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="nome">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Cognome</mat-label>
+            <input matInput formControlName="cognome">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email">
+          </mat-form-field>
+          <input type="file" formControlName="file" accept=".pdf,.doc,.docx">
+          <button mat-raised-button color="primary" type="submit">Invia Candidatura</button>
+        </form>
+      </div>
+    </mat-card-content>
   </mat-card>
+
  <!-- Sezione Autocandidatura -->
  <mat-card>
   <mat-card-title>Autocandidatura Spontanea</mat-card-title>
@@ -69,33 +96,75 @@
   </mat-card-content>
 </mat-card>
   <!-- Sezione FAQ -->
-  <mat-card class="faq-section">
-      <mat-card-title>Domande Frequenti</mat-card-title>
-      <mat-card-content>
-          <mat-accordion>
-              <mat-expansion-panel>
-                  <mat-expansion-panel-header>
-                      <mat-panel-title>Quali sono i requisiti per diventare tutor?</mat-panel-title>
-                  </mat-expansion-panel-header>
-                  <p>Per diventare tutor è necessaria una solida conoscenza della materia e passione per l'insegnamento.</p>
-              </mat-expansion-panel>
-              <!-- Aggiungi qui altre domande e risposte -->
-          </mat-accordion>
-      </mat-card-content>
-  </mat-card>
+<mat-card class="faq-section">
+  <mat-card-title>Domande Frequenti</mat-card-title>
+  <mat-card-content>
+      <mat-accordion>
+          <!-- Domanda sui requisiti per diventare tutor -->
+          <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                  <mat-panel-title>Quali sono i requisiti per diventare tutor?</mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>Per diventare tutor è necessaria una solida conoscenza della materia e passione per l'insegnamento.</p>
+          </mat-expansion-panel>
 
-  <!-- Sezione "Perché Lavorare con Noi" -->
+          <!-- Domanda sul tipo di contratto offerto -->
+          <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                  <mat-panel-title>Quali tipi di contratto offrite ai tutor?</mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>Offriamo diverse tipologie di contratto, inclusi freelance, part-time e full-time, a seconda delle esigenze del tutor e dei requisiti del corso.</p>
+          </mat-expansion-panel>
 
-  <!-- Sezione Testimonianze -->
-  <mat-card class="testimonianze-section">
-      <mat-card-title>Testimonianze</mat-card-title>
-      <mat-card-content>
-          <blockquote>
-              "Lavorare qui ha arricchito la mia esperienza professionale e mi ha dato l'opportunità di crescere." - Mario Rossi
-          </blockquote>
-          <!-- Aggiungi qui altre testimonianze -->
-      </mat-card-content>
-  </mat-card>
+          <!-- Domanda sulla formazione dei tutor -->
+          <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                  <mat-panel-title>C'è un programma di formazione per i tutor?</mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>Sì, forniamo una formazione completa per assicurare che i nostri tutor siano preparati a offrire un'esperienza di apprendimento di alta qualità.</p>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>Quanto è flessibile l'orario di lavoro per i tutor?</mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>Offriamo alta flessibilità oraria. I tutor possono scegliere gli orari che meglio si adattano alle loro esigenze, a patto di rispettare le scadenze dei corsi e le aspettative degli studenti.</p>
+        </mat-expansion-panel>
+
+        <!-- Domanda sulle opportunità di crescita professionale -->
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>Ci sono opportunità di crescita professionale nella piattaforma?</mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>Assolutamente. Valorizziamo il continuo sviluppo professionale dei nostri tutor e offriamo regolarmente opportunità per partecipare a workshop, seminari e altre attività formative.</p>
+        </mat-expansion-panel>
+
+          <!-- Altre domande e risposte... -->
+      </mat-accordion>
+  </mat-card-content>
+</mat-card>
+
+
+
+
+ <!-- Sezione Testimonianze -->
+<mat-card class="testimonianze-section">
+  <mat-card-title>Testimonianze</mat-card-title>
+  <mat-card-content>
+      <blockquote>
+          "Lavorare qui ha arricchito la mia esperienza professionale e mi ha dato l'opportunità di crescere." - Mario Rossi
+      </blockquote>
+      <blockquote>
+          "Essere un tutor su questa piattaforma mi ha permesso di condividere la mia passione per il web design con studenti entusiasti da tutto il mondo." - Giulia Bianchi
+      </blockquote>
+      <blockquote>
+          "La flessibilità e il supporto che ricevo qui come insegnante di machine learning sono ineguagliabili. È gratificante vedere gli studenti progredire." - Luca Verdi
+      </blockquote>
+      <blockquote>
+          "Da sviluppatore web, apprezzo l'opportunità di creare corsi che preparano realmente gli studenti alle sfide del settore." - Sara Neri
+      </blockquote>
+  </mat-card-content>
+</mat-card>
+
 
   <!-- Sezione Contattaci -->
   <mat-card>
