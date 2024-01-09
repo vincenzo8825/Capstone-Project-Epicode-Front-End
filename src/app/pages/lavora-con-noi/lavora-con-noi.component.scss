@@ -1,0 +1,102 @@
+/* Stili Base */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fafafa;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Stili Card */
+mat-card {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+mat-card-title {
+  font-size: 22px;
+  color: #004085;
+  margin-bottom: 10px;
+}
+
+mat-card-content {
+  font-size: 16px;
+}
+
+/* Form e Input Stili */
+form {
+  margin-top: 15px;
+  width: 100%; // Adattare la larghezza qui
+  max-width: 500px; // Larghezza massima del form
+
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 15px;
+
+    input, textarea {
+      font-size: 16px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      padding: 10px;
+    }
+  }
+
+  .file-upload-wrapper {
+    margin-bottom: 15px;
+  }
+
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
+
+/* Responsività */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  mat-card {
+    padding: 15px;
+  }
+
+  form {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  mat-card-title {
+    font-size: 20px;
+  }
+}
+
+/* FAQ e Testimonianze Stili */
+mat-expansion-panel-header {
+  background-color: #f7f7f7;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+blockquote {
+  background-color: #e9ecef;
+  border-left: 4px solid #007bff;
+  padding: 10px 20px;
+  margin: 10px 0;
+  font-style: italic;
+}
