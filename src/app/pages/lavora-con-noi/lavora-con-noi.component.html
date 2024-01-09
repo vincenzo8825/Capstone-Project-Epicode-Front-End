@@ -1,1 +1,125 @@
-<p>lavora-con-noi works!</p>
+<div class="container">
+  <!-- Sezione di Benvenuto -->
+  <mat-card>
+    <mat-card-title>Bentornato nella Sezione Lavora con Noi di Tutoring Platform</mat-card-title>
+    <mat-card-content>
+      <p>Scopri le opportunità e candidati per le posizioni aperte o inviaci una candidatura spontanea.</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="perche-lavorare-section">
+      <mat-card-title>Perché Lavorare con Noi</mat-card-title>
+      <mat-card-content>
+          <p>Lavorare con noi significa entrare in una comunità dedicata all'eccellenza educativa e all'innovazione.</p>
+          <!-- Aggiungi qui altri dettagli -->
+      </mat-card-content>
+  </mat-card>
+
+
+  <!-- Sezione Posizioni Aperte -->
+  <mat-card>
+      <mat-card-title>Posizioni Aperte</mat-card-title>
+      <mat-card-content>
+          <!-- Esempi di posizioni aperte fittizie -->
+          <div *ngFor="let posizione of posizioniAperte; let i = index">
+              <h3>{{ posizione.titolo }}</h3>
+              <p>{{ posizione.descrizione }}</p>
+              <button mat-raised-button color="primary" (click)="mostraFormCandidatura = true; posizioneSelezionataIndex = i">Candidati</button>
+              <div *ngIf="mostraFormCandidatura && posizioneSelezionataIndex === i">
+                  <form [formGroup]="candidaturaForms[i]" (ngSubmit)="onSubmitCandidatura(i)">
+                      <mat-form-field appearance="fill">
+                          <mat-label>Nome</mat-label>
+                          <input matInput formControlName="nome">
+                      </mat-form-field>
+                      <mat-form-field appearance="fill">
+                          <mat-label>Cognome</mat-label>
+                          <input matInput formControlName="cognome">
+                      </mat-form-field>
+                      <mat-form-field appearance="fill">
+                          <mat-label>Email</mat-label>
+                          <input matInput type="email" formControlName="email">
+                      </mat-form-field>
+                      <input type="file" formControlName="file" accept=".pdf,.doc,.docx">
+                      <button mat-raised-button color="primary" type="submit">Invia Candidatura</button>
+                  </form>
+              </div>
+          </div>
+      </mat-card-content>
+  </mat-card>
+ <!-- Sezione Autocandidatura -->
+ <mat-card>
+  <mat-card-title>Autocandidatura Spontanea</mat-card-title>
+  <mat-card-content>
+      <form [formGroup]="autoCandidaturaForm" (ngSubmit)="onSubmitForm(autoCandidaturaForm, 'autocandidatura')">
+          <mat-form-field appearance="fill">
+              <mat-label>Nome</mat-label>
+              <input matInput formControlName="nome">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+              <mat-label>Cognome</mat-label>
+              <input matInput formControlName="cognome">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input matInput type="email" formControlName="email">
+          </mat-form-field>
+          <input type="file" formControlName="file" accept=".pdf,.doc,.docx">
+          <button mat-raised-button color="primary" type="submit">Invia Candidatura</button>
+      </form>
+  </mat-card-content>
+</mat-card>
+  <!-- Sezione FAQ -->
+  <mat-card class="faq-section">
+      <mat-card-title>Domande Frequenti</mat-card-title>
+      <mat-card-content>
+          <mat-accordion>
+              <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                      <mat-panel-title>Quali sono i requisiti per diventare tutor?</mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <p>Per diventare tutor è necessaria una solida conoscenza della materia e passione per l'insegnamento.</p>
+              </mat-expansion-panel>
+              <!-- Aggiungi qui altre domande e risposte -->
+          </mat-accordion>
+      </mat-card-content>
+  </mat-card>
+
+  <!-- Sezione "Perché Lavorare con Noi" -->
+
+  <!-- Sezione Testimonianze -->
+  <mat-card class="testimonianze-section">
+      <mat-card-title>Testimonianze</mat-card-title>
+      <mat-card-content>
+          <blockquote>
+              "Lavorare qui ha arricchito la mia esperienza professionale e mi ha dato l'opportunità di crescere." - Mario Rossi
+          </blockquote>
+          <!-- Aggiungi qui altre testimonianze -->
+      </mat-card-content>
+  </mat-card>
+
+  <!-- Sezione Contattaci -->
+  <mat-card>
+      <mat-card-title>Contattaci</mat-card-title>
+      <mat-card-content>
+          <form [formGroup]="contattoForm" (ngSubmit)="onSubmitForm(contattoForm, 'contatto')">
+              <mat-form-field appearance="fill">
+                  <mat-label>Nome</mat-label>
+                  <input matInput formControlName="nome">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                  <mat-label>Cognome</mat-label>
+                  <input matInput formControlName="cognome">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                  <mat-label>Email</mat-label>
+                  <input matInput type="email" formControlName="email">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                  <mat-label>Messaggio</mat-label>
+                  <textarea matInput formControlName="messaggio"></textarea>
+              </mat-form-field>
+              <button mat-raised-button color="primary" type="submit">Invia Messaggio</button>
+          </form>
+      </mat-card-content>
+  </mat-card>
+</div>
