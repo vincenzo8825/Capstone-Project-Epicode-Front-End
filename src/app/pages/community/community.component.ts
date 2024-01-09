@@ -1,52 +1,30 @@
-// community.component.ts
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 
-interface DiscussionReply {
-  rating?: number;
-  id: number;
-  userName: string;
-  text: string;
+interface DiscussionTopic {
+  title: string;
+  content: string;
 }
 
-interface TrendingTopic {
+interface Announcement {
+  title: string;
+  content: string;
+}
+
+interface Event {
   name: string;
-  count: number;
+  date: Date;
+  description: string;
 }
 
-interface RecentActivity {
-  userName: string;
-  text: string;
-}
-
-interface Discussion {
-  id: number;
-  userName: string;
-  title: string;
-  text: string;
-  replies?: DiscussionReply[];
-  replyText?: string;
-}
-
-interface UserDiscussion {
-  title: string;
-  text: string;
-  userName:string
-}
-
-interface Review {
-  id: number;
-  userName: string;
-  rating: number;
-  text: string;
-  replies?: DiscussionReply[];
+interface FAQ {
+  question: string;
+  answer: string;
 }
 
 interface UserReview {
-  userName: string;
+  user: string;
+  comment: string;
   rating: number;
-  text: string;
-  anonymous: boolean;
 }
 
 @Component({
@@ -54,150 +32,95 @@ interface UserReview {
   templateUrl: './community.component.html',
   styleUrls: ['./community.component.scss']
 })
-export class CommunityComponent {
-  trendingTopics: TrendingTopic[] = [
-    { name: 'Angular', count: 20 },
-    { name: 'JavaScript', count: 15 },
-    { name: 'Web Development', count: 10 }
+export class CommunityComponent implements OnInit {
+  discussionTopics: DiscussionTopic[] = [
+    // Qui potresti avere i tuoi dati iniziali o caricarli da un servizio
+  ];
+  announcements: Announcement[] = [
+    // Dati degli annunci
+  ];
+  upcomingEvents: Event[] = [
+    // Dati degli eventi imminenti
+  ];
+  faqs: FAQ[] = [
+    // Dati delle FAQ
+  ];
+  userReviews: UserReview[] = [
+    // Recensioni degli utenti esistenti
   ];
 
-  recentActivities: RecentActivity[] = [
-    { userName: 'John Doe', text: 'Completed the "Angular Basics" course.' },
-    { userName: 'Alice Smith', text: 'Started a discussion on "JavaScript Frameworks".' },
-    { userName: 'Bob Johnson', text: 'Achieved the "Web Developer Pro" badge.' }
-  ];
+  // Modello iniziale per una nuova recensione
+  newReview: UserReview = { user: '', comment: '', rating: 0 };
 
-  discussions: Discussion[] = [
-    {
-      id: 1,
-      userName: 'John Doe',
-      title: 'Best Framework for Web Development',
-      text: 'Which framework do you think is the best for web development? Share your thoughts!',
-      replies: []
+  constructor() {}
+
+  ngOnInit(): void {
+    this.loadDiscussionTopics();
+    this.loadAnnouncements();
+    this.loadUpcomingEvents();
+    this.loadFAQs();
+    this.loadUserReviews();
+  }
+
+
+  loadDiscussionTopics(): void {
+    this.discussionTopics = [
+      { title: 'Trend del Web Development 2024', content: 'Discussione approfondita sui nuovi trend...' },
+      { title: 'Introduzione al Machine Learning', content: 'Scopriamo le basi del machine learning...' },
+      // Aggiungi altri topic qui
+    ];
+  }
+
+  loadAnnouncements(): void {
+    this.announcements = [
+      { title: 'Nuovo Corso Avanzato di JavaScript', content: 'Esplora funzionalità avanzate di JavaScript...' },
+      { title: 'Workshop su Python per Data Science', content: 'Partecipa al nostro workshop intensivo...' },
+      // Aggiungi altri annunci qui
+    ];
+  }
+
+  loadUpcomingEvents(): void {
+    this.upcomingEvents = [
+      { name: 'Marathon di Programmazione', date: new Date(2024, 5, 15), description: 'Unisciti alla nostra Marathoathon annuale...' },
+      { name: 'Seminario su Blockchain e Criptovalute', date: new Date(2024, 6, 20), description: 'Impara tutto sulla blockchain...' },
+      // Aggiungi altri eventi qui
+    ];
+  }
+
+  loadFAQs(): void {
+    this.faqs = [
+      {
+        question: 'Come posso iscrivermi ai corsi?',
+        answer: 'Per iscriverti ai nostri corsi, segui questi passaggi:'
+      },
+      {
+        question: 'Quali risorse sono disponibili per l\'apprendimento?',
+        answer: ''
+      },
+      // Aggiungi altre FAQ qui
+    ];
+  }
+
+  loadUserReviews(): void {
+    this.userReviews = [
+      { user: 'Alice', comment: 'Fantastico corso su React!', rating: 5 },
+      { user: 'Bob', comment: 'Molto utile per capire i fondamenti del machine learning.', rating: 4 },
+      // Aggiungi altre recensioni qui
+    ];
+  }
+
+  addReview(): void {
+    if (this.newReview.user && this.newReview.comment && this.newReview.rating > 0) {
+      this.userReviews.push({ ...this.newReview });
+      this.newReview = { user: '', comment: '', rating: 0 }; // Reset del form
+    } else {
+      console.log('Per favore, compila tutti i campi della recensione.');
     }
-  ];
-
-  userDiscussion: UserDiscussion = {
-    title: '',
-    text: '',
-    userName:''
-  };
-
-  reviews: Review[] = [
-    { id: 4, userName: 'Jane Smith', rating: 5, text: 'Great community and valuable discussions.', replies: [] },
-    { id: 5, userName: 'Charlie Brown', rating: 4, text: 'Helpful insights and friendly members.', replies: [] }
-  ];
-
-  userReview: UserReview = {
-    userName: '',
-    rating: 1,
-    text: '',
-    anonymous: false
-  };
-
-  realReviews: Review[] = [
-    { id: 6, userName: 'John Doe', rating: 5, text: 'Excellent platform! It helped me enhance my skills.', replies: [] },
-    { id: 7, userName: 'Sarah Johnson', rating: 4, text: 'Great place to connect with like-minded developers.', replies: [] }
-  ];
-getStarsArrayByRating: any;
-
-  submitReview(reviewForm: NgForm): void {
-    if (reviewForm.invalid) {
-      // Gestisci il form non valido se necessario
-      return;
-    }
-
-    const newReview: Review = {
-      id: this.getNextId(this.realReviews),
-      userName: this.userReview.anonymous ? 'Anonymous' : this.userReview.userName,
-      rating: this.userReview.rating,
-      text: this.userReview.text,
-      replies: []
-    };
-
-    this.realReviews.push(newReview);
-
-    // Reset userReview
-    this.userReview = {
-      userName: '',
-      rating: 1,
-      text: '',
-      anonymous: false
-    };
-
-    // Reset il form
-    reviewForm.resetForm();
-  }
-  createDiscussion(): void {
-    if (!this.userDiscussion.title || !this.userDiscussion.text || !this.userDiscussion.userName) {
-      // Gestisci la situazione in cui il titolo, il testo o il nome utente sono vuoti, se necessario
-      return;
-    }
-
-    const newDiscussion: Discussion = {
-      id: this.getNextId(this.discussions),
-      userName: this.userDiscussion.userName,
-      title: this.userDiscussion.title,
-      text: this.userDiscussion.text,
-      replies: []
-    };
-
-    this.discussions.push(newDiscussion);
-
-    // Reset userDiscussion
-    this.userDiscussion = {
-      userName: '',
-      title: '',
-      text: ''
-    };
   }
 
-  replyToDiscussion(parentDiscussion: Discussion): void {
-    const replyText = parentDiscussion.replyText;
-
-    if (!parentDiscussion.replies) {
-      parentDiscussion.replies = [];
-    }
-
-    const newReply: DiscussionReply = {
-      id: this.getNextId(parentDiscussion.replies),
-      userName: 'CurrentUserName',
-      text: replyText || '',
-      rating: undefined
-    };
-
-    parentDiscussion.replies.push(newReply);
-
-    // Reset replyText
-    parentDiscussion.replyText = '';
+  registerForEvent(event: Event): void {
+    console.log('Registrato per l\'evento:', event.name);
   }
 
-  getTotalStars(review: Review | DiscussionReply): number {
-    let totalStars = review.rating || 0; // Inizia con il numero di stelle nella recensione principale o risposta
 
-    if ('replies' in review) {
-      const replies = review.replies as Review[]; // Cast esplicito per sicurezza
-
-      replies.forEach(reply => {
-        if (reply.rating) {
-          totalStars += reply.rating;
-        }
-        totalStars += this.getTotalStars(reply);
-      });
-    }
-
-    return totalStars;
-  }
-
-  private getNextId(collection: { id: number }[]): number {
-    return collection.length > 0 ? Math.max(...collection.map(item => item.id)) + 1 : 1;
-  }
-
-  getStarsArray(rating: number | undefined): number[] {
-    return rating ? Array.from({ length: rating }).map((_, index) => index + 1) : [];
-}
-
-  toggleAnonymous(): void {
-    this.userReview.anonymous = !this.userReview.anonymous;
-  }
 }

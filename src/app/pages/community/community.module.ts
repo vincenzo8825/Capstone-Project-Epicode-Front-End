@@ -1,5 +1,3 @@
-// community.module.ts
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
@@ -11,9 +9,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { FormsModule } from '@angular/forms';
-
-
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion'; // Aggiunto per gli accordion
+import { MatChipsModule } from '@angular/material/chips'; // Aggiunto per i chip
 import { CommunityComponent } from './community.component';
 
 @NgModule({
@@ -22,7 +22,6 @@ import { CommunityComponent } from './community.component';
   ],
   imports: [
     CommonModule,
-
     MatButtonModule,
     MatIconModule,
     MatCardModule,
@@ -32,8 +31,12 @@ import { CommunityComponent } from './community.component';
     MatMenuModule,
     MatToolbarModule,
     MatSnackBarModule,
+    MatCheckboxModule,
     FormsModule,
-    // Aggiunto questo modulo
+    ReactiveFormsModule,
+    MatListModule,
+    MatExpansionModule, // Aggiungi qui MatExpansionModule
+    MatChipsModule // Aggiungi qui MatChipsModule
   ]
 })
 export class CommunityModule { }

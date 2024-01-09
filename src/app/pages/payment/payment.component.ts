@@ -38,7 +38,7 @@ export class PaymentComponent implements OnInit {
       this.totaledapagare = totale;
     });
 
-    // Inizializzare i form per i metodi di pagamento
+
     // Inizializzare i form per i metodi di pagamento
 this.cartaDiCreditoForm = this.formBuilder.group({
   ccNumber: [

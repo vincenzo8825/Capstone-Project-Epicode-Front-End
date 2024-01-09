@@ -1,162 +1,104 @@
-<!-- community.component.html -->
+<section class="community-homepage">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title class="title">Benvenuti nella Community di Tutoring</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="intro-text">Unisciti a noi per condividere e apprendere sul web development, machine learning e data science.</p>
+    </mat-card-content>
+  </mat-card>
+</section>
 
-<div class="community-container">
 
-  <!-- Sezione Trending Topics -->
-  <div class="trending-topics-section">
-    <h2>Argomenti del Momento</h2>
-    <!-- Visualizza gli Argomenti del Momento -->
-    <div class="trending-topic" *ngFor="let topic of trendingTopics">
-      <span class="topic-name">{{ topic.name }}</span>
-      <span class="topic-count">{{ topic.count }} Discussioni</span>
-    </div>
+
+<section class="discussion-forum">
+  <mat-expansion-panel *ngFor="let topic of discussionTopics">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h2 class="section-title">{{ topic.title }}</h2>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="panel-content">{{ topic.content }}</div>
+  </mat-expansion-panel>
+</section>
+
+<section class="announcement-board">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let announcement of announcements">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h2 class="section-title">{{ announcement.title }}</h2>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="panel-content">{{ announcement.content }}</div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>
+
+<section class="upcoming-events">
+  <div class="events-container">
+    <mat-card *ngFor="let event of upcomingEvents">
+      <mat-card-header>
+        <mat-card-title>{{ event.name }}</mat-card-title>
+        <mat-card-subtitle>{{ event.date | date }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ event.description }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="registerForEvent(event)">Iscriviti</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</section>
+
+<section class="faq-section">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let faq of faqs">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h2 class="section-title">{{ faq.question }}</h2>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="panel-content">{{ faq.answer }}</div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>
+
+<section class="user-reviews">
+  <div *ngFor="let review of userReviews" class="review">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ review.user }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ review.comment }}</p>
+        <div class="rating">
+          <mat-icon *ngFor="let star of [].constructor(5)" [color]="star < review.rating ? 'warn' : 'default'">star</mat-icon>
+        </div>
+      </mat-card-content>
+    </mat-card>
   </div>
 
-  <!-- Sezione Attività Recenti -->
-  <div class="recent-activity-section">
-    <h2>Ultime Attività</h2>
-    <!-- Visualizza le Attività Recenti -->
-    <div class="activity" *ngFor="let activity of recentActivities">
-      <div class="user-info">
-        <span class="user-name">{{ activity.userName }}</span>
-      </div>
-      <p class="activity-text">{{ activity.text }}</p>
-    </div>
+  <!-- Form per aggiungere una nuova recensione -->
+  <div class="new-review-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Nickname</mat-label>
+      <input matInput [(ngModel)]="newReview.user">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Recensione</mat-label>
+      <textarea matInput [(ngModel)]="newReview.comment"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Valutazione</mat-label>
+      <mat-select [(ngModel)]="newReview.rating">
+        <mat-option *ngFor="let r of [1, 2, 3, 4, 5]" [value]="r">{{ r }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="addReview()">Aggiungi Recensione</button>
   </div>
-
-  <!-- Sezione Discussioni -->
-  <div class="discussion-section">
-    <h2>Discussioni della Community</h2>
-
-    <!-- Modulo di Discussione dell'Utente -->
-   <!-- ... -->
-
-<div class="user-discussion-form">
-  <h3>Crea una Discussione</h3>
-  <form (ngSubmit)="createDiscussion()">
-    <!-- Form inputs for discussion -->
-    <div class="form-group">
-      <mat-form-field appearance="fill">
-        <mat-label>Nome Utente</mat-label>
-        <input matInput [(ngModel)]="userDiscussion.userName" name="userName" required>
-      </mat-form-field>
-    </div>
-    <div class="form-group">
-      <mat-form-field appearance="fill">
-        <mat-label>Titolo</mat-label>
-        <input matInput [(ngModel)]="userDiscussion.title" name="title" required>
-      </mat-form-field>
-    </div>
-    <div class="form-group">
-      <mat-form-field appearance="fill">
-        <mat-label>Testo</mat-label>
-        <textarea matInput [(ngModel)]="userDiscussion.text" name="text" required></textarea>
-      </mat-form-field>
-    </div>
-    <button mat-raised-button color="primary" type="submit">Crea Discussione</button>
-  </form>
-</div>
-
-<!-- ... -->
-
-
-    <!-- Visualizza le Discussioni (Reali e Fittizie) -->
-    <div class="discussions" *ngFor="let discussion of discussions">
-      <div class="discussion">
-        <span class="user-name">{{ discussion.userName }}</span>
-        <h4 class="discussion-title">{{ discussion.title }}</h4>
-        <p class="discussion-text">{{ discussion.text }}</p>
-        <!-- Risposte -->
-        <div class="discussion-reply" *ngFor="let reply of discussion.replies">
-          <span class="user-name">{{ reply.userName }}</span>
-          <p class="discussion-text">{{ reply.text }}</p>
-        </div>
-        <!-- Modulo di Risposta -->
-        <form (ngSubmit)="replyToDiscussion(discussion)">
-          <!-- Campi del modulo per la risposta -->
-          <div class="form-group">
-            <mat-form-field appearance="fill">
-              <mat-label>Rispondi:</mat-label>
-              <textarea matInput [(ngModel)]="discussion.replyText" name="replyText" required></textarea>
-            </mat-form-field>
-          </div>
-          <button mat-raised-button color="primary" type="submit">Rispondi</button>
-        </form>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Sezione Recensioni -->
-  <div class="review-section">
-    <h2>Recensioni</h2>
-
-    <!-- Modulo di Recensione dell'Utente -->
-    <div class="user-review-form">
-      <h3>Lascia una Recensione</h3>
-      <form #reviewForm="ngForm" (ngSubmit)="submitReview(reviewForm)">
-        <!-- Campi del modulo per la recensione -->
-        <div class="form-group">
-          <mat-form-field appearance="fill">
-            <mat-label>Nome Utente</mat-label>
-            <input matInput [(ngModel)]="userReview.userName" name="userName" required>
-          </mat-form-field>
-        </div>
-        <div class="form-group">
-          <mat-form-field appearance="fill">
-            <mat-label>Valutazione</mat-label>
-            <mat-select [(ngModel)]="userReview.rating" name="rating" required>
-              <mat-option value="1">1 Stella</mat-option>
-              <mat-option value="2">2 Stelle</mat-option>
-              <mat-option value="3">3 Stelle</mat-option>
-              <mat-option value="4">4 Stelle</mat-option>
-              <mat-option value="5">5 Stelle</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="form-group">
-          <mat-form-field appearance="fill">
-            <mat-label>Recensione</mat-label>
-            <textarea matInput [(ngModel)]="userReview.text" name="text" required></textarea>
-          </mat-form-field>
-        </div>
-        <div class="form-group">
-          <label>
-            <input type="checkbox" [(ngModel)]="userReview.anonymous" name="anonymous"> Recensisci in modo anonimo
-          </label>
-        </div>
-        <button mat-raised-button color="primary" type="submit">Invia Recensione</button>
-      </form>
-    </div>
-
-    <!-- Visualizza le Recensioni (Reali e Fittizie) -->
-    <div class="reviews">
-      <!-- Recensione dell'Utente -->
-      <div class="review" *ngIf="userReview.text">
-        <span class="user-name">{{ userReview.anonymous ? 'Anonimo' : userReview.userName }}</span>
-        <span class="user-rating">
-          <mat-icon *ngFor="let star of getStarsArray(userReview.rating)">star</mat-icon>
-        </span>
-        <p class="review-text">{{ userReview.text }}</p>
-      </div>
-
-      <!-- Recensioni Vere -->
-      <div class="review" *ngFor="let review of realReviews">
-        <span class="user-name">{{ review.userName }}</span>
-        <span class="user-rating">
-          <mat-icon *ngFor="let star of getStarsArray(review.rating)">star</mat-icon>
-        </span>
-        <p class="review-text">{{ review.text }}</p>
-        <!-- Risposte alle Recensioni -->
-        <div class="review-reply" *ngFor="let reply of review.replies">
-          <span class="user-name">{{ reply.userName }}</span>
-          <span class="user-rating" *ngIf="reply.rating">
-            <mat-icon *ngFor="let star of getStarsArrayByRating(reply.rating)">star</mat-icon>
-          </span>
-          <p class="review-text">{{ reply.text }}</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
+</section>
