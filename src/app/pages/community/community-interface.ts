@@ -24,6 +24,7 @@ export interface CommunityEvent {
   name: string;
   date: Date;
   description: string;
+
 }
 
 // Aggiorna anche le altre interfacce se necessario...

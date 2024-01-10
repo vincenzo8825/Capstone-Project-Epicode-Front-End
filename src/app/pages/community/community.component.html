@@ -55,7 +55,9 @@ sss
         <p>{{ event.description }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="registerForEvent(event)">Iscriviti</button>
+        <button mat-raised-button color="primary" (click)="registerForEvent(event)" [disabled]="iscrizioni[event.name]">
+          {{ iscrizioni[event.name] ? 'Iscritto' : 'Iscriviti' }}
+        </button>
       </mat-card-actions>
     </mat-card>
   </div>

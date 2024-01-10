@@ -24,9 +24,9 @@ export class CommunityComponent implements OnInit {
   userReviews: UserReview[] = [
     // Recensioni degli utenti esistenti
   ];
+  iscrizioni: { [eventName: string]: boolean } = {};
 
 
-  // Modello iniziale per una nuova recensione
   newReview: UserReview = { user: '', comment: '', rating: 0 };
   sharedService: SharedService;
   router: Router;
@@ -103,6 +103,7 @@ export class CommunityComponent implements OnInit {
       if (result.isConfirmed) {
         this.sharedService.aggiungiEventoIscritto(event.name);
         this.router.navigate(['/profiloutente']);
+        this.iscrizioni[event.name] = true;
       }
     });
   }
