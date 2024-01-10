@@ -201,8 +201,19 @@ export class SharedService {
   registraAcquisti(corsi: Corso[], lezioni: Lezione[]): void {
     this.corsiAcquistatiSubject.next(corsi);
     this.lezioniAcquistateSubject.next(lezioni);
-    // Qui puoi anche salvare i dati nel localStorage se preferisci
+    // Salva i dati nel localStorage se necessario
+    const datiAcquisti = {
+      carrelloCorsi: corsi,
+      carrelloLezioni: lezioni
+      // Aggiungi altre informazioni necessarie, come il totale, se necessario
+    };
+    localStorage.setItem('datiAcquisti', JSON.stringify(datiAcquisti));
   }
+  sincronizzaDatiAcquistiConSubject(corsi: Corso[], lezioni: Lezione[]): void {
+    this.corsiAcquistatiSubject.next(corsi);
+    this.lezioniAcquistateSubject.next(lezioni);
+  }
+
 }
 
 

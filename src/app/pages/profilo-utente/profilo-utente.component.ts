@@ -25,6 +25,7 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.caricaDatiUtente();
+    this.caricaDatiAcquisti();
     this.subscriptions.push(
       this.sharedService.preferitiCorsi$.subscribe(corsi => this.preferitiCorsi = corsi),
       this.sharedService.preferitiLezioni$.subscribe(lezioni => this.preferitiLezioni = lezioni),
@@ -41,6 +42,15 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
       this.userEmail = userData.email;
     }
   }
+  caricaDatiAcquisti(): void {
+    const datiAcquistiRaw = localStorage.getItem('datiAcquisti');
+    if (datiAcquistiRaw) {
+      const datiAcquisti = JSON.parse(datiAcquistiRaw);
+      this.sharedService.sincronizzaDatiAcquistiConSubject(datiAcquisti.carrelloCorsi, datiAcquisti.carrelloLezioni);
+    }
+  }
+
+
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(subscription => subscription.unsubscribe());

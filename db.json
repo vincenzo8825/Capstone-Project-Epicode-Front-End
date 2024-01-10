@@ -47,6 +47,18 @@
       "password": "$2a$10$pWjoVXNfqH5JpwyppAs1a.e3wfSLrNJXrNDd1WMqkn46NM4JCm0yq",
       "nome": "vincenzo",
       "id": 8
+    },
+    {
+      "email": "mavigugywy@mailinator.com",
+      "password": "$2a$10$TGLYd.1dPgMSuzUQMGM6n.P6bBZoflS3s9e0TQet3It69Lpy/KSxS",
+      "nome": "Qui ut tempor rerum ",
+      "id": 9
+    },
+    {
+      "email": "xusogax@mailinator.com",
+      "password": "$2a$10$sAu/xZajvx2tTYyMK7nkB.tzwZbKoGP/aNJCwAwGAcMvh.O0yhQOS",
+      "nome": "Earum voluptatem tot",
+      "id": 10
     }
   ],
   "corsi": [

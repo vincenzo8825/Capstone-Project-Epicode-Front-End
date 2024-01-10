@@ -143,17 +143,20 @@ export class CarrelloComponent implements OnDestroy {
   acquistaTutto(): void {
     console.log('Acquista tutto');
 
-    // Registra i corsi e le lezioni acquistate
-    this.sharedService.registraAcquisti(this.carrelloCorsi, this.carrelloLezioni);
+    const datiAcquisti = {
+      carrelloCorsi: this.carrelloCorsi,
+      carrelloLezioni: this.carrelloLezioni,
+      totale: this.totaleGenerale
+    };
 
-    // Reindirizza all'area di pagamento
-    this.router.navigate(['/payment'], {
-      state: {
-        carrelloCorsi: this.carrelloCorsi,
-        carrelloLezioni: this.carrelloLezioni,
-        totale: this.totaleGenerale
-      }
-    });
+    this.sharedService.registraAcquisti(this.carrelloCorsi, this.carrelloLezioni);
+  console.log('Dati salvati in localStorage:', datiAcquisti);
+  // ...
+
+    this.router.navigate(['/payment']);
+  }
+
+
 
   }
-}
+
