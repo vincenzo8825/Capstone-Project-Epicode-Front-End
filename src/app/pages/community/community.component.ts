@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import Swal from 'sweetalert2';
 interface DiscussionTopic {
   title: string;
   content: string;
@@ -65,11 +65,18 @@ export class CommunityComponent implements OnInit {
 
   loadDiscussionTopics(): void {
     this.discussionTopics = [
-      { title: 'Trend del Web Development 2024', content: 'Discussione approfondita sui nuovi trend...' },
-      { title: 'Introduzione al Machine Learning', content: 'Scopriamo le basi del machine learning...' },
+      { title: 'Trend del Web Development 2024', content: 'Discussione approfondita sui nuovi trend nel web development, includendo framework emergenti, best practices e case study.' },
+      { title: 'Introduzione al Machine Learning', content: 'Scopriamo le basi del machine learning, con una panoramica sui vari algoritmi e le loro applicazioni pratiche.' },
+      { title: 'Principi Fondamentali del UX/UI Design', content: 'Esploriamo i principi chiave del design dell\'interfaccia utente e dell\'esperienza utente, con esempi pratici e ultime tendenze.' },
+      { title: 'Python per Data Science: Una Guida Completa', content: 'Una discussione completa su come Python viene utilizzato nella data science, con esempi di librerie come Pandas e NumPy.' },
+      { title: 'Intelligenza Artificiale: Etica e Futuro', content: 'Un dibattito sull\'impatto etico dell\'intelligenza artificiale e sulle sue implicazioni future in vari settori.' },
+      { title: 'Sviluppo di Applicazioni Full Stack con JavaScript', content: 'Approfondimento sullo sviluppo di applicazioni full stack utilizzando tecnologie JavaScript come Node.js, React, e MongoDB.' },
+      { title: 'Blockchain e le Sue Applicazioni Oltre le Criptovalute', content: 'Discussione sulle applicazioni della tecnologia blockchain al di là del mondo delle criptovalute, inclusi smart contract e supply chain.' },
+      { title: 'Big Data e Analytics: Strumenti e Strategie', content: 'Analisi degli strumenti e delle strategie per il lavoro con Big Data, inclusi sistemi di gestione del database e tecniche di visualizzazione.' }
       // Aggiungi altri topic qui
     ];
   }
+
 
   loadAnnouncements(): void {
     this.announcements = [
@@ -81,23 +88,68 @@ export class CommunityComponent implements OnInit {
 
   loadUpcomingEvents(): void {
     this.upcomingEvents = [
-      { name: 'Marathon di Programmazione', date: new Date(2024, 5, 15), description: 'Unisciti alla nostra Marathoathon annuale...' },
-      { name: 'Seminario su Blockchain e Criptovalute', date: new Date(2024, 6, 20), description: 'Impara tutto sulla blockchain...' },
+      {
+        name: 'Marathon di Programmazione',
+        date: new Date(2024, 5, 15),
+        description: 'Unisciti alla nostra Marathoathon annuale di programmazione. Sfida te stesso e altri sviluppatori in una serie di compiti di codifica!'
+      },
+      {
+        name: 'Seminario su Blockchain e Criptovalute',
+        date: new Date(2024, 6, 20),
+        description: 'Impara tutto sulla blockchain e le criptovalute in questo seminario interattivo. Esperti del settore condivideranno le loro conoscenze e esperienze.'
+      },
+      {
+        name: 'Workshop su UX/UI Design',
+        date: new Date(2024, 7, 10),
+        description: 'Partecipa al nostro workshop su UX/UI Design per migliorare le tue competenze di design e apprendere le ultime tendenze del settore.'
+      },
+      {
+        name: 'Corso Intensivo di Data Science',
+        date: new Date(2024, 8, 5),
+        description: 'Immergiti nel mondo della data science con il nostro corso intensivo, che copre argomenti da analisi dei dati a machine learning.'
+      }
       // Aggiungi altri eventi qui
     ];
   }
+
+  registerForEvent(event: { name: string; }): void {
+    // Codice per gestire la registrazione all'evento, poi...
+    Swal.fire({
+      title: 'Iscrizione Confermata!',
+      text: `Ti sei iscritto con successo a "${event.name}"!`,
+      icon: 'success',
+      confirmButtonText: 'Ok'
+    });
+  }
+
 
   loadFAQs(): void {
     this.faqs = [
       {
         question: 'Come posso iscrivermi ai corsi?',
-        answer: 'Per iscriverti ai nostri corsi, segui questi passaggi:'
+        answer: 'Per iscriverti ai nostri corsi, visita la sezione "Corsi" sul nostro sito web, scegli il corso che desideri seguire e clicca su "Iscriviti ora". Sarai guidato attraverso il processo di registrazione e pagamento. Una volta completata l\'iscrizione, riceverai tutte le informazioni necessarie per iniziare il tuo percorso di apprendimento.'
       },
       {
         question: 'Quali risorse sono disponibili per l\'apprendimento?',
-        answer: ''
+        answer: 'Offriamo una vasta gamma di risorse, tra cui video lezioni, esercizi pratici, documentazione dettagliata, progetti reali e forum di discussione. Inoltre, forniamo accesso a tutor esperti per assistenza individuale e sessioni di Q&A regolari.'
       },
-      // Aggiungi altre FAQ qui
+      {
+        question: 'Ci sono corsi specializzati in programmazione web?',
+        answer: 'Sì, offriamo corsi specializzati in vari aspetti della programmazione web, inclusi HTML, CSS, JavaScript, React, Node.js e sviluppo di applicazioni full stack. I corsi variano da livello principiante a avanzato.'
+      },
+      {
+        question: 'Offrite formazione in data science e machine learning?',
+        answer: 'Certamente! I nostri corsi di data science e machine learning coprono una vasta gamma di argomenti, come Python per la data science, analisi statistica, apprendimento automatico, deep learning e intelligenza artificiale, con esempi pratici e progetti.'
+      },
+      {
+        question: 'Cosa posso aspettarmi dai corsi di UX/UI Design?',
+        answer: 'I nostri corsi di UX/UI Design forniscono competenze pratiche su design dell\'interfaccia utente, esperienza utente, prototipazione, wireframing e strumenti come Sketch e Adobe XD. Imparerai attraverso studi di caso reali e progetti di design.'
+      },
+      {
+        question: 'Ci sono opportunità di apprendimento pratico?',
+        answer: 'Sì, tutti i nostri corsi includono progetti pratici per mettere in pratica ciò che hai appreso. Questo include lo sviluppo di applicazioni web, analisi di dataset reali, creazione di prototipi di design e molto altro.'
+      }
+      // Continua ad aggiungere altre FAQ qui
     ];
   }
 
@@ -118,9 +170,10 @@ export class CommunityComponent implements OnInit {
     }
   }
 
-  registerForEvent(event: Event): void {
-    console.log('Registrato per l\'evento:', event.name);
+  getStars(rating: number): Array<number> {
+    return new Array(rating);
   }
-
-
 }
+
+
+

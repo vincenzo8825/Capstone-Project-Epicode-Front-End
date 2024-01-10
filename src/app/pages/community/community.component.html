@@ -12,17 +12,24 @@
 
 
 <section class="discussion-forum">
+  <h1 class="forum-title">Forum delle Innovazioni Tecnologiche</h1>
   <mat-expansion-panel *ngFor="let topic of discussionTopics">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <h2 class="section-title">{{ topic.title }}</h2>
+        <h2 class="section-title">
+          {{ topic.title }}
+          <span class="discussion-closed">Discussione Chiusa</span>
+        </h2>
       </mat-panel-title>
     </mat-expansion-panel-header>
     <div class="panel-content">{{ topic.content }}</div>
   </mat-expansion-panel>
 </section>
 
+
+sss
 <section class="announcement-board">
+  <h1 class="board-title">Discussioni in Apertura</h1>
   <mat-accordion>
     <mat-expansion-panel *ngFor="let announcement of announcements">
       <mat-expansion-panel-header>
@@ -35,7 +42,9 @@
   </mat-accordion>
 </section>
 
+
 <section class="upcoming-events">
+  <h1 class="events-title">Prossimi Eventi Live</h1>
   <div class="events-container">
     <mat-card *ngFor="let event of upcomingEvents">
       <mat-card-header>
@@ -52,10 +61,11 @@
   </div>
 </section>
 
+
+
 <section class="faq-section">
-
+  <h1 class="faq-title">FAQ</h1>
   <mat-accordion>
-
     <mat-expansion-panel *ngFor="let faq of faqs">
       <mat-expansion-panel-header>
         <mat-panel-title>
@@ -67,8 +77,9 @@
   </mat-accordion>
 </section>
 
-<section class="user-reviews">
 
+<section class="user-reviews">
+  <h1 class="reviews-title">Recensioni</h1>
 
   <!-- Form per aggiungere una nuova recensione -->
   <div class="new-review-form">
@@ -90,20 +101,20 @@
     </mat-form-field>
 
     <button mat-raised-button color="primary" (click)="addReview()">Aggiungi Recensione</button>
-    <section class="user-reviews">
-      <div *ngFor="let review of userReviews" class="review">
-        <mat-card>
-          <mat-card-header>
-            <mat-card-title>{{ review.user }}</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>{{ review.comment }}</p>
-            <div class="rating">
-              <mat-icon *ngFor="let star of [].constructor(5)" [color]="star < review.rating ? 'warn' : 'default'">star</mat-icon>
-            </div>
-          </mat-card-content>
-        </mat-card>
+  </div>
+
+<!-- Lista delle recensioni esistenti -->
+<div *ngFor="let review of userReviews" class="review">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ review.user }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ review.comment }}</p>
+      <div class="rating">
+        <mat-icon *ngFor="let star of getStars(review.rating)" class="star-rating">star</mat-icon>
       </div>
-
-
+    </mat-card-content>
+  </mat-card>
+</div>
 </section>

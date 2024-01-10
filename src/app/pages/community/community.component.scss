@@ -1,61 +1,124 @@
-/* Stili per la sezione delle recensioni */
-.user-reviews {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 20px;
+/* Stili globali */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  line-height: 1.6;
 }
 
-.user-reviews .review {
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  border-radius: 8px;
-  font-size: 0.9em;
+a {
+  text-decoration: none;
+  color: #007bff;
 }
 
-.user-reviews .rating {
-  color: #f39c12;
-  font-size: 1em;
-}
-
-/* Stili per il form delle nuove recensioni */
-.user-reviews .new-review-form {
-  background-color: #f8f9fa;
+/* Stili per le sezioni */
+section {
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
-.user-reviews .new-review-form input,
-.user-reviews .new-review-form textarea,
-.user-reviews .new-review-form select {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ced4da;
-  border-radius: 4px;
-  font-size: 0.9em;
+h1 {
+  font-size: 2em;
+  margin-bottom: 15px;
+  color: #333;
 }
 
-.user-reviews .new-review-form button {
-  width: auto;
-  padding: 10px 20px;
-  background-color: #27ae60;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  align-self: flex-start;
+/* Stili per il forum di discussione, annunci e FAQ */
+.discussion-forum, .announcement-board, .faq-section, .user-reviews {
+  mat-card {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-size: 1.5em;
+  }
+
+  .panel-content {
+    padding: 15px;
+  }
+
+  .discussion-closed {
+    margin-left: 10px;
+    color: red;
+    font-style: italic;
+  }
 }
 
-.user-reviews .new-review-form button:hover {
-  background-color: #229954;
+/* Stili per la sezione eventi */
+.upcoming-events {
+  .events-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  mat-card {
+    flex-basis: calc(33.33% - 20px);
+    margin: 10px;
+  }
+
+  .mat-card-actions {
+    display: flex;
+    justify-content: center;
+  }
 }
+
+/* Stili per il form delle recensioni */
+.new-review-form {
+  width: 50%;
+  margin: 20px auto;
+
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  button {
+    background-color: #005b96;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #003f6c;
+  }
+}
+
+/* Stelle delle recensioni */
+.star-rating {
+  color: #ffd700; /* Codice colore HEX per il giallo */
+}
+
 
 /* Responsive Design */
+@media only screen and (max-width: 1200px) {
+  /* Stili per schermi fino a 1200px */
+}
+
+@media only screen and (max-width: 900px) {
+  /* Stili per schermi fino a 900px */
+}
+
 @media only screen and (max-width: 768px) {
-  .user-reviews {
+  /* Stili per schermi fino a 768px */
+  .upcoming-events .events-container {
     flex-direction: column;
   }
+
+  .upcoming-events mat-card {
+    flex-basis: 100%;
+  }
+
+  .new-review-form {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  /* Stili per schermi fino a 568px */
+}
+
+@media only screen and (max-width: 400px) {
+  /* Stili per schermi fino a 400px */
 }
