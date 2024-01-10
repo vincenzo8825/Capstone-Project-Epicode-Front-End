@@ -142,6 +142,11 @@ export class CarrelloComponent implements OnDestroy {
 
   acquistaTutto(): void {
     console.log('Acquista tutto');
+
+    // Registra i corsi e le lezioni acquistate
+    this.sharedService.registraAcquisti(this.carrelloCorsi, this.carrelloLezioni);
+
+    // Reindirizza all'area di pagamento
     this.router.navigate(['/payment'], {
       state: {
         carrelloCorsi: this.carrelloCorsi,
@@ -149,5 +154,6 @@ export class CarrelloComponent implements OnDestroy {
         totale: this.totaleGenerale
       }
     });
+
   }
 }

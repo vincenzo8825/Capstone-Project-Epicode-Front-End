@@ -4,6 +4,7 @@ import { AuthService } from '../auth/auth.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { SharedService } from './../../shared.service';
+import { ProfiloUtenteComponent } from '../profilo-utente/profilo-utente.component';
 
 @Component({
   selector: 'app-navbar',
@@ -16,6 +17,7 @@ export class NavbarComponent implements OnInit {
     { path: '/chi-siamo', label: 'Chi Siamo', icon: 'info' },
     { path: '/preferiti', label: 'Preferiti', icon: 'favorite' },
     { path: '/carrello', label: 'Carrello', icon: 'shopping_cart' },
+    { path: '', component: ProfiloUtenteComponent }
   ];
 
   isLoggedIn$: Observable<boolean>;

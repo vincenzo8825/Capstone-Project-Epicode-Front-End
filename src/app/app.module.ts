@@ -15,12 +15,14 @@ import { TermsAndConditionsModule } from './pages/terms-and-conditions/terms-and
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { LavoraConNoiModule } from './pages/lavora-con-noi/lavora-con-noi.module';
+import { ProfiloUtenteComponent } from './pages/profilo-utente/profilo-utente.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    ProfiloUtenteComponent,
 
   ],
   imports: [

@@ -28,12 +28,21 @@
       <mat-icon>shopping_cart</mat-icon> Carrello
       <span class="notification-badge" *ngIf="carrelloCount > 0">{{ carrelloCount }}</span>
   </a>
+  <ng-container *ngIf="isLoggedIn$ | async; let user">
+    <button mat-button [matMenuTriggerFor]="userMenu">
+      <mat-icon>account_circle</mat-icon> {{ userName || 'Nome Utente' }}
+    </button>
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item routerLink="/profilo-utente" (click)="closeNavList()">
+        <mat-icon>person</mat-icon> Profilo
+      </button>
+      <button mat-menu-item (click)="onLogout()">
+        <mat-icon>exit_to_app</mat-icon> Logout
+      </button>
+    </mat-menu>
+  </ng-container>
 
-    <ng-container *ngIf="isLoggedIn$ | async; let user">
-      <a mat-button (click)="onLogout()" (click)="closeNavList()">
-        <mat-icon>exit_to_app</mat-icon> Logout ({{ userName || 'Nome Utente' }})
-      </a>
-    </ng-container>
+
 
     <a mat-button *ngIf="!(isLoggedIn$ | async)" routerLink="/auth" routerLinkActive="active" (click)="closeNavList()">
       <mat-icon>lock_open</mat-icon> Login

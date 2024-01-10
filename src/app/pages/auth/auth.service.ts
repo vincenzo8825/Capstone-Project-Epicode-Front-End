@@ -8,7 +8,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';  // Corretto il r minuscolo
-import { Corso } from './Models/i-user';
+import { Corso, iUser } from './Models/i-user';
 import { iLogin } from './Models/login';
 
 @Injectable({
@@ -135,5 +135,13 @@ export class AuthService {
 
   getCarrelloUpdated(): BehaviorSubject<void> {
     return this.carrelloUpdated;
+  }
+
+  getCurrentUser(): iUser | null {
+    const userJson = localStorage.getItem('accessData');
+    if (!userJson) return null;
+
+    const accessData: iAccessData = JSON.parse(userJson);
+    return accessData.user;
   }
 }

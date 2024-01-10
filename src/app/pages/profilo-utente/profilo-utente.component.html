@@ -1,0 +1,63 @@
+<!-- ProfiloUtenteComponent.html -->
+<section>
+  <h3>Informazioni Personali</h3>
+  <p>Nome: {{ userName }}</p>
+  <p>Email: {{ userEmail }}</p>
+  <!-- Aggiungi qui altri campi informativi -->
+  <!-- Opzionale: Aggiungi un pulsante per modificare le informazioni -->
+</section>
+
+<section>
+  <h3>Corsi Preferiti</h3>
+  <ul>
+    <li *ngFor="let corso of preferitiCorsi">{{ corso.nome }}</li>
+  </ul>
+</section>
+
+<section>
+  <h3>Lezioni Preferite</h3>
+  <ul>
+    <li *ngFor="let lezione of preferitiLezioni">{{ lezione.titolo }}</li>
+  </ul>
+</section>
+<section>
+  <h3>Corsi Acquistati</h3>
+  <ul>
+    <li *ngFor="let corso of corsiAcquistati">{{ corso.nome }}</li>
+  </ul>
+</section>
+
+<section>
+  <h3>Lezioni Acquistate</h3>
+  <ul>
+    <li *ngFor="let lezione of lezioniAcquistate">{{ lezione.titolo }}</li>
+  </ul>
+</section>
+
+<section>
+  <h3>Impostazioni Account</h3>
+  <button (click)="cambiaPassword()">Cambia Password</button>
+  <!-- Aggiungi altre impostazioni qui -->
+</section>
+
+<section>
+  <h3>Attività Recenti</h3>
+  <ul>
+    <li *ngFor="let attivita of attivitaRecenti">
+      {{ attivita.descrizione }}
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h3>I Miei Feedback</h3>
+  <ul>
+    <li *ngFor="let feedback of feedbackUtente">
+      Corso: {{ feedback.corso }} - Recensione: {{ feedback.testo }}
+    </li>
+  </ul>
+</section>
+
+<section>
+  <button (click)="logout()">Logout</button>
+</section>

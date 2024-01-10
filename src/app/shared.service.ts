@@ -34,7 +34,11 @@ export class SharedService {
   private preferitiUpdated = new BehaviorSubject<void>(undefined);
   private carrelloUpdated = new BehaviorSubject<void>(undefined);
   private corsiUpdated = new BehaviorSubject<void>(undefined);
+  private corsiAcquistatiSubject = new BehaviorSubject<Corso[]>([]);
+  corsiAcquistati$ = this.corsiAcquistatiSubject.asObservable();
 
+  private lezioniAcquistateSubject = new BehaviorSubject<Lezione[]>([]);
+  lezioniAcquistate$ = this.lezioniAcquistateSubject.asObservable();
   constructor(private http: HttpClient, private snackBar: MatSnackBar, private router: Router) {}
 
   addToLezioni(lezione: Lezione): Observable<void> {
@@ -194,7 +198,11 @@ export class SharedService {
   private navigateToPreferiti(): void {
     this.router.navigate(['/preferiti']);
   }
-
+  registraAcquisti(corsi: Corso[], lezioni: Lezione[]): void {
+    this.corsiAcquistatiSubject.next(corsi);
+    this.lezioniAcquistateSubject.next(lezioni);
+    // Qui puoi anche salvare i dati nel localStorage se preferisci
+  }
 }
 
 

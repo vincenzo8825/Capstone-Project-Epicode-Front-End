@@ -10,6 +10,8 @@ import { CommunityComponent } from './pages/community/community.component';
 import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-and-conditions.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { LavoraConNoiComponent } from './pages/lavora-con-noi/lavora-con-noi.component';
+import { ProfiloUtenteComponent } from './pages/profilo-utente/profilo-utente.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -31,7 +33,8 @@ const routes: Routes = [
   { path: 'payment', component: PaymentComponent, data: { state: 'payment' } },
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
-  {path:'lavora-con-noi', component: LavoraConNoiComponent}
+  {path:'lavora-con-noi', component: LavoraConNoiComponent},
+  { path: 'profilo-utente', component: ProfiloUtenteComponent },
   // Altre route possono essere aggiunte qui
 ];
 
