@@ -20,6 +20,7 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
   attivitaRecenti: any; // Sostituisci con il tipo appropriato
   feedbackUtente: any; // Sostituisci con il tipo appropriato
   subscriptions: Subscription[] = [];
+  eventiIscritti: [] = [];
 
   constructor(private authService: AuthService, private sharedService: SharedService) {}
 
@@ -30,7 +31,9 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
       this.sharedService.preferitiCorsi$.subscribe(corsi => this.preferitiCorsi = corsi),
       this.sharedService.preferitiLezioni$.subscribe(lezioni => this.preferitiLezioni = lezioni),
       this.sharedService.corsiAcquistati$.subscribe(corsi => this.corsiAcquistati = corsi),
-      this.sharedService.lezioniAcquistate$.subscribe(lezioni => this.lezioniAcquistate = lezioni)
+      this.sharedService.lezioniAcquistate$.subscribe(lezioni => this.lezioniAcquistate = lezioni),
+
+
       // Aggiungi qui altre sottoscrizioni necessarie
     );
   }

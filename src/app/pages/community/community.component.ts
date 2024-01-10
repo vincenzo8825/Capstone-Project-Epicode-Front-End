@@ -1,31 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
-interface DiscussionTopic {
-  title: string;
-  content: string;
-}
+import { Announcement, CommunityEvent, DiscussionTopic, FAQ, UserReview, } from './community-interface';
 
-interface Announcement {
-  title: string;
-  content: string;
-}
-
-interface Event {
-  name: string;
-  date: Date;
-  description: string;
-}
-
-interface FAQ {
-  question: string;
-  answer: string;
-}
-
-interface UserReview {
-  user: string;
-  comment: string;
-  rating: number;
-}
 
 @Component({
   selector: 'app-community',
@@ -39,7 +15,7 @@ export class CommunityComponent implements OnInit {
   announcements: Announcement[] = [
     // Dati degli annunci
   ];
-  upcomingEvents: Event[] = [
+  upcomingEvents: CommunityEvent[] = [
     // Dati degli eventi imminenti
   ];
   faqs: FAQ[] = [
@@ -48,6 +24,7 @@ export class CommunityComponent implements OnInit {
   userReviews: UserReview[] = [
     // Recensioni degli utenti esistenti
   ];
+
 
   // Modello iniziale per una nuova recensione
   newReview: UserReview = { user: '', comment: '', rating: 0 };

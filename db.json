@@ -59,6 +59,12 @@
       "password": "$2a$10$sAu/xZajvx2tTYyMK7nkB.tzwZbKoGP/aNJCwAwGAcMvh.O0yhQOS",
       "nome": "Earum voluptatem tot",
       "id": 10
+    },
+    {
+      "email": "vincenzo@esempio.it",
+      "password": "$2a$10$cXbwxKSlAunkKoL5Hcq4xumaBE7DF7PntGTvvGCsHSJVe8RzEy3Lm",
+      "nome": "vincenzo",
+      "id": 11
     }
   ],
   "corsi": [

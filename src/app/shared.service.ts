@@ -39,6 +39,7 @@ export class SharedService {
 
   private lezioniAcquistateSubject = new BehaviorSubject<Lezione[]>([]);
   lezioniAcquistate$ = this.lezioniAcquistateSubject.asObservable();
+  eventiIscritti$: any;
   constructor(private http: HttpClient, private snackBar: MatSnackBar, private router: Router) {}
 
   addToLezioni(lezione: Lezione): Observable<void> {
@@ -209,10 +210,10 @@ export class SharedService {
     };
     localStorage.setItem('datiAcquisti', JSON.stringify(datiAcquisti));
   }
-  sincronizzaDatiAcquistiConSubject(corsi: Corso[], lezioni: Lezione[]): void {
-    this.corsiAcquistatiSubject.next(corsi);
-    this.lezioniAcquistateSubject.next(lezioni);
-  }
+sincronizzaDatiAcquistiConSubject(corsi: Corso[], lezioni: Lezione[]): void {
+  this.corsiAcquistatiSubject.next(corsi);
+  this.lezioniAcquistateSubject.next(lezioni);
+}
 
 }
 
