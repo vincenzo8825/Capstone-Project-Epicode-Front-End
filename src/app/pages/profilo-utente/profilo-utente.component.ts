@@ -20,8 +20,8 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
   attivitaRecenti: any; // Sostituisci con il tipo appropriato
   feedbackUtente: any; // Sostituisci con il tipo appropriato
   subscriptions: Subscription[] = [];
-  eventiIscritti: [] = [];
-
+  eventiIscritti: string[] = [];
+  eventName!: string;
   constructor(private authService: AuthService, private sharedService: SharedService) {}
 
   ngOnInit(): void {
@@ -32,11 +32,13 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
       this.sharedService.preferitiLezioni$.subscribe(lezioni => this.preferitiLezioni = lezioni),
       this.sharedService.corsiAcquistati$.subscribe(corsi => this.corsiAcquistati = corsi),
       this.sharedService.lezioniAcquistate$.subscribe(lezioni => this.lezioniAcquistate = lezioni),
-
-
+      this.sharedService.getEventiIscritti().subscribe(nomiEventi => {
+        this.eventiIscritti = nomiEventi;
+      })
       // Aggiungi qui altre sottoscrizioni necessarie
     );
   }
+
 
   caricaDatiUtente(): void {
     const userData = this.authService.getCurrentUser();

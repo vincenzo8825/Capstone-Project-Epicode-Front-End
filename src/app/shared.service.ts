@@ -39,8 +39,17 @@ export class SharedService {
 
   private lezioniAcquistateSubject = new BehaviorSubject<Lezione[]>([]);
   lezioniAcquistate$ = this.lezioniAcquistateSubject.asObservable();
-  eventiIscritti$: any;
-  constructor(private http: HttpClient, private snackBar: MatSnackBar, private router: Router) {}
+  private eventiIscrittiSubject = new BehaviorSubject<string[]>([]);
+eventiIscritti$ = this.eventiIscrittiSubject.asObservable();
+
+
+constructor(private http: HttpClient, private snackBar: MatSnackBar, private router: Router) {
+  // Carica gli eventi iscritti dal localStorage
+  const eventiSalvati = localStorage.getItem('eventiIscritti');
+  if (eventiSalvati) {
+    this.eventiIscrittiSubject.next(JSON.parse(eventiSalvati));
+  }
+}
 
   addToLezioni(lezione: Lezione): Observable<void> {
     const carrelloLezioni = this.carrelloLezioniSubject.value;
@@ -214,6 +223,21 @@ sincronizzaDatiAcquistiConSubject(corsi: Corso[], lezioni: Lezione[]): void {
   this.corsiAcquistatiSubject.next(corsi);
   this.lezioniAcquistateSubject.next(lezioni);
 }
+
+aggiungiEventoIscritto(nomeEvento: string) {
+  const eventiIscritti = this.eventiIscrittiSubject.value;
+  const nuoviEventiIscritti = [...eventiIscritti, nomeEvento];
+  this.eventiIscrittiSubject.next(nuoviEventiIscritti);
+
+  // Salva l'elenco aggiornato nel localStorage
+  localStorage.setItem('eventiIscritti', JSON.stringify(nuoviEventiIscritti));
+}
+
+
+getEventiIscritti(): Observable<string[]> {
+  return this.eventiIscritti$;
+}
+
 
 }
 

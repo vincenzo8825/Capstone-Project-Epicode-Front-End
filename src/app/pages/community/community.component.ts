@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Announcement, CommunityEvent, DiscussionTopic, FAQ, UserReview, } from './community-interface';
-
-
+import { SharedService } from '../../shared.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-community',
   templateUrl: './community.component.html',
@@ -28,8 +28,13 @@ export class CommunityComponent implements OnInit {
 
   // Modello iniziale per una nuova recensione
   newReview: UserReview = { user: '', comment: '', rating: 0 };
+  sharedService: SharedService;
+  router: Router;
 
-  constructor() {}
+  constructor(sharedService: SharedService, router: Router) {
+    this.sharedService = sharedService;
+    this.router = router;
+  }
 
   ngOnInit(): void {
     this.loadDiscussionTopics();
@@ -88,16 +93,20 @@ export class CommunityComponent implements OnInit {
       // Aggiungi altri eventi qui
     ];
   }
-
   registerForEvent(event: { name: string; }): void {
-    // Codice per gestire la registrazione all'evento, poi...
     Swal.fire({
       title: 'Iscrizione Confermata!',
       text: `Ti sei iscritto con successo a "${event.name}"!`,
       icon: 'success',
       confirmButtonText: 'Ok'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.sharedService.aggiungiEventoIscritto(event.name);
+        this.router.navigate(['/profiloutente']);
+      }
     });
   }
+
 
 
   loadFAQs(): void {

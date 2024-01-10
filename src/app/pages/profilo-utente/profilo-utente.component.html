@@ -33,7 +33,9 @@
     <li *ngFor="let lezione of lezioniAcquistate">{{ lezione.titolo }}</li>
   </ul>
 </section>
-
+<div *ngFor="let evento of eventiIscritti">
+  <h2>Evento Iscritto: {{ evento }}</h2>
+</div>
 
 <section>
   <h3>Impostazioni Account</h3>
