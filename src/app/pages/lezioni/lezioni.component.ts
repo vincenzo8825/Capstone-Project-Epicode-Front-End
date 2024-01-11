@@ -20,6 +20,7 @@ export class LezioniComponent implements OnInit {
   constructor(private sharedService: SharedService) {}
 
   ngOnInit(): void {
+
     this.sharedService.getElencoLezioni()
       .subscribe(data => {
         this.lezioni = data; // Assicurati che i dati siano assegnati correttamente
@@ -29,16 +30,18 @@ export class LezioniComponent implements OnInit {
   }
 
   onCategoriaChange(): void {
+    console.log('onCategoriaChange chiamata');
     if (this.categoriaSelezionata) {
-      // Filtra le lezioni in base alla categoria selezionata
       this.lezioniFiltrate = this.lezioni.filter(lezione =>
         lezione.categoria.toLowerCase() === this.categoriaSelezionata.toLowerCase()
       );
     } else {
-      // Se nessuna categoria è selezionata, mostra tutte le lezioni
       this.lezioniFiltrate = [...this.lezioni];
     }
+    console.log('Categoria Selezionata:', this.categoriaSelezionata);
+    console.log('Lezioni Filtrate:', this.lezioniFiltrate);
   }
+
 
 
 

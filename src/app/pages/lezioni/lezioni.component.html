@@ -8,10 +8,11 @@
     <!-- Filtra per Categoria -->
     <mat-form-field appearance="fill">
       <mat-label>Seleziona Categoria:</mat-label>
-      <mat-select [(ngModel)]="categoriaSelezionata" id="categoriaSelezionata" (change)="onCategoriaChange()">
+      <mat-select [(ngModel)]="categoriaSelezionata" id="categoriaSelezionata" (ngModelChange)="onCategoriaChange()">
         <mat-option *ngFor="let categoria of categorieList" [value]="categoria">{{ categoria }}</mat-option>
       </mat-select>
     </mat-form-field>
+
 
     <!-- Elenco lezioni in base alla categoria selezionata -->
     <div *ngIf="categoriaSelezionata !== ''">
