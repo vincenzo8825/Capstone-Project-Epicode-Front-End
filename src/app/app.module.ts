@@ -16,7 +16,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { LavoraConNoiModule } from './pages/lavora-con-noi/lavora-con-noi.module';
 import { ProfiloUtenteComponent } from './pages/profilo-utente/profilo-utente.component';
-
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
@@ -39,10 +41,13 @@ import { ProfiloUtenteComponent } from './pages/profilo-utente/profilo-utente.co
     TermsAndConditionsModule,
     MatToolbarModule,
     MatIconModule,
-    LavoraConNoiModule
+    LavoraConNoiModule,
+    MatCardModule,
+    MatButtonModule,
+    MatListModule,
 
 
-    // Aggiungi il modulo Carrello
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,121 +4,99 @@
   align-items: center;
   padding: 0 16px;
   transition: background-color 0.3s ease;
+}
 
-  .logo, .nav-list a {
-    color: #fff;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    font-size: 0.85rem; // Riduci la dimensione del font
-    transition: transform 0.3s ease, color 0.3s ease;
+.mat-toolbar .logo, .mat-toolbar .nav-list a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 0.55rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
 
-    &:hover {
-      transform: scale(1.05);
-      color: #e0e0e0;
-    }
+.mat-toolbar .hamburger-button {
+  display: none;
+}
 
-    mat-icon {
-      margin-right: 8px;
-      transition: color 0.3s ease;
+.mat-toolbar .hamburger-button mat-icon {
+  font-size: 2rem;
+}
 
-      &:hover {
-        color: #e0e0e0;
-      }
-    }
+.mat-toolbar .nav-list {
+  display: flex;
+  gap: 16px;
+}
+
+.mat-toolbar .nav-list a {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  transition: background-color 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.mat-toolbar .nav-list a.mat-button {
+  color: #fff;
+}
+
+.mat-toolbar .nav-list a.mat-button:hover,
+.mat-toolbar .nav-list a.mat-button.active {
+  background-color: #4527a0;
+}
+
+.mat-toolbar .nav-list .notification-badge {
+  background-color: #ff3333;
+  color: white;
+  border-radius: 50%;
+  padding: 2px;
+  width: 18px;
+  height: 18px;
+  font-size: 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+@media only screen and (max-width: 768px) {
+  .mat-toolbar .hamburger-button {
+    display: block;
   }
 
-  .hamburger-button {
+  .mat-toolbar .nav-list {
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(81, 45, 168, 0.9);
+    padding: 56px 16px 16px;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
     display: none;
-    mat-icon {
-      font-size: 2rem;
-    }
-
-    @media only screen and (max-width: 768px) {
-      display: block;
-    }
   }
 
-  .nav-list {
+  .mat-toolbar .nav-list.open {
     display: flex;
-    gap: 16px;
+    transform: translateX(0);
+  }
 
-    a {
-      display: inline-flex;
-      align-items: center;
-      position: relative;
-      transition: background-color 0.3s ease;
+  .mat-toolbar .nav-list a {
+    font-size: 1rem;
+    text-align: center;
+    width: 100%;
+  }
 
-      &:hover, &.active {
-        background-color: #4527a0;
-      }
-    }
-
-    .notification-badge {
-      background-color: #ff3333;
-      color: white;
-      border-radius: 50%;
-      padding: 2px;
-      width: 18px;
-      height: 18px;
-      font-size: 10px;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      margin-left: 8px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-    }
-
-    @media only screen and (max-width: 400px) {
-      a {
-        font-size: 0.8rem;
-      }
-    }
-
-    @media only screen and (max-width: 568px) {
-      a {
-        font-size: 0.85rem;
-      }
-    }
-
-    @media only screen and (max-width: 768px) {
-      flex-direction: column;
-      position: fixed;
-      top: 0;
-      right: 0;
-      height: 100vh;
-      width: 100%;
-      background-color: rgba(81, 45, 168, 0.9);
-      padding: 56px 16px 16px;
-      box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
-      transform: translateX(100%);
-      transition: transform 0.3s ease-in-out;
-      display: none;
-
-      &.open {
-        display: flex;
-        transform: translateX(0);
-      }
-
-      a {
-        font-size: 1rem;
-        padding: 10px 15px;
-        text-align: center;
-        width: 100%;
-      }
-    }
-
-    @media only screen and (max-width: 900px) {
-      a {
-        font-size: 0.9rem;
-      }
-    }
-
-    @media only screen and (max-width: 1200px) {
-      a {
-        font-size: 0.95rem;
-      }
-    }
+  .mat-toolbar .nav-list a.mat-button {
+    font-size: 1rem;
+    padding: 10px 15px;
   }
 }
 
@@ -132,9 +110,9 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 1;
   transition: opacity 0.3s ease;
+}
 
-  &.open {
-    display: block;
-    opacity: 0.8;
-  }
+.overlay.open {
+  display: block;
+  opacity: 0.8;
 }

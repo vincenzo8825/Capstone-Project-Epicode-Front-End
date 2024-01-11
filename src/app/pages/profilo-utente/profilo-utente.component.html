@@ -1,25 +1,33 @@
-<!-- ProfiloUtenteComponent.html -->
-<section>
-  <h3>Informazioni Personali</h3>
-  <p>Nome: {{ userName }}</p>
-  <p>Email: {{ userEmail }}</p>
-  <!-- Aggiungi qui altri campi informativi -->
-  <!-- Opzionale: Aggiungi un pulsante per modificare le informazioni -->
-</section>
+<mat-card>
+  <mat-card-title>Informazioni Personali</mat-card-title>
+  <mat-card-content>
+    <p>Nome: {{ userName }}</p>
+    <p>Email: {{ userEmail }}</p>
+    <!-- Aggiungi qui altri campi informativi -->
+  </mat-card-content>
+  <mat-card-actions>
+    <!-- Opzionale: Aggiungi un pulsante per modificare le informazioni -->
 
-<section>
-  <h3>Corsi Preferiti</h3>
-  <ul>
-    <li *ngFor="let corso of preferitiCorsi">{{ corso.nome }}</li>
-  </ul>
-</section>
+  </mat-card-actions>
+</mat-card>
 
-<section>
-  <h3>Lezioni Preferite</h3>
-  <ul>
-    <li *ngFor="let lezione of preferitiLezioni">{{ lezione.titolo }}</li>
-  </ul>
-</section>
+<mat-card>
+  <mat-card-title>Corsi Preferiti</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let corso of preferitiCorsi">{{ corso.nome }}</mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>Lezioni Preferite</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let lezione of preferitiLezioni">{{ lezione.titolo }}</mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
 <section>
   <h3>Corsi Acquistati</h3>
   <ul>
@@ -33,34 +41,34 @@
     <li *ngFor="let lezione of lezioniAcquistate">{{ lezione.titolo }}</li>
   </ul>
 </section>
-<div *ngFor="let evento of eventiIscritti">
-  <h2>Evento Iscritto: {{ evento }}</h2>
-</div>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <span class="section-title">Eventi a cui parteciperai</span>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let evento of eventiIscritti">{{ evento }}</mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
 
-<section>
-  <h3>Impostazioni Account</h3>
-  <button (click)="cambiaPassword()">Cambia Password</button>
-  <!-- Aggiungi altre impostazioni qui -->
-</section>
+<!-- Continua con altre sezioni come prima -->
 
-<section>
-  <h3>Attività Recenti</h3>
-  <ul>
-    <li *ngFor="let attivita of attivitaRecenti">
-      {{ attivita.descrizione }}
-    </li>
-  </ul>
-</section>
 
-<section>
-  <h3>I Miei Feedback</h3>
-  <ul>
-    <li *ngFor="let feedback of feedbackUtente">
-      Corso: {{ feedback.corso }} - Recensione: {{ feedback.testo }}
-    </li>
-  </ul>
-</section>
+<!-- Ripeti il pattern per Corsi Acquistati, Lezioni Acquistate e Eventi Iscritti -->
 
-<section>
-  <button (click)="logout()">Logout</button>
-</section>
+<mat-card>
+  <mat-card-title>Impostazioni Account</mat-card-title>
+  <mat-card-actions>
+    <button mat-button (click)="cambiaPassword()">Cambia Password</button>
+    <!-- Aggiungi altre impostazioni qui -->
+  </mat-card-actions>
+</mat-card>
+
+<mat-card>
+  <mat-card-actions>
+    <button mat-button (click)="logout()">Logout</button>
+  </mat-card-actions>
+</mat-card>
