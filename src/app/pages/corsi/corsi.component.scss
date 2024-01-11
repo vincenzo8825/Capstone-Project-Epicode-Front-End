@@ -1,6 +1,7 @@
 .corsi-container {
   max-width: 900px;
   margin: 20px auto;
+  padding: 15px;
 
   h2 {
     font-size: 24px;
@@ -182,11 +183,11 @@
 
       mat-form-field {
         mat-label {
-          font-size: 12px;
+          font-size: 10px;
         }
 
         mat-select {
-          font-size: 12px;
+          font-size: 10px;
         }
       }
 
@@ -202,7 +203,7 @@
 
         .corso-header {
           .livello {
-            font-size: 12px;
+            font-size: 10px;
           }
         }
 
@@ -213,7 +214,7 @@
 
           .buttons {
             button {
-              font-size: 10px;
+              font-size: 5px;
               padding: 6px;
             }
           }

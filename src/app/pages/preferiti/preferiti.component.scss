@@ -2,10 +2,14 @@
 .corsi-container {
   max-width: 900px;
   margin: 20px auto;
+  padding: 10px;
 
   h2 {
-    font-size: 24px;
-    color: #333;
+    font-size: 12px; /* Aumentato ulteriormente il font size */
+    font-weight: bold; /* Aggiunto il font-weight in grassetto */
+    color: #512DA8;
+    margin-bottom: 20px;
+    text-align: center;
   }
 
   .corso-card {

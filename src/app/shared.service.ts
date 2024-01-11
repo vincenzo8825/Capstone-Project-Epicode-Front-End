@@ -88,7 +88,7 @@ constructor(private http: HttpClient, private snackBar: MatSnackBar, private rou
         // Notifica il completamento
         observer.next();
         observer.complete();
-      }, 1000); // Tempo in millisecondi, puoi personalizzarlo
+      }, 1000);
     });
   }
   getLezioniUpdated(): BehaviorSubject<void> {
