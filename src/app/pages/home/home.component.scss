@@ -24,14 +24,16 @@
   .features-section {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap; /* Per far scendere le card in una nuova riga nella versione mobile */
 
     .feature {
+      flex: 1; /* Le card occupano spazio uguale orizzontalmente */
       text-align: center;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       transition: box-shadow 0.3s ease-in-out;
-      cursor: pointer; // Cursor aggiunto qui per applicarsi all'intera card
+      cursor: pointer;
 
       &:hover {
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -52,6 +54,46 @@
       .feature-description {
         margin-top: 10px;
         color: #666;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .features-section {
+      flex-direction: column; /* Per far scendere le card una sotto l'altra nella versione mobile */
+      align-items: center; /* Centra le card orizzontalmente nella versione mobile */
+
+      .feature {
+        width: 100%; /* La card occupa l'intera larghezza nella versione mobile */
+        margin-bottom: 20px; /* Aggiunge spazio tra le card nella versione mobile */
+      }
+    }
+  }
+
+  @media screen and (max-width: 568px) {
+    /* Stile per dispositivi con larghezza massima di 568px (ad esempio, iPhone SE) */
+    .features-section {
+      /* Le card saranno una sotto l'altra in questa larghezza */
+      flex-direction: column;
+      align-items: center;
+
+      .feature {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    /* Stile per dispositivi con larghezza massima di 400px */
+    .features-section {
+      /* Le card saranno una sotto l'altra in questa larghezza */
+      flex-direction: column;
+      align-items: center;
+
+      .feature {
+        width: 100%;
+        margin-bottom: 20px;
       }
     }
   }
