@@ -51,7 +51,7 @@
       color: #512DA8;
       font-size: 22px;
       margin-bottom: 20px;
-      text-align: left;
+      text-align: center;
     }
 
     div {
@@ -82,6 +82,40 @@
 
     .content-container {
       max-width: 95%;
+    }
+  }
+
+  @media screen and (max-width: 568px) {
+    /* Stile per dispositivi con larghezza massima di 568px (ad esempio, iPhone SE) */
+    .toggle-buttons {
+      flex-direction: column;
+      align-items: stretch;
+
+      button {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+
+    .content-container {
+      max-width: 90%;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    /* Stile per dispositivi con larghezza massima di 400px */
+    .toggle-buttons {
+      flex-direction: column;
+      align-items: stretch;
+
+      button {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+
+    .content-container {
+      max-width: 85%;
     }
   }
 }

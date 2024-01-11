@@ -1,12 +1,11 @@
-/* lezioni.component.scss */
-
 .lezioni-container {
   max-width: 900px;
   margin: 20px auto;
 
   h2 {
     font-size: 24px;
-    color: #512DA8
+    color: #512DA8;
+    text-align: center;
   }
 
   section {
@@ -15,6 +14,7 @@
     h3 {
       font-size: 20px;
       color: #512DA8;
+      text-align: center;
     }
 
     mat-form-field {
@@ -56,12 +56,7 @@
         }
       }
 
-      .prezzo {
-        font-size: 14px;
-        color: #555;
-        margin-bottom: 15px;
-      }
-
+      .prezzo,
       .categoria {
         font-size: 14px;
         color: #555;
@@ -90,6 +85,116 @@
           .btn-preferiti,
           .btn-carrello {
             background-color: #2ecc71;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    /* Stile per dispositivi con larghezza massima di 768px */
+    section {
+      h3 {
+        font-size: 18px;
+      }
+
+      .lezione-card {
+        h4 {
+          font-size: 16px;
+        }
+
+        .prezzo,
+        .categoria {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 568px) {
+    /* Stile per dispositivi con larghezza massima di 568px (ad esempio, iPhone SE) */
+    section {
+      h3 {
+        font-size: 16px;
+      }
+
+      mat-form-field {
+        mat-label {
+          font-size: 14px;
+        }
+
+        mat-select {
+          font-size: 14px;
+        }
+      }
+
+      .lezione-card {
+        h4 {
+          font-size: 14px;
+        }
+
+        .prezzo,
+        .categoria {
+          font-size: 12px;
+        }
+
+        .lezione-header {
+          .durata {
+            font-size: 14px;
+          }
+        }
+
+        .lezione-footer {
+          .buttons {
+            button {
+              font-size: 12px;
+              padding: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    /* Stile per dispositivi con larghezza massima di 400px */
+    section {
+      h3 {
+        font-size: 14px;
+      }
+
+      mat-form-field {
+        mat-label {
+          font-size: 12px;
+        }
+
+        mat-select {
+          font-size: 12px;
+        }
+      }
+
+      .lezione-card {
+        h4 {
+          font-size: 12px;
+        }
+
+        .prezzo,
+        .categoria {
+          font-size: 10px;
+        }
+
+        .lezione-header {
+          .durata {
+            font-size: 12px;
+          }
+        }
+
+        .lezione-footer {
+          .buttons {
+            button {
+              font-size: 10px;
+              padding: 6px;
+            }
           }
         }
       }
