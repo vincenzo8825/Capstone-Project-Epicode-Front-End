@@ -1,0 +1,102 @@
+.payment-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-family: 'Arial', sans-serif;
+
+  h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+  }
+
+  .order-details, .payment-section, .coupon-section, .total-after-coupon {
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: white;
+  }
+
+  .btn-pagamento, .btn-conferma {
+    background-color: #4CAF50;
+    &:hover {
+      background-color: #369a40;
+    }
+  }
+
+  .btn-coupon {
+    background-color: #FFC107;
+    &:hover {
+      background-color: #FFB300;
+    }
+  }
+
+  form {
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    small {
+      color: #e53935;
+      font-size: 12px;
+      margin-top: -10px;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .payment-container {
+    padding: 15px;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 568px) {
+  .payment-container {
+    padding: 20px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 569px) and (max-width: 768px) {
+  .payment-container {
+    padding: 25px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .payment-container {
+    padding: 30px;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+  .payment-container {
+    padding: 35px;
+  }
+}

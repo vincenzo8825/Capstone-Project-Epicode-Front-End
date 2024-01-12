@@ -18,7 +18,7 @@
     </div>
 
     <!-- Totale dell'ordine -->
-    <h3>Totale: {{ totaledapagare }}</h3>
+    <h3>Totale : {{ totaledapagare }}€</h3>
   </div>
 
   <!-- Sezione di pagamento -->
@@ -78,7 +78,7 @@
 
 
     <!-- Form per il pagamento con IBAN -->
-    <!-- Form per il pagamento con IBAN -->
+
 <form *ngIf="selectedPaymentMethod === 'iban'" [formGroup]="ibanForm">
   <label for="iban">IBAN</label>
   <input type="text" id="iban" name="iban" formControlName="iban" placeholder="Inserisci l'IBAN" maxlength="16">
@@ -92,8 +92,16 @@
   <button (click)="pagamentoIBAN()" class="btn btn-pagamento">Paga con IBAN</button>
 </form>
 
+<div class="coupon-section">
+  <label for="couponCode">Codice Coupon</label>
+  <input type="text" id="couponCode" name="couponCode" [(ngModel)]="couponCode" placeholder="Inserisci il codice coupon">
+  <button (click)="applicaCoupon()" class="btn btn-coupon">Applica Coupon</button>
+</div>
 
-    <!-- Pulsante per confermare l'ordine -->
-    <button (click)="confermaOrdine()" class="btn btn-conferma">Conferma Ordine</button>
+<!-- Totale aggiornato dopo applicazione coupon -->
+<div class="total-after-coupon">
+  <h3>Totale aggiornato: {{ totaleAggiornato }}€</h3>
+</div>
+
   </div>
 </div>

@@ -22,10 +22,12 @@ export class PaymentComponent implements OnInit {
   totaledapagare: number = 0;
   selectedPaymentMethod: string = '';
 
-  // Dichiarare i form per i metodi di pagamento
+
   cartaDiCreditoForm!: FormGroup;
   paypalForm!: FormGroup;
   ibanForm!: FormGroup;
+  couponCode: string = '';
+  totaleAggiornato!: number;
 
   constructor(
     private sharedService: SharedService,
@@ -36,6 +38,7 @@ export class PaymentComponent implements OnInit {
   ngOnInit(): void {
     this.sharedService.totaleGenerale$.subscribe((totale) => {
       this.totaledapagare = totale;
+      this.totaleAggiornato = this.totaledapagare;
     });
 
 
@@ -216,4 +219,25 @@ this.ibanForm = this.formBuilder.group({
     console.error('Errore di pagamento:', error);
     // Implementa la gestione degli errori qui, ad esempio, mostra un messaggio all'utente
   }
+  applicaCoupon(): void {
+    if (this.couponCode === 'epicode20') {
+      // Calcola lo sconto e arrotonda a due cifre decimali
+      this.totaleAggiornato = parseFloat((this.totaledapagare - (this.totaledapagare * 0.2)).toFixed(2));
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Coupon valido',
+        text: 'Il tuo sconto è stato applicato!',
+        confirmButtonText: 'Ok'
+      });
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Coupon non valido',
+        text: 'Il codice inserito non è valido. Riprova.',
+        confirmButtonText: 'Ok'
+      });
+    }
+  }
+
 }

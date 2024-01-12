@@ -30,7 +30,7 @@ export class LezioniComponent implements OnInit {
   }
 
   onCategoriaChange(): void {
-    console.log('onCategoriaChange chiamata');
+
     if (this.categoriaSelezionata) {
       this.lezioniFiltrate = this.lezioni.filter(lezione =>
         lezione.categoria.toLowerCase() === this.categoriaSelezionata.toLowerCase()
@@ -38,8 +38,7 @@ export class LezioniComponent implements OnInit {
     } else {
       this.lezioniFiltrate = [...this.lezioni];
     }
-    console.log('Categoria Selezionata:', this.categoriaSelezionata);
-    console.log('Lezioni Filtrate:', this.lezioniFiltrate);
+
   }
 
 
