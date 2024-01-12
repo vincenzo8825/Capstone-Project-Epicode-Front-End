@@ -4,6 +4,7 @@ import { AuthService } from './../auth/auth.service';
 import { SharedService } from '../../shared.service';
 import { Corso } from './../corsi/corso';
 import { Lezione } from './../lezioni/lezione';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profilo-utente',
@@ -22,6 +23,10 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
   eventiIscritti: string[] = [];
   eventName!: string;
+  showChangePasswordForm = false;
+  currentPassword!: string;
+  newPassword!: string;
+  confirmPassword!: string;
   constructor(private authService: AuthService, private sharedService: SharedService) {}
 
   ngOnInit(): void {
@@ -65,9 +70,40 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
     this.authService.logout();
   }
 
-  cambiaPassword(): void {
-    throw new Error('Method not implemented.');
+  cambiaPassword() {
+    // Cambia lo stato di showChangePasswordForm da true a false e viceversa
+    this.showChangePasswordForm = !this.showChangePasswordForm;
   }
+  onSubmit() {
+    // Verifica se la password attuale è corretta
+    if (this.currentPassword !== 'password') {
+      Swal.fire({
+        icon: 'error',
+        title: 'Errore',
+        text: 'Password non modificata, ricontrollare i dati inseriti.'
+      });
+      return;
+    }
 
-  // Aggiungi qui altri metodi necessari per la gestione delle azioni dell'utente
+    // Verifica se la nuova password e la conferma password sono uguali
+    if (this.newPassword !== this.confirmPassword) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Errore',
+        text: 'Le password non corrispondono, riprova.'
+      });
+      return;
+    }
+
+    // Aggiungi qui la logica per effettivamente cambiare la password nel backend
+
+    // Mostra il messaggio di successo
+    Swal.fire({
+      icon: 'success',
+      title: 'Successo',
+      text: 'Password modificata con successo!'
+    });
+  }
 }
+  // Aggiungi qui altri metodi necessari per la gestione delle azioni dell'utente
+

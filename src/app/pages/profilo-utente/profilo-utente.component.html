@@ -53,18 +53,42 @@
 
 
 
-<!-- Continua con altre sezioni come prima -->
 
 
-<!-- Ripeti il pattern per Corsi Acquistati, Lezioni Acquistate e Eventi Iscritti -->
+
+
 
 <mat-card>
   <mat-card-title>Impostazioni Account</mat-card-title>
   <mat-card-actions>
     <button mat-button (click)="cambiaPassword()">Cambia Password</button>
-    <!-- Aggiungi altre impostazioni qui -->
+    <!-- Other settings can be added here -->
   </mat-card-actions>
-</mat-card>
+
+  <!-- Password change form -->
+
+
+    <!-- Form per cambiare la password -->
+    <div *ngIf="showChangePasswordForm">
+      <form (ngSubmit)="onSubmit()">
+        <div>
+          <label for="currentPassword">Password attuale:</label>
+          <input type="password" id="currentPassword" [(ngModel)]="currentPassword" name="currentPassword">
+        </div>
+        <div>
+          <label for="newPassword">Nuova Password:</label>
+          <input type="password" id="newPassword" [(ngModel)]="newPassword" name="newPassword">
+        </div>
+        <div>
+          <label for="confirmPassword">Conferma Password:</label>
+          <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword">
+        </div>
+        <button type="submit">modifica</button>
+      </form>
+    </div>
+  </mat-card>
+
+
 
 <mat-card>
   <mat-card-actions>

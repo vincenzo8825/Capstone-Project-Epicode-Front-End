@@ -19,6 +19,7 @@ import { ProfiloUtenteComponent } from './pages/profilo-utente/profilo-utente.co
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { MatListModule } from '@angular/material/list';
     MatCardModule,
     MatButtonModule,
     MatListModule,
+    MatFormFieldModule
 
 
 
