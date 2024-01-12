@@ -74,36 +74,33 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
     // Cambia lo stato di showChangePasswordForm da true a false e viceversa
     this.showChangePasswordForm = !this.showChangePasswordForm;
   }
-  onSubmit() {
-    // Verifica se la password attuale è corretta
-    if (this.currentPassword !== 'password') {
-      Swal.fire({
-        icon: 'error',
-        title: 'Errore',
-        text: 'Password non modificata, ricontrollare i dati inseriti.'
-      });
-      return;
-    }
-
-    // Verifica se la nuova password e la conferma password sono uguali
-    if (this.newPassword !== this.confirmPassword) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Errore',
-        text: 'Le password non corrispondono, riprova.'
-      });
-      return;
-    }
-
-
-
-    // Mostra il messaggio di successo
+  // TypeScript
+onSubmit() {
+  // Verifica se la password attuale è corretta
+  if (this.currentPassword !== 'password') {
     Swal.fire({
-      icon: 'success',
-      title: 'Successo',
-      text: 'Password modificata con successo!'
+      icon: 'error',
+      title: 'Errore',
+      text: 'Password non modificata, ricontrollare i dati inseriti.'
     });
+    return;
   }
+
+  // Verifica se la nuova password e la conferma password sono uguali
+  if (this.newPassword !== this.confirmPassword) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Errore',
+      text: 'Le password non corrispondono, riprova.'
+    });
+    return;
+  }
+
+  // Mostra il messaggio di successo
+  Swal.fire({
+    icon: 'success',
+    title: 'Successo',
+    text: 'Password modificata con successo!'
+  });
 }
-
-
+}

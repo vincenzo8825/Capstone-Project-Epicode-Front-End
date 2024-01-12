@@ -69,9 +69,9 @@
 
 
 
-  <!-- Form per cambiare la password -->
   <div *ngIf="showChangePasswordForm">
-    <form (ngSubmit)="onSubmit()">
+    <!-- Aggiungi un riferimento al form (#changePasswordForm) -->
+    <form #changePasswordForm="ngForm" (ngSubmit)="onSubmit()">
       <mat-form-field appearance="fill">
         <mat-label>Password attuale</mat-label>
         <input matInput type="password" [(ngModel)]="currentPassword" name="currentPassword">
@@ -86,11 +86,11 @@
         <mat-label>Conferma Password</mat-label>
         <input matInput type="password" [(ngModel)]="confirmPassword" name="confirmPassword">
       </mat-form-field>
-
     </form>
-    <button mat-raised-button color="primary" type="submit">Modifica</button>
-  </div>
-</mat-card>
+
+    <!-- Passa il riferimento al form al click del pulsante -->
+    <button mat-raised-button color="primary" (click)="onSubmit()">Modifica</button>  </div>
+  </mat-card>
 
 
 
