@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
-  // ... altri membri della classe
+
 
   selectPaymentMethod(paymentMethod: string): void {
     this.selectedPaymentMethod = paymentMethod;
@@ -110,7 +110,7 @@ this.ibanForm = this.formBuilder.group({
       text: 'Grazie per il tuo acquisto. Riceverai una conferma via email.',
       confirmButtonText: 'Ok'
     }).then(() => {
-      // Puoi aggiungere qui eventuali azioni da eseguire dopo che l'utente ha cliccato su "Ok"
+
     });
   }
 

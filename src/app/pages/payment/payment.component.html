@@ -48,7 +48,7 @@
   <label for="ccCVV">CVV</label>
   <input type="text" id="ccCVV" name="ccCVV" formControlName="ccCVV" placeholder="Inserisci il CVV" maxlength="3">
 
-  <!-- Aggiungi una guida visiva per il formato del CVV -->
+
   <div *ngIf="cartaDiCreditoForm.get('ccCVV')?.hasError('pattern') && cartaDiCreditoForm.get('ccCVV')?.touched">
     <small>Il CVV deve contenere solo numeri.</small>
   </div>
@@ -56,7 +56,7 @@
     <small>Il CVV deve contenere 3 cifre.</small>
   </div>
 
-  <!-- Aggiungi il pulsante di sottomissione -->
+
   <button type="submit" class="btn btn-pagamento">Paga con Carta di Credito</button>
 </form>
 
