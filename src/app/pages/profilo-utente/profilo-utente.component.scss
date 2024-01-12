@@ -14,7 +14,7 @@ mat-card, section {
   max-width: 90%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  text-align: center; // Centra il contenuto all'interno di mat-card e section
+  text-align: center;
 }
 
 mat-card-title, section h3 {
@@ -26,13 +26,6 @@ mat-card-title, section h3 {
   width: fit-content;
   border-radius: 12px;
   text-align: center;
-}
-
-mat-card {
-  header mat-card-title {
-    text-align: center;
-    width: 100%;
-  }
 }
 
 mat-card-content,
@@ -56,6 +49,7 @@ button {
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
+
   &:hover {
     background-color: #f7b733;
     transform: translateY(-2px);
@@ -71,12 +65,49 @@ ul {
 li {
   padding: 15px 25px;
   border-bottom: 1px solid #eee;
+
   &:hover {
     background-color: #f6f6f6;
   }
+
   &:last-child {
     border-bottom: none;
   }
+}
+
+/* Stili per il form di cambio password */
+.change-password-form {
+  padding: 20px 25px;
+  text-align: left;
+  max-width: 500px; // Larghezza massima del form
+  margin: 0 auto;
+
+  mat-form-field {
+    width: 100%;
+
+    mat-label {
+      color: #141065;
+      font-size: 0.95em;
+    }
+
+    .mat-input-element {
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+    }
+  }
+
+  button[type="submit"] {
+    background-color: #6a11cb;
+    color: white;
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+
+/* Stili per il bottone di logout */
+.logout-button button {
+  margin-top: 20px;
 }
 
 /* Responsive Styles */
@@ -92,6 +123,9 @@ li {
     margin: 15px;
     max-width: 94%;
   }
+  .change-password-form {
+    max-width: 70%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -102,19 +136,17 @@ li {
 }
 
 @media (max-width: 568px) {
-  mat-card, section {
-    margin: 5px;
-    max-width: 98%;
-  }
+  // ... Altri stili ...
 
-  mat-card-title, section h3 {
-    font-size: 1.2em;
-  }
+  .change-password-form {
+    mat-form-field {
+      width: 100%; // Assicura che il form occupi tutto lo spazio disponibile
+    }
 
-  mat-card-content,
-  mat-card-actions,
-  section div {
-    padding: 15px 15px; // Riduci il padding
+    button[type="submit"] {
+      width: 100%; // Il pulsante occupa tutto lo spazio
+      margin-top: 10px; // Spazio tra il form e il pulsante
+    }
   }
 }
 
@@ -128,7 +160,7 @@ li {
   }
 
   mat-card, section {
-    max-width: 100%; // Rendi le sezioni più piccole per i dispositivi molto piccoli
-    margin: 5px 0; // Riduci i margini
+    max-width: 100%;
+    margin: 5px 0;
   }
 }

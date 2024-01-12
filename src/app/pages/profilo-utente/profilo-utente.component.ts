@@ -40,7 +40,7 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
       this.sharedService.getEventiIscritti().subscribe(nomiEventi => {
         this.eventiIscritti = nomiEventi;
       })
-      // Aggiungi qui altre sottoscrizioni necessarie
+
     );
   }
 
@@ -95,7 +95,7 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
       return;
     }
 
-    // Aggiungi qui la logica per effettivamente cambiare la password nel backend
+
 
     // Mostra il messaggio di successo
     Swal.fire({
@@ -105,5 +105,5 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
     });
   }
 }
-  // Aggiungi qui altri metodi necessari per la gestione delle azioni dell'utente
+
 

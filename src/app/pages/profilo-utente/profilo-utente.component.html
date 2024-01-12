@@ -68,25 +68,29 @@
   <!-- Password change form -->
 
 
-    <!-- Form per cambiare la password -->
-    <div *ngIf="showChangePasswordForm">
-      <form (ngSubmit)="onSubmit()">
-        <div>
-          <label for="currentPassword">Password attuale:</label>
-          <input type="password" id="currentPassword" [(ngModel)]="currentPassword" name="currentPassword">
-        </div>
-        <div>
-          <label for="newPassword">Nuova Password:</label>
-          <input type="password" id="newPassword" [(ngModel)]="newPassword" name="newPassword">
-        </div>
-        <div>
-          <label for="confirmPassword">Conferma Password:</label>
-          <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword">
-        </div>
-        <button type="submit">modifica</button>
-      </form>
-    </div>
-  </mat-card>
+
+  <!-- Form per cambiare la password -->
+  <div *ngIf="showChangePasswordForm">
+    <form (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Password attuale</mat-label>
+        <input matInput type="password" [(ngModel)]="currentPassword" name="currentPassword">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Nuova Password</mat-label>
+        <input matInput type="password" [(ngModel)]="newPassword" name="newPassword">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Conferma Password</mat-label>
+        <input matInput type="password" [(ngModel)]="confirmPassword" name="confirmPassword">
+      </mat-form-field>
+
+    </form>
+    <button mat-raised-button color="primary" type="submit">Modifica</button>
+  </div>
+</mat-card>
 
 
 
