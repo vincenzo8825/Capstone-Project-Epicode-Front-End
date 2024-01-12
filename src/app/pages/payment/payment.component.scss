@@ -8,10 +8,17 @@
   font-family: 'Arial', sans-serif;
 
   h2 {
-    color: #333;
+    color: #4a148c;
     text-align: center;
     margin-bottom: 25px;
     font-size: 28px;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #6a1b9a;
+    }
   }
 
   .order-details, .payment-section, .coupon-section, .total-after-coupon {
@@ -23,24 +30,52 @@
     padding: 12px;
     margin-bottom: 10px;
     font-size: 16px;
-    border: none;
+    border: 1px solid transparent;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease, border-color 0.2s;
     color: white;
-  }
+    background-image: linear-gradient(to right, #007bff, #4a148c);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: bold;
 
-  .btn-pagamento, .btn-conferma {
-    background-color: #4CAF50;
-    &:hover {
-      background-color: #369a40;
+    &:hover, &:focus {
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+      transform: scale(1.05);
+      border-color: #7b1fa2;
+    }
+
+    &:active {
+      transform: scale(0.95);
+      box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
     }
   }
 
-  .btn-coupon {
-    background-color: #FFC107;
-    &:hover {
-      background-color: #FFB300;
+  .coupon-section {
+    padding: 15px;
+    background-color: #f7f7f7;
+    border: 1px dashed #9c27b0;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+
+    h3 {
+      color: #4a148c;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      margin-bottom: 10px;
+      border: 1px solid #007bff;
+    }
+
+    .btn-coupon {
+      background-image: linear-gradient(to right, #007bff, #4a148c);
+      &:hover {
+        background-image: linear-gradient(to right, #0056b3, #6a1b9a);
+      }
     }
   }
 
@@ -49,6 +84,8 @@
       display: block;
       margin-bottom: 5px;
       font-size: 14px;
+      font-weight: bold;
+      color: #333;
     }
 
     input[type="text"], input[type="email"] {
@@ -58,6 +95,14 @@
       border-radius: 4px;
       margin-bottom: 15px;
       font-size: 14px;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease, border-color 0.3s;
+
+      &:focus {
+        box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
+        border-color: #7b1fa2;
+        outline: none;
+      }
     }
 
     small {
@@ -100,12 +145,12 @@
 @media (min-width: 993px) {
   .payment-container {
     padding: 35px;
-  }
 
-  .btn, form input[type="text"], form input[type="email"] {
-    max-width: 600px; /* Ridimensiona i pulsanti e i campi input */
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+    .btn, form input[type="text"], form input[type="email"] {
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
   }
 }
