@@ -5,6 +5,12 @@
   padding: 0 16px;
   transition: background-color 0.3s ease;
 }
+.mat-toolbar .logo img {
+  height: 55px;
+  width: auto;
+  padding-left: 1px;
+    padding-right: 50px;
+}
 
 .mat-toolbar .logo, .mat-toolbar .nav-list a {
   color: #fff;
