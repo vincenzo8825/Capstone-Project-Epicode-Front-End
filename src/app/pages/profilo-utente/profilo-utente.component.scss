@@ -1,0 +1,130 @@
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #eaeaea;
+  color: #424242;
+}
+
+mat-card, section {
+  background: white;
+  border-radius: 12px;
+  margin: 25px auto;
+  max-width: 90%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+mat-card-title, section h3 {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  padding: 15px 25px;
+  margin: 0 auto;
+  font-size: 1.4em;
+  width: fit-content;
+  border-radius: 12px;
+  text-align: center;
+}
+.section-title {
+  text-align: center;
+  display: block;
+}
+mat-card-content,
+mat-card-actions,
+section div {
+  padding: 20px 25px;
+  line-height: 1.7;
+  font-size: 0.95em;
+  text-align: center;
+}
+
+mat-card-actions {
+  text-align: right;
+  border-top: 1px solid #ddd;
+}
+
+button {
+  background-color: #fc4a1a;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  &:hover {
+    background-color: #f7b733;
+    transform: translateY(-2px);
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  padding: 15px 25px;
+  border-bottom: 1px solid #eee;
+  &:hover {
+    background-color: #f6f6f6;
+  }
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  mat-card, section {
+    margin: 20px;
+    max-width: 92%;
+  }
+}
+
+@media (max-width: 992px) {
+  mat-card, section {
+    margin: 15px;
+    max-width: 94%;
+  }
+}
+
+@media (max-width: 768px) {
+  mat-card, section {
+    margin: 10px;
+    max-width: 96%;
+  }
+}
+
+@media (max-width: 568px) {
+  mat-card, section {
+    margin: 5px;
+    max-width: 98%;
+  }
+
+  mat-card-title, section h3 {
+    font-size: 1.2em;
+  }
+
+  mat-card-content,
+  mat-card-actions,
+  section div {
+    padding: 15px 15px; /* Riduci il padding */
+  }
+}
+
+@media (max-width: 400px) {
+  mat-card-title, section h3 {
+    font-size: 1.1em;
+  }
+
+  button {
+    padding: 8px 15px;
+  }
+
+  mat-card, section {
+    max-width: 100%; /* Rendi le sezioni più piccole per i dispositivi molto piccoli */
+    margin: 5px 0; /* Riduci i margini */
+  }
+}

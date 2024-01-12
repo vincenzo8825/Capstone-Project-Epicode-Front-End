@@ -4,6 +4,7 @@ import { Corso } from './../corsi/corso';
 import { Lezione } from './../lezioni/lezione';
 import { SharedService } from '../../shared.service';
 import { Subscription } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-carrello',
@@ -113,11 +114,18 @@ export class CarrelloComponent implements OnDestroy {
   }
 
   confermaAcquistoTutto(): void {
-    console.log('Conferma acquisto tutto');
-    const conferma = window.confirm(`Sei sicuro di acquistare tutto al prezzo totale di ${this.totaleGenerale}€?`);
-    if (conferma) {
-      this.acquistaTutto();
-    }
+    Swal.fire({
+      title: 'Conferma l\'acquisto',
+      text: `Sei sicuro di acquistare tutto al prezzo totale di ${this.totaleGenerale}€?`,
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Sì, conferma',
+      cancelButtonText: 'Annulla',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.acquistaTutto();
+      }
+    });
   }
 
   acquistaSingoloCorso(corso: Corso): void {

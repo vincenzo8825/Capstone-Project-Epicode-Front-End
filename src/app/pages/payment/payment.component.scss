@@ -69,6 +69,8 @@
   }
 }
 
+/* Stili specifici per varie dimensioni dello schermo */
+
 @media (max-width: 400px) {
   .payment-container {
     padding: 15px;
@@ -95,8 +97,15 @@
   }
 }
 
-@media (min-width: 993px) and (max-width: 1200px) {
+@media (min-width: 993px) {
   .payment-container {
     padding: 35px;
+  }
+
+  .btn, form input[type="text"], form input[type="email"] {
+    max-width: 600px; /* Ridimensiona i pulsanti e i campi input */
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
   }
 }
