@@ -3,10 +3,10 @@
   <mat-card-content>
     <p>Nome: {{ userName }}</p>
     <p>Email: {{ userEmail }}</p>
-    <!-- Aggiungi qui altri campi informativi -->
+
   </mat-card-content>
   <mat-card-actions>
-    <!-- Opzionale: Aggiungi un pulsante per modificare le informazioni -->
+
 
   </mat-card-actions>
 </mat-card>
@@ -62,7 +62,7 @@
   <mat-card-title>Impostazioni Account</mat-card-title>
   <mat-card-actions>
     <button mat-button (click)="cambiaPassword()">Cambia Password</button>
-    <!-- Other settings can be added here -->
+
   </mat-card-actions>
 
   <!-- Password change form -->
@@ -70,7 +70,7 @@
 
 
   <div *ngIf="showChangePasswordForm">
-    <!-- Aggiungi un riferimento al form (#changePasswordForm) -->
+
     <form #changePasswordForm="ngForm" (ngSubmit)="onSubmit()">
       <mat-form-field appearance="fill">
         <mat-label>Password attuale</mat-label>

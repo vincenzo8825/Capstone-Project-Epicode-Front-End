@@ -25,14 +25,14 @@ export class LoginComponent {
   save() {
     this.authSvc.login(this.loginData)
       .subscribe(data => {
-        this.isUserLoggedIn = true; // Imposta la variabile di stato a true dopo il login
+        this.isUserLoggedIn = true; // Imposto la variabile di stato a true dopo il login
         this.router.navigate(['/dashboard']);
       });
   }
 
   logout() {
-    this.authSvc.logout(); // Aggiungi un metodo logout nel tuo servizio AuthService se non c'è già
-    this.isUserLoggedIn = false; // Imposta la variabile di stato a false dopo il logout
+    this.authSvc.logout(); // Aggiungo un metodo logout nel tuo servizio AuthService se non c'è già
+    this.isUserLoggedIn = false; // Imposto la variabile di stato a false dopo il logout
   }
 
 }
