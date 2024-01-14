@@ -7,13 +7,13 @@
     padding: 2rem;
 
     .title {
-      font-size: 1.5rem; // Riduci il font-size per il titolo nella versione mobile
+      font-size: 1.5rem;
       font-weight: bold;
       margin-bottom: 1rem;
     }
 
     .intro-text {
-      font-size: 1rem; // Riduci il font-size per il testo introduttivo nella versione mobile
+      font-size: 1rem;
       margin-bottom: 2rem;
     }
 
@@ -26,27 +26,34 @@
     .membership-info {
       font-size: 0.8rem;
       margin-bottom: 2rem;
-      color: #777; // Cambia il colore del testo informativo
+      color: #777;
     }
 
     .join-button {
       width: 60%;
       font-size: 0.7rem;
       padding: 1.4rem 2rem;
-      background-color: #007bff;
-      color: white;
+      background-color: #007bff; /* Sfondo blu quando attivo */
+      color: white; /* Testo bianco quando attivo */
       border: none;
       cursor: pointer;
       border-radius: 30px;
-      transition: background-color 0.3s ease; // Aggiungi una transizione al colore di sfondo
+      transition: background-color 0.3s ease;
 
       &:hover {
-        background-color: #0056b3;
+        background-color: #0056b3; /* Sfondo blu più scuro al passaggio del mouse */
+      }
+
+      /* Stile per il pulsante inattivo */
+      &.inactive-button {
+        background-color: white; /* Sfondo bianco quando inattivo */
+        color: #007bff; /* Testo blu quando inattivo */
+        border: 2px solid #007bff; /* Bordo blu quando inattivo */
+        cursor: not-allowed; /* Cambia il cursore in "non consentito" quando inattivo */
       }
     }
   }
 }
-
 
 
 
@@ -160,7 +167,7 @@
 
     .mat-card-header {
       .mat-card-title {
-        font-size: 1.25rem;
+        font-size: 0.9rem;
         font-weight: bold;
       }
     }
@@ -168,7 +175,7 @@
     .mat-card-content {
       padding: 1rem;
       line-height: 1.6;
-      font-size: 0.95rem;
+      font-size: 0.8rem;
     }
   }
 }

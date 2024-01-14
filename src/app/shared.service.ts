@@ -42,7 +42,7 @@ export class SharedService {
   private eventiIscrittiSubject = new BehaviorSubject<string[]>([]);
 eventiIscritti$ = this.eventiIscrittiSubject.asObservable();
 
-
+isIscrizioneAvvenuta: boolean = false;
 constructor(private http: HttpClient, private snackBar: MatSnackBar, private router: Router) {
   // Carica gli eventi iscritti dal localStorage
   const eventiSalvati = localStorage.getItem('eventiIscritti');

@@ -25,8 +25,8 @@ export class CommunityComponent implements OnInit {
     // Recensioni degli utenti esistenti
   ];
   iscrizioni: { [eventName: string]: boolean } = {};
-
-
+  iscrizioneAvvenuta: boolean = false; // Aggiunto stato di iscrizione
+  isPulsanteAttivo: boolean = true;
   newReview: UserReview = { user: '', comment: '', rating: 0 };
   sharedService: SharedService;
   router: Router;
@@ -193,7 +193,18 @@ export class CommunityComponent implements OnInit {
   getStars(rating: number): Array<number> {
     return new Array(rating);
   }
+  uniscitiAllaCommunity(): void {
+    if (!this.iscrizioneAvvenuta) {
+      // Imposta il testo del pulsante su "Iscritto"
+      this.iscrizioneAvvenuta = true;
+
+      // Visualizza il messaggio di iscrizione confermata
+      Swal.fire({
+        title: 'Iscrizione Confermata!',
+        text: 'Ti sei iscritto con successo alla Community!',
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      });
+    }
+  }
 }
-
-
-
