@@ -1,6 +1,7 @@
 export interface DiscussionTopic {
   title: string;
   content: string;
+  isClosed: boolean; // Aggiunto campo isClosed
 }
 
 export interface Announcement {

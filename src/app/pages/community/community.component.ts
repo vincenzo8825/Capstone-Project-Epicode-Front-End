@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class CommunityComponent implements OnInit {
   discussionTopics: DiscussionTopic[] = [
-    // Qui potresti avere i tuoi dati iniziali o caricarli da un servizio
+
   ];
   announcements: Announcement[] = [
     // Dati degli annunci
@@ -47,17 +47,50 @@ export class CommunityComponent implements OnInit {
 
   loadDiscussionTopics(): void {
     this.discussionTopics = [
-      { title: 'Trend del Web Development 2024', content: 'Discussione approfondita sui nuovi trend nel web development, includendo framework emergenti, best practices e case study.' },
-      { title: 'Introduzione al Machine Learning', content: 'Scopriamo le basi del machine learning, con una panoramica sui vari algoritmi e le loro applicazioni pratiche.' },
-      { title: 'Principi Fondamentali del UX/UI Design', content: 'Esploriamo i principi chiave del design dell\'interfaccia utente e dell\'esperienza utente, con esempi pratici e ultime tendenze.' },
-      { title: 'Python per Data Science: Una Guida Completa', content: 'Una discussione completa su come Python viene utilizzato nella data science, con esempi di librerie come Pandas e NumPy.' },
-      { title: 'Intelligenza Artificiale: Etica e Futuro', content: 'Un dibattito sull\'impatto etico dell\'intelligenza artificiale e sulle sue implicazioni future in vari settori.' },
-      { title: 'Sviluppo di Applicazioni Full Stack con JavaScript', content: 'Approfondimento sullo sviluppo di applicazioni full stack utilizzando tecnologie JavaScript come Node.js, React, e MongoDB.' },
-      { title: 'Blockchain e le Sue Applicazioni Oltre le Criptovalute', content: 'Discussione sulle applicazioni della tecnologia blockchain al di là del mondo delle criptovalute, inclusi smart contract e supply chain.' },
-      { title: 'Big Data e Analytics: Strumenti e Strategie', content: 'Analisi degli strumenti e delle strategie per il lavoro con Big Data, inclusi sistemi di gestione del database e tecniche di visualizzazione.' }
+      {
+        title: 'Trend del Web Development 2024',
+        content: 'Discussione approfondita sui nuovi trend nel web development, includendo framework emergenti, best practices e case study.',
+        isClosed: false
+      },
+      {
+        title: 'Introduzione al Machine Learning',
+        content: 'Scopriamo le basi del machine learning, con una panoramica sui vari algoritmi e le loro applicazioni pratiche.',
+        isClosed: false
+      },
+      {
+        title: 'Principi Fondamentali del UX/UI Design',
+        content: 'Esploriamo i principi chiave del design dell\'interfaccia utente e dell\'esperienza utente, con esempi pratici e ultime tendenze.',
+        isClosed: true
+      },
+      {
+        title: 'Python per Data Science: Una Guida Completa',
+        content: 'Una discussione completa su come Python viene utilizzato nella data science, con esempi di librerie come Pandas e NumPy.',
+        isClosed: false
+      },
+      {
+        title: 'Intelligenza Artificiale: Etica e Futuro',
+        content: 'Un dibattito sull\'impatto etico dell\'intelligenza artificiale e sulle sue implicazioni future in vari settori.',
+        isClosed: false
+      },
+      {
+        title: 'Sviluppo di Applicazioni Full Stack con JavaScript',
+        content: 'Approfondimento sullo sviluppo di applicazioni full stack utilizzando tecnologie JavaScript come Node.js, React, e MongoDB.',
+        isClosed: false
+      },
+      {
+        title: 'Blockchain e le Sue Applicazioni Oltre le Criptovalute',
+        content: 'Discussione sulle applicazioni della tecnologia blockchain al di là del mondo delle criptovalute, inclusi smart contract e supply chain.',
+        isClosed: false
+      },
+      {
+        title: 'Big Data e Analytics: Strumenti e Strategie',
+        content: 'Analisi degli strumenti e delle strategie per il lavoro con Big Data, inclusi sistemi di gestione del database e tecniche di visualizzazione.',
+        isClosed: false
+      }
       // Aggiungi altri topic qui
     ];
   }
+
 
 
   loadAnnouncements(): void {

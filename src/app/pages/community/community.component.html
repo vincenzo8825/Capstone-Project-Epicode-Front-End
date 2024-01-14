@@ -1,36 +1,83 @@
 <section class="community-homepage">
-  <mat-card>
+  <mat-card class="welcome-card">
     <mat-card-header>
       <mat-card-title class="title">Benvenuti nella Community di Tutoring</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <p class="intro-text">Unisciti a noi per condividere e apprendere sul web development, machine learning e data science.</p>
+      <p class="highlight-text">Siamo una community appassionata di tecnologia che offre corsi, tutorial e discussioni interattive.</p>
+      <p class="membership-info">Iscriviti ora per accedere a risorse esclusive e connetterti con esperti del settore.</p>
+      <button mat-raised-button color="primary" class="join-button">Unisciti alla Community</button>
     </mat-card-content>
   </mat-card>
 </section>
 
 
-
 <section class="discussion-forum">
-  <h1 class="forum-title">Forum delle Innovazioni Tecnologiche</h1>
-  <mat-expansion-panel *ngFor="let topic of discussionTopics">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <h2 class="section-title">
+  <h1 class="forum-title mat-display-1">Forum delle Innovazioni Tecnologiche</h1>
+
+  <!-- Versione mobile: mat-card -->
+  <div class="discussion-topics-mobile">
+    <mat-card *ngFor="let topic of discussionTopics" class="discussion-topic-card">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon class="topic-icon">forum</mat-icon>
           {{ topic.title }}
-          <span class="discussion-closed">Discussione Chiusa</span>
-        </h2>
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <div class="panel-content">{{ topic.content }}</div>
-  </mat-expansion-panel>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <mat-chip color="warn" class="status-chip">Discussione Chiusa</mat-chip>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ topic.content }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Versione desktop: mat-expansion-panel -->
+  <div class="discussion-topics-desktop">
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let topic of discussionTopics">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="topic-icon">forum</mat-icon>
+            {{ topic.title }}
+          </mat-panel-title>
+          <mat-panel-description>
+            <mat-chip color="warn" class="status-chip">Discussione Chiusa</mat-chip>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="panel-content">{{ topic.content }}</div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
 </section>
 
 
-sss
+
+
+
+
+
 <section class="announcement-board">
-  <h1 class="board-title">Discussioni in Apertura</h1>
-  <mat-accordion>
+  <h1 class="board-title mat-display-1">Discussioni in Apertura</h1>
+
+  <!-- Versione mobile: mat-card -->
+  <div class="announcements-mobile">
+    <mat-card *ngFor="let announcement of announcements" class="announcement-card">
+      <mat-card-header>
+        <mat-card-title>
+          <h2 class="section-title">{{ announcement.title }}</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ announcement.content }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Versione desktop: mat-expansion-panel -->
+  <mat-accordion class="announcements-desktop">
     <mat-expansion-panel *ngFor="let announcement of announcements">
       <mat-expansion-panel-header>
         <mat-panel-title>
@@ -54,7 +101,7 @@ sss
       <mat-card-content>
         <p>{{ event.description }}</p>
       </mat-card-content>
-      <mat-card-actions>
+      <mat-card-actions class="center-button"> <!-- Aggiungiamo una classe per centrare il pulsante -->
         <button mat-raised-button color="primary" (click)="registerForEvent(event)" [disabled]="iscrizioni[event.name]">
           {{ iscrizioni[event.name] ? 'Iscritto' : 'Iscriviti' }}
         </button>
@@ -66,8 +113,24 @@ sss
 
 
 <section class="faq-section">
-  <h1 class="faq-title">FAQ</h1>
-  <mat-accordion>
+  <h1 class="faq-title mat-display-1">FAQ</h1>
+
+  <!-- Versione mobile: mat-card -->
+  <div class="faqs-mobile">
+    <mat-card *ngFor="let faq of faqs" class="faq-card">
+      <mat-card-header>
+        <mat-card-title>
+          <h2 class="section-title">{{ faq.question }}</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ faq.answer }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Versione desktop: mat-expansion-panel -->
+  <mat-accordion class="faqs-desktop">
     <mat-expansion-panel *ngFor="let faq of faqs">
       <mat-expansion-panel-header>
         <mat-panel-title>
@@ -80,43 +143,48 @@ sss
 </section>
 
 
+
 <section class="user-reviews">
-  <h1 class="reviews-title">Recensioni</h1>
+  <h1 class="reviews-title mat-display-1">Recensioni</h1>
 
   <!-- Form per aggiungere una nuova recensione -->
   <div class="new-review-form">
-    <mat-form-field appearance="fill">
-      <mat-label>Nickname</mat-label>
-      <input matInput [(ngModel)]="newReview.user">
-    </mat-form-field>
+    <mat-card>
+      <mat-card-content>
+        <h2>Aggiungi una nuova recensione</h2>
+        <mat-form-field appearance="fill">
+          <mat-label>Nickname</mat-label>
+          <input matInput [(ngModel)]="newReview.user">
+        </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Recensione</mat-label>
-      <textarea matInput [(ngModel)]="newReview.comment"></textarea>
-    </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Recensione</mat-label>
+          <textarea matInput [(ngModel)]="newReview.comment"></textarea>
+        </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Valutazione</mat-label>
-      <mat-select [(ngModel)]="newReview.rating">
-        <mat-option *ngFor="let r of [1, 2, 3, 4, 5]" [value]="r">{{ r }}</mat-option>
-      </mat-select>
-    </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Valutazione</mat-label>
+          <mat-select [(ngModel)]="newReview.rating">
+            <mat-option *ngFor="let r of [1, 2, 3, 4, 5]" [value]="r">{{ r }}</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-    <button mat-raised-button color="primary" (click)="addReview()">Aggiungi Recensione</button>
+        <button mat-raised-button color="primary" (click)="addReview()">Aggiungi Recensione</button>
+      </mat-card-content>
+    </mat-card>
   </div>
 
-<!-- Lista delle recensioni esistenti -->
-<div *ngFor="let review of userReviews" class="review">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>{{ review.user }}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>{{ review.comment }}</p>
-      <div class="rating">
-        <mat-icon *ngFor="let star of getStars(review.rating)" class="star-rating">star</mat-icon>
-      </div>
-    </mat-card-content>
-  </mat-card>
-</div>
+  <!-- Lista delle recensioni esistenti -->
+  <div class="reviews-list">
+    <mat-card *ngFor="let review of userReviews" class="review-card">
+      <mat-card-content>
+        <mat-card-title>{{ review.user }}</mat-card-title>
+        <p>{{ review.comment }}</p>
+        <div class="rating">
+          <mat-icon *ngFor="let star of getStars(review.rating)" class="star-rating">star</mat-icon>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </section>
+

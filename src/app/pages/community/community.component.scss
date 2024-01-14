@@ -1,124 +1,248 @@
-/* Stili globali */
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4;
-  line-height: 1.6;
+.community-homepage {
+  .welcome-card {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+
+    .title {
+      font-size: 2rem; // Riduci il font-size per il titolo nella versione mobile
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .intro-text {
+      font-size: 1.2rem; // Riduci il font-size per il testo introduttivo nella versione mobile
+      margin-bottom: 2rem;
+    }
+
+    .highlight-text {
+      font-size: 1.2rem;
+      color: #007bff;
+      margin-bottom: 2rem;
+    }
+
+    .membership-info {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      color: #777; // Cambia il colore del testo informativo
+    }
+
+    .join-button {
+      width: 60%;
+      font-size: 0.7rem;
+      padding: 1.4rem 2rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: background-color 0.3s ease; // Aggiungi una transizione al colore di sfondo
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
 }
 
-a {
-  text-decoration: none;
-  color: #007bff;
-}
 
-/* Stili per le sezioni */
-section {
-  padding: 20px;
-  margin-bottom: 20px;
-}
 
-h1 {
-  font-size: 2em;
-  margin-bottom: 15px;
-  color: #333;
-}
 
-/* Stili per il forum di discussione, annunci e FAQ */
-.discussion-forum, .announcement-board, .faq-section, .user-reviews {
-  mat-card {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+
+
+@media (max-width: 991px) {
+  .discussion-topics-mobile {
+    display: block; // Mostra mat-card su dispositivi mobili
   }
 
-  .section-title {
-    font-size: 1.5em;
+  .discussion-topics-desktop {
+    display: none; // Nascondi mat-expansion-panel su dispositivi mobili
   }
 
-  .panel-content {
-    padding: 15px;
-  }
+  .mat-card-content {
+    font-size: 0.85rem; // Riduci il font-size per il contenuto della mat-card su dispositivi mobili
 
-  .discussion-closed {
-    margin-left: 10px;
-    color: red;
-    font-style: italic;
+    .status-chip {
+      background-color: red; // Colore di sfondo del chip "Discussione Chiusa" in rosso
+      color: white; // Testo bianco per il chip "Discussione Chiusa"
+    }
+
+    // Aggiungi questo selettore per rendere il testo del chip "Discussione Chiusa" in rosso
+    .status-chip.mat-chip-checked {
+      color: red; // Testo "Discussione Chiusa" in rosso quando selezionato
+    }
   }
 }
-
-/* Stili per la sezione eventi */
-.upcoming-events {
-  .events-container {
-    display: flex;
-    flex-wrap: wrap;
+// Stili per la versione mobile (max-width: 991px)
+@media (max-width: 991px) {
+  .announcements-mobile {
+    display: block; // Mostra mat-card su dispositivi mobili
   }
 
-  mat-card {
-    flex-basis: calc(33.33% - 20px);
-    margin: 10px;
+  .announcements-desktop {
+    display: none; // Nascondi mat-expansion-panel su dispositivi mobili
   }
 
-  .mat-card-actions {
+  .announcement-card {
+    margin: 1rem 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .mat-card-header {
+      .mat-card-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+      }
+    }
+
+    .mat-card-content {
+      padding: 1rem;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+  }
+}
+
+// Stili per la versione desktop (min-width: 992px)
+@media (min-width: 992px) {
+  .announcements-mobile {
+    display: none; // Nascondi mat-card su desktop
+  }
+
+  .announcements-desktop {
+    display: block; // Mostra mat-expansion-panel su desktop
+  }
+}
+// Stili per centrare il pulsante nella versione mobile (max-width: 991px)
+@media (max-width: 991px) {
+  .center-button {
     display: flex;
     justify-content: center;
   }
 }
 
-/* Stili per il form delle recensioni */
-.new-review-form {
-  width: 50%;
-  margin: 20px auto;
 
-  mat-form-field {
-    width: 100%;
-    margin-bottom: 15px;
+
+// Stili per la versione desktop (min-width: 992px)
+@media (min-width: 992px) {
+  .discussion-topics-mobile {
+    display: none; // Nascondi mat-card su desktop
   }
 
-  button {
-    background-color: #005b96;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-  }
-
-  button:hover {
-    background-color: #003f6c;
+  .discussion-topics-desktop {
+    display: block; // Mostra mat-expansion-panel su desktop
   }
 }
 
-/* Stelle delle recensioni */
-.star-rating {
-  color: #ffd700; /* Codice colore HEX per il giallo */
-}
-
-
-/* Responsive Design */
-@media only screen and (max-width: 1200px) {
-  /* Stili per schermi fino a 1200px */
-}
-
-@media only screen and (max-width: 900px) {
-  /* Stili per schermi fino a 900px */
-}
-
-@media only screen and (max-width: 768px) {
-  /* Stili per schermi fino a 768px */
-  .upcoming-events .events-container {
-    flex-direction: column;
+// Aggiungi altri stili personalizzati se necessario
+// Stili per la versione mobile (max-width: 991px)
+@media (max-width: 991px) {
+  .faqs-mobile {
+    display: block; // Mostra mat-card su dispositivi mobili
   }
 
-  .upcoming-events mat-card {
-    flex-basis: 100%;
+  .faqs-desktop {
+    display: none; // Nascondi mat-expansion-panel su dispositivi mobili
   }
 
+  .faq-card {
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .mat-card-header {
+      .mat-card-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+      }
+    }
+
+    .mat-card-content {
+      padding: 1rem;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+  }
+}
+
+// Stili per la versione desktop (min-width: 992px)
+@media (min-width: 992px) {
+  .faqs-mobile {
+    display: none; // Nascondi mat-card su desktop
+  }
+
+  .faqs-desktop {
+    display: block; // Mostra mat-expansion-panel su desktop
+  }
+}
+// Stili per la sezione delle recensioni
+.user-reviews {
+  text-align: center;
+
+  // Stili per il titolo delle recensioni
+  .reviews-title {
+    margin-bottom: 1rem;
+  }
+
+  // Stili per il form di aggiunta recensione
   .new-review-form {
-    width: 100%;
+    mat-card {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: left;
+
+      h2 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+      }
+
+      mat-form-field {
+        width: 100%;
+        margin-bottom: 1rem;
+
+        input,
+        textarea {
+          width: 100%;
+        }
+      }
+
+      .mat-select {
+        width: 100%;
+      }
+
+      button {
+        width: 100%;
+        margin-top: 1rem;
+      }
+    }
   }
-}
 
-@media only screen and (max-width: 568px) {
-  /* Stili per schermi fino a 568px */
-}
+  // Stili per la lista delle recensioni esistenti
+  .reviews-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
-@media only screen and (max-width: 400px) {
-  /* Stili per schermi fino a 400px */
+    .review-card {
+      margin: 0.5rem;
+      width: 300px;
+
+      mat-card-content {
+        text-align: left;
+
+        .star-rating {
+          color: yellow; // Stelle gialle
+        }
+      }
+    }
+  }
 }
