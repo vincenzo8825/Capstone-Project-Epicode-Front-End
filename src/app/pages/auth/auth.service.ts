@@ -39,6 +39,7 @@ export class AuthService {
     return this.http.post<iAccessData>(this.registerUrl, data);
   }
 
+
   login(data: iLogin): Observable<iAccessData> {
     return this.http.post<iAccessData>(this.loginUrl, data).pipe(
       tap((accessData) => {

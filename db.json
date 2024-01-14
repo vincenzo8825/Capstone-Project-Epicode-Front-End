@@ -4,67 +4,22 @@
       "email": "mario@rossi.it",
       "password": "$2a$10$J7eKkQ6mlr4nKWdH4kfhTeIgeCAacxiw3xp0VGJeiFTA9jaUE1ZvW",
       "nome": "mario",
+      "cognome": "rossi",
       "id": 1
     },
     {
-      "email": "wuwy@mailinator.com",
-      "password": "$2a$10$TkuiE8j6K3WkiWW.7MXQ/OmR76WjpgveYNYUbMKqAAVMuF1SPs56e",
-      "nome": "Qui qui illo omnis d",
+      "email": "vincenzo@esempio.it",
+      "password": "$2a$10$lKV3JXLv19yEqY98gK1PyOIq/cWdqnI1LKhMOUuv.7L83cQmjDKsq",
+      "nome": "vincenzo",
+      "cognome": "rocca",
       "id": 2
     },
     {
-      "email": "jebavepuw@mailinator.com",
-      "password": "$2a$10$5IC8iPFrl23BFyz9n1567.tyuUr2m5wZZcIEj08wM9.FaiBhOG472",
-      "nome": "Eius dolor libero vo",
+      "email": "vincenzo@esempio2.com",
+      "password": "$2a$10$vPdrIPILYH6j.MujGhdQJeWJ3u.bExTecC8Jq8fxB1r0QsPN1RtnG",
+      "nome": "vincenzo2",
+      "cognome": "rocca2",
       "id": 3
-    },
-    {
-      "email": "tyte@mailinator.com",
-      "password": "$2a$10$v/CEzEX.3FNEoP7QKVXxAuizpiHUTbo.p20S4roYL/Kch8nyX1eiu",
-      "nome": "Ut quo est ipsam do",
-      "id": 4
-    },
-    {
-      "email": "pibuka@mailinator.com",
-      "password": "$2a$10$q2fxiDN81mpEKRJ5Zu0yV.RjfNjbfiLbGiXya2pn3rkcxhRZ3.eze",
-      "nome": "Ad accusantium repre",
-      "id": 5
-    },
-    {
-      "email": "godejocele@mailinator.com",
-      "password": "$2a$10$ASqtDneD59VhDoZCzkWyT.DsG3z2FLYaMDz8QjICePa..HTdYOgDm",
-      "nome": "Nisi lorem commodo c",
-      "id": 6
-    },
-    {
-      "email": "lefac@mailinator.com",
-      "password": "$2a$10$tqswecErU3jzVi.giypRl.jPJBoOflDftGQcRIB6x35atWLM6oGPm",
-      "nome": "Vel aut recusandae ",
-      "id": 7
-    },
-    {
-      "email": "vincenzo@rossi.it",
-      "password": "$2a$10$pWjoVXNfqH5JpwyppAs1a.e3wfSLrNJXrNDd1WMqkn46NM4JCm0yq",
-      "nome": "vincenzo",
-      "id": 8
-    },
-    {
-      "email": "mavigugywy@mailinator.com",
-      "password": "$2a$10$TGLYd.1dPgMSuzUQMGM6n.P6bBZoflS3s9e0TQet3It69Lpy/KSxS",
-      "nome": "Qui ut tempor rerum ",
-      "id": 9
-    },
-    {
-      "email": "xusogax@mailinator.com",
-      "password": "$2a$10$sAu/xZajvx2tTYyMK7nkB.tzwZbKoGP/aNJCwAwGAcMvh.O0yhQOS",
-      "nome": "Earum voluptatem tot",
-      "id": 10
-    },
-    {
-      "email": "vincenzo@esempio.it",
-      "password": "$2a$10$cXbwxKSlAunkKoL5Hcq4xumaBE7DF7PntGTvvGCsHSJVe8RzEy3Lm",
-      "nome": "vincenzo",
-      "id": 11
     }
   ],
   "corsi": [

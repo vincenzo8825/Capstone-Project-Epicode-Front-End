@@ -18,7 +18,8 @@ export class RegisterComponent {
   registerData:iRegister = {
     email: '',
     password: '',
-    nome: ''
+    nome: '',
+    cognome: '',
   }
 
 

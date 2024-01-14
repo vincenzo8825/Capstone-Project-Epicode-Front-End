@@ -27,6 +27,7 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
   currentPassword!: string;
   newPassword!: string;
   confirmPassword!: string;
+  userCognome: string | null = null;
   constructor(private authService: AuthService, private sharedService: SharedService) {}
 
   ngOnInit(): void {
@@ -49,9 +50,11 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
     const userData = this.authService.getCurrentUser();
     if (userData) {
       this.userName = userData.nome;
+      this.userCognome = userData.cognome;
       this.userEmail = userData.email;
     }
   }
+
   caricaDatiAcquisti(): void {
     const datiAcquistiRaw = localStorage.getItem('datiAcquisti');
     if (datiAcquistiRaw) {

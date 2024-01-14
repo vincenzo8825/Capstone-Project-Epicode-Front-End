@@ -1,10 +1,11 @@
 export interface iUser {
+  cognome: string;
   id:string
   nome:string
   email:string
   password:string
 }
-// dashboard.model.ts
+
 
 export interface Corso {
 

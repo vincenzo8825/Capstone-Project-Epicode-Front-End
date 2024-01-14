@@ -1,5 +1,6 @@
 export interface iRegister {
-  nome:string
-  email:string
-  password:string
+  nome: string;
+  cognome: string;
+  email: string;
+  password: string;
 }
