@@ -10,7 +10,28 @@
   justify-content: center;
   background: url('https://source.unsplash.com/1920x1080/?e-book') center/cover no-repeat;
   animation: fadeIn 2s ease-out;
+  .error-message {
+    padding: 12px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #ffebeb; // Sfondo rosso chiaro
+    color: #d8000c; // Rosso scuro per il testo
+    text-align: center;
+    border: 1px solid #d8000c;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease-out;
 
+    &:before {
+
+      display: inline-block;
+      margin-right: 7px;
+    }
+
+    &:not(:empty) {
+      display: block;
+    }
+  }
   form {
     width: calc(100% - 30px);
     max-width: 300px;

@@ -12,7 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AuthComponent,
@@ -27,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatCardModule,
     MatInputModule,
-    MatGridListModule // Aggiunto MatGridListModule
+    MatGridListModule,
+    MatIconModule // Aggiunto MatGridListModule
   ]
 })
 export class AuthModule { }

@@ -14,7 +14,9 @@
         <input matInput type="password" [(ngModel)]="loginData.password" name="password" placeholder="Enter your password">
       </mat-form-field>
     </div>
-
+    <div *ngIf="loginError" class="error-message">
+      <mat-icon>warning</mat-icon> {{ loginError }}
+    </div>
     <button mat-raised-button color="primary" (click)="save()">Login</button>
     <button *ngIf="isUserLoggedIn" mat-raised-button color="warn" (click)="logout()">Logout</button>
   </form>

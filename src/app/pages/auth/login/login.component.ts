@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-
+  loginError: string = '';
   isUserLoggedIn: boolean = false; // Nuova variabile di stato
 
   constructor(
@@ -18,15 +18,22 @@ export class LoginComponent {
   ) {}
 
   loginData: iLogin = {
-    email: 'mario@rossi.it',
-    password: 'password'
+    email: '',
+    password: ''
   }
 
   save() {
     this.authSvc.login(this.loginData)
-      .subscribe(data => {
-        this.isUserLoggedIn = true; // Imposto la variabile di stato a true dopo il login
-        this.router.navigate(['/dashboard']);
+      .subscribe({
+        next: (data) => {
+          this.isUserLoggedIn = true;
+          this.router.navigate(['/dashboard']);
+        },
+        error: (err) => {
+          // Imposta il messaggio di errore in base alla risposta del server o un messaggio generico
+          this.loginError = err.error?.message || 'Login fallito: Email o Password non corretti.';
+          this.isUserLoggedIn = false;
+        }
       });
   }
 
