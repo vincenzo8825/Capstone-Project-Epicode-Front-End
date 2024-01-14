@@ -5,127 +5,99 @@
     margin: 0 auto;
     text-align: center;
     padding: 2rem;
+    background-color: #f4f4f4; /* Colore di sfondo grigio chiaro */
 
     .title {
       font-size: 1.5rem;
       font-weight: bold;
       margin-bottom: 1rem;
+      color: #333; /* Colore del testo principale */
     }
 
     .intro-text {
-      font-size: 1rem;
+      font-size: 1.1rem;
       margin-bottom: 2rem;
+      color: #555; /* Colore del testo secondario */
     }
 
     .highlight-text {
-      font-size: 1rem;
-      color: #007bff;
+      font-size: 1.1rem;
+      color: #007bff; /* Colore del testo in evidenza */
       margin-bottom: 2rem;
     }
 
     .membership-info {
       font-size: 0.8rem;
       margin-bottom: 2rem;
-      color: #777;
+      color: #777; /* Colore del testo per le informazioni di iscrizione */
     }
 
     .join-button {
       width: 60%;
-      font-size: 0.7rem;
-      padding: 1.4rem 2rem;
-      background-color: #007bff; /* Sfondo blu quando attivo */
-      color: white; /* Testo bianco quando attivo */
+      font-size: 0.6rem;
+      padding: 1.4rem 1rem;
+      background-color: #007bff;
+      color: white;
       border: none;
       cursor: pointer;
       border-radius: 30px;
       transition: background-color 0.3s ease;
 
       &:hover {
-        background-color: #0056b3; /* Sfondo blu più scuro al passaggio del mouse */
+        background-color: #0056b3;
       }
 
-      /* Stile per il pulsante inattivo */
       &.inactive-button {
-        background-color: white; /* Sfondo bianco quando inattivo */
-        color: #007bff; /* Testo blu quando inattivo */
-        border: 2px solid #007bff; /* Bordo blu quando inattivo */
-        cursor: not-allowed; /* Cambia il cursore in "non consentito" quando inattivo */
+        background-color: #f4f4f4; /* Colore di sfondo grigio chiaro */
+        color: #333; /* Colore del testo principale */
+        border: 2px solid #007bff;
+        cursor: not-allowed;
       }
     }
   }
 }
 
-
-
-
-
 @media (max-width: 991px) {
-  .discussion-topics-mobile {
-    display: block; // Mostra mat-card su dispositivi mobili
+  .discussion-topics-mobile,
+  .announcements-mobile,
+  .faqs-mobile {
+    display: block;
+    padding: 2rem 0; /* Aggiunto padding sopra e sotto per le sezioni mobili */
   }
 
-  .discussion-topics-desktop {
-    display: none; // Nascondi mat-expansion-panel su dispositivi mobili
+  .discussion-topics-desktop,
+  .announcements-desktop,
+  .faqs-desktop {
+    display: none;
   }
 
   .mat-card-content {
-    font-size: 0.85rem; // Riduci il font-size per il contenuto della mat-card su dispositivi mobili
-
+    font-size: 1rem;
     .status-chip {
-      background-color: red; // Colore di sfondo del chip "Discussione Chiusa" in rosso
-      color: white; // Testo bianco per il chip "Discussione Chiusa"
+      background-color: red;
+      color: white;
     }
 
-    // Aggiungi questo selettore per rendere il testo del chip "Discussione Chiusa" in rosso
     .status-chip.mat-chip-checked {
-      color: red; // Testo "Discussione Chiusa" in rosso quando selezionato
-    }
-  }
-}
-// Stili per la versione mobile (max-width: 991px)
-@media (max-width: 991px) {
-  .announcements-mobile {
-    display: block; // Mostra mat-card su dispositivi mobili
-  }
-
-  .announcements-desktop {
-    display: none; // Nascondi mat-expansion-panel su dispositivi mobili
-  }
-
-  .announcement-card {
-    margin: 1rem 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
-    &:hover {
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    }
-
-    .mat-card-header {
-      .mat-card-title {
-        font-size: 1.25rem;
-        font-weight: bold;
-      }
-    }
-
-    .mat-card-content {
-      padding: 1rem;
-      line-height: 1.6;
-      font-size: 0.95rem;
+      color: red;
     }
   }
 }
 
-// Stili per la versione desktop (min-width: 992px)
 @media (min-width: 992px) {
-  .announcements-mobile {
-    display: none; // Nascondi mat-card su desktop
+  .announcements-mobile,
+  .faqs-mobile {
+    display: none;
   }
 
-  .announcements-desktop {
-    display: block; // Mostra mat-expansion-panel su desktop
+  .discussion-topics-mobile,
+  .announcements-desktop,
+  .faqs-desktop {
+    display: block;
+    padding: 2rem 0; /* Aggiunto padding sopra e sotto per le sezioni desktop */
   }
 }
-// Stili per centrare il pulsante nella versione mobile (max-width: 991px)
+
 @media (max-width: 991px) {
   .center-button {
     display: flex;
@@ -133,73 +105,31 @@
   }
 }
 
-
-
-// Stili per la versione desktop (min-width: 992px)
 @media (min-width: 992px) {
-  .discussion-topics-mobile {
-    display: none; // Nascondi mat-card su desktop
-  }
-
-  .discussion-topics-desktop {
-    display: block; // Mostra mat-expansion-panel su desktop
-  }
-}
-
-// Aggiungi altri stili personalizzati se necessario
-// Stili per la versione mobile (max-width: 991px)
-@media (max-width: 991px) {
+  .discussion-topics-mobile,
+  .announcements-mobile,
   .faqs-mobile {
-    display: block; // Mostra mat-card su dispositivi mobili
+    display: none;
   }
 
+  .discussion-topics-desktop,
+  .announcements-desktop,
   .faqs-desktop {
-    display: none; // Nascondi mat-expansion-panel su dispositivi mobili
-  }
-
-  .faq-card {
-    margin-bottom: 1rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
-    &:hover {
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    }
-
-    .mat-card-header {
-      .mat-card-title {
-        font-size: 0.9rem;
-        font-weight: bold;
-      }
-    }
-
-    .mat-card-content {
-      padding: 1rem;
-      line-height: 1.6;
-      font-size: 0.8rem;
-    }
+    display: block;
+    padding: 2rem 0; /* Aggiunto padding sopra e sotto per le sezioni desktop */
   }
 }
 
-// Stili per la versione desktop (min-width: 992px)
-@media (min-width: 992px) {
-  .faqs-mobile {
-    display: none; // Nascondi mat-card su desktop
-  }
-
-  .faqs-desktop {
-    display: block; // Mostra mat-expansion-panel su desktop
-  }
-}
-// Stili per la sezione delle recensioni
 .user-reviews {
   text-align: center;
+  padding: 2rem 0; /* Aggiunto padding sopra e sotto per la sezione delle recensioni */
 
-  // Stili per il titolo delle recensioni
   .reviews-title {
     margin-bottom: 1rem;
+    font-size: 1.8rem;
+    color: #333; /* Colore del testo principale */
   }
 
-  // Stili per il form di aggiunta recensione
   .new-review-form {
     mat-card {
       width: 100%;
@@ -208,8 +138,9 @@
       text-align: left;
 
       h2 {
-        font-size: 1.25rem;
+        font-size: 1.4rem;
         margin-bottom: 1rem;
+        color: #333; /* Colore del testo principale */
       }
 
       mat-form-field {
@@ -229,11 +160,20 @@
       button {
         width: 100%;
         margin-top: 1rem;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 30px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #0056b3;
+        }
       }
     }
   }
 
-  // Stili per la lista delle recensioni esistenti
   .reviews-list {
     display: flex;
     flex-wrap: wrap;
@@ -247,7 +187,7 @@
         text-align: left;
 
         .star-rating {
-          color: yellow; // Stelle gialle
+          color: yellow;
         }
       }
     }
