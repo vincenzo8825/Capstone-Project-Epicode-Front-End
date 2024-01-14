@@ -11,6 +11,7 @@ import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { LavoraConNoiComponent } from './pages/lavora-con-noi/lavora-con-noi.component';
 import { ProfiloUtenteComponent } from './pages/profilo-utente/profilo-utente.component';
+import { Pagina404Component } from './pages/pagina404/pagina404.component';
 
 const routes: Routes = [
   {
@@ -35,7 +36,9 @@ const routes: Routes = [
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   {path:'lavora-con-noi', component: LavoraConNoiComponent},
   { path: 'profilo-utente', component: ProfiloUtenteComponent },
-  // Altre route possono essere aggiunte qui
+
+{ path: '**', component: Pagina404Component }
+
 ];
 
 @NgModule({

@@ -22,6 +22,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { MatInputModule } from '@angular/material/input';
+import { Pagina404Module } from './pages/pagina404/pagina404.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +48,8 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     MatListModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    Pagina404Module
 
 
 

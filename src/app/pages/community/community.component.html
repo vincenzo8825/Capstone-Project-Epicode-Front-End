@@ -5,7 +5,7 @@
     </mat-card-header>
     <mat-card-content>
       <p class="intro-text">Unisciti a noi per condividere e apprendere sul web development, machine learning e data science.</p>
-      <p class="highlight-text">Siamo una community appassionata di tecnologia che offre corsi, tutorial e discussioni interattive.</p>
+      <p class="highlight-text">Siamo una community appassionata di tecnologia che offre corsi, lezioni e discussioni interattive.</p>
       <p class="membership-info">Iscriviti ora per accedere a risorse esclusive e connetterti con esperti del settore.</p>
       <button mat-raised-button [ngClass]="{'join-button': true, 'custom-white-button': !iscrizioneAvvenuta, 'white-button-text': !iscrizioneAvvenuta}" (click)="uniscitiAllaCommunity()" [disabled]="iscrizioneAvvenuta">
         {{ iscrizioneAvvenuta ? 'Iscritto' : 'Unisciti alla Community' }}
