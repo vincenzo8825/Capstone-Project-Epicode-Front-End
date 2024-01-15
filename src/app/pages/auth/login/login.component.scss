@@ -11,7 +11,7 @@
   background: url('https://source.unsplash.com/1920x1080/?e-book') center/cover no-repeat;
   animation: fadeIn 2s ease-out;
   .error-message {
-    padding: 8px;
+    padding: 12px;
     margin-top: 10px;
     margin-bottom: 20px;
     background-color: #ffebeb; // Sfondo rosso chiaro
@@ -90,13 +90,6 @@
 }
 
 
-
-
-
-
-
-
-
 @media only screen and (max-width: 768px) {
   .login-container {
     form {
@@ -112,10 +105,10 @@
 @media only screen and (max-width: 480px) {
   .login-container {
     form {
-      max-width: 50%;
+      max-width: 60%;
       padding: 8px;
-      h5 { font-size: 1rem; }
-      .form-group input.mat-input-element { font-size: 0.6rem; }
+      h5 { font-size: 1.2rem; }
+      .form-group input.mat-input-element { font-size: 0.7rem; }
       button { font-size: 0.9rem; padding: 6px 0; }
     }
   }

@@ -10,9 +10,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   loginError: string = '';
-  isUserLoggedIn: boolean = false;
-  mostraPassword: boolean = false; // Variabile per gestire la visibilità della password
-
+  isUserLoggedIn: boolean = false; // Nuova variabile di stato
+  showPassword: boolean = false;
   constructor(
     private authSvc: AuthService,
     private router: Router
@@ -31,6 +30,7 @@ export class LoginComponent {
           this.router.navigate(['/dashboard']);
         },
         error: (err) => {
+          // Imposta il messaggio di errore in base alla risposta del server o un messaggio generico
           this.loginError = err.error?.message || 'Login fallito: Email o Password non corretti.';
           this.isUserLoggedIn = false;
         }
@@ -38,11 +38,10 @@ export class LoginComponent {
   }
 
   logout() {
-    this.authSvc.logout();
-    this.isUserLoggedIn = false;
+    this.authSvc.logout(); // Aggiungo un metodo logout nel tuo servizio AuthService se non c'è già
+    this.isUserLoggedIn = false; // Imposto la variabile di stato a false dopo il logout
   }
-
-  cambiaVisibilitaPassword() {
-    this.mostraPassword = !this.mostraPassword; // Cambia lo stato della variabile per mostrare/nascondere la password
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 }

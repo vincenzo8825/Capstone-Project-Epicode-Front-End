@@ -22,6 +22,7 @@ export class RegisterComponent {
     cognome: '',
   }
 
+  showPassword: boolean = false;
 
   save(){
     this.authSvc.signUp(this.registerData)
@@ -29,5 +30,7 @@ export class RegisterComponent {
         this.router.navigate(['/auth/login'])
     })
   }
-
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
 }

@@ -11,13 +11,12 @@
     <div class="form-group">
       <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
-        <input matInput
-               [type]="mostraPassword ? 'text' : 'password'"
-               [(ngModel)]="loginData.password" name="password" placeholder="Inserisci la tua password">
+        <input matInput [type]="showPassword ? 'text' : 'password'" [(ngModel)]="loginData.password" name="password" placeholder="Enter your password">
+        <button mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+          <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
       </mat-form-field>
-      <button mat-icon-button (click)="cambiaVisibilitaPassword()" class="password-toggle-button">
-        <mat-icon>{{ mostraPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
-      </button>
+
     </div>
     <div *ngIf="loginError" class="error-message">
       <mat-icon>warning</mat-icon> {{ loginError }}
