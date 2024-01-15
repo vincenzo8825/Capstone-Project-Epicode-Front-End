@@ -75,9 +75,9 @@
 
 @media only screen and (max-width: 480px) {
   .registration-container {
-    max-width: 60%; /* Riduzione significativa della larghezza */
+    max-width: 50%; /* Riduzione significativa della larghezza */
     padding: 8px; /* Riduzione del padding */
-    h5 { font-size: 1.2rem; } /* Riduzione della dimensione del font */
+    h5 { font-size: 1rem; } /* Riduzione della dimensione del font */
     mat-form-field .mat-input-element { font-size: 0.7rem; } /* Riduzione della dimensione del font */
     button { font-size: 0.9rem; padding: 6px 0; } /* Riduzione della dimensione e del padding del pulsante */
   }

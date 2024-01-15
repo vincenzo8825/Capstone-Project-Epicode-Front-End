@@ -135,7 +135,7 @@ export class CommunityComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.sharedService.aggiungiEventoIscritto(event.name);
-        this.router.navigate(['/profiloutente']);
+        this.router.navigate(['/profilo-utente']);
         this.iscrizioni[event.name] = true;
       }
     });
