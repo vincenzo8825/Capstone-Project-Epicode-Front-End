@@ -27,6 +27,13 @@
       "nome": "vincenzo",
       "cognome": "rocca",
       "id": 4
+    },
+    {
+      "email": "vincroc@esempio.it",
+      "password": "$2a$10$xJSpAJX5wBFHVPfXRggrCOrigs2as.Ag4XxR3vg9w2OcQzSV2f41.",
+      "nome": "vinc",
+      "cognome": "roc",
+      "id": 5
     }
   ],
   "corsi": [

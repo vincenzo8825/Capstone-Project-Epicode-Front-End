@@ -51,11 +51,37 @@ export class LavoraConNoiComponent implements OnInit {
   onSubmitForm(form: FormGroup, tipo: string) {
     if (form.valid) {
       // Logica per gestire l'invio del form
+
+      // Eseguire il reset del form dopo l'invio con successo
+      form.reset();
+
       Swal.fire('Successo!', `La tua ${tipo} è stata inviata con successo.`, 'success');
     } else {
       Swal.fire('Errore!', 'Per favore, completa tutti i campi richiesti.', 'error');
     }
   }
+
+  onSubmitContattoForm(form: FormGroup) {
+    const nomeControl = form.get('nome');
+    const cognomeControl = form.get('cognome');
+    const emailControl = form.get('email');
+    const messaggioControl = form.get('messaggio');
+
+    if (nomeControl && cognomeControl && emailControl && messaggioControl) {
+      if (nomeControl.valid && cognomeControl.valid && emailControl.valid && messaggioControl.valid) {
+        // Tutti i campi sono validi
+
+        // Esegui il reset del form dopo l'invio con successo
+        form.reset();
+
+        Swal.fire('Successo!', 'Abbiamo preso in carica la tua richiesta. Ti contatteremo appena possibile.', 'success');
+      } else {
+        Swal.fire('Errore!', 'Per favore, completa tutti i campi richiesti e assicurati di inserire un indirizzo email valido.', 'error');
+      }
+    }
+  }
+
+
 
   onSubmitCandidatura(index: number) {
     const form = this.candidaturaForms[index];
