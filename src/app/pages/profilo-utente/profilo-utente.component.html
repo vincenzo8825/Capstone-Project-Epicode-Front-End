@@ -1,102 +1,112 @@
-<mat-card>
-  <mat-card-title>Informazioni Personali</mat-card-title>
-  <mat-card-content>
-    <p>Nome: {{ userName }}</p>
-    <p>Cognome: {{ userCognome }}</p>
-    <p>Email: {{ userEmail }}</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <!-- Eventuali azioni -->
-  </mat-card-actions>
-</mat-card>
-
-
-<mat-card>
-  <mat-card-title>Corsi Preferiti</mat-card-title>
-  <mat-card-content>
-    <mat-list>
-      <mat-list-item *ngFor="let corso of preferitiCorsi">{{ corso.nome }}</mat-list-item>
-    </mat-list>
-  </mat-card-content>
-</mat-card>
-
-<mat-card>
-  <mat-card-title>Lezioni Preferite</mat-card-title>
-  <mat-card-content>
-    <mat-list>
-      <mat-list-item *ngFor="let lezione of preferitiLezioni">{{ lezione.titolo }}</mat-list-item>
-    </mat-list>
-  </mat-card-content>
-</mat-card>
-<section>
-  <h3>Corsi Acquistati</h3>
-  <ul>
-    <li *ngFor="let corso of corsiAcquistati">{{ corso.nome }}</li>
-  </ul>
-</section>
-
-<section>
-  <h3>Lezioni Acquistate</h3>
-  <ul>
-    <li *ngFor="let lezione of lezioniAcquistate">{{ lezione.titolo }}</li>
-  </ul>
-</section>
-<mat-card>
-  <mat-card-title>Eventi a cui parteciperai</mat-card-title>
-  <mat-card-content>
-    <mat-list>
-      <mat-list-item *ngFor="let evento of eventiIscritti">{{ evento }}</mat-list-item>
-    </mat-list>
-  </mat-card-content>
-</mat-card>
-
-
-
-
-
-
-
-
-
-
-<mat-card>
-  <mat-card-title>Impostazioni Account</mat-card-title>
-  <mat-card-actions>
-    <button mat-button (click)="cambiaPassword()">Cambia Password</button>
-
-  </mat-card-actions>
-
-  <!-- Password change form -->
-
-
-
-  <div *ngIf="showChangePasswordForm">
-
-    <form #changePasswordForm="ngForm" (ngSubmit)="onSubmit()">
-      <mat-form-field appearance="fill">
-        <mat-label>Password attuale</mat-label>
-        <input matInput type="password" [(ngModel)]="currentPassword" name="currentPassword">
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>Nuova Password</mat-label>
-        <input matInput type="password" [(ngModel)]="newPassword" name="newPassword">
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>Conferma Password</mat-label>
-        <input matInput type="password" [(ngModel)]="confirmPassword" name="confirmPassword">
-      </mat-form-field>
-    </form>
-
-    <!-- Passa il riferimento al form al click del pulsante -->
-    <button mat-raised-button color="primary" (click)="onSubmit()">Modifica</button>  </div>
+<section class="user-info-card">
+  <mat-card>
+    <mat-card-title>Informazioni Personali</mat-card-title>
+    <mat-card-content>
+      <div class="info-item">
+        <span class="info-label">Nome:</span>
+        <span class="info-value">{{ userName }}</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Cognome:</span>
+        <span class="info-value">{{ userCognome }}</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Email:</span>
+        <span class="info-value">{{ userEmail }}</span>
+      </div>
+    </mat-card-content>
   </mat-card>
+</section>
 
+<section class="favorite-courses-card">
+  <mat-card>
+    <mat-card-title>Corsi Preferiti</mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let corso of preferitiCorsi">{{ corso.nome }}</mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</section>
 
+<section class="favorite-lessons-card">
+  <mat-card>
+    <mat-card-title>Lezioni Preferite</mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let lezione of preferitiLezioni">{{ lezione.titolo }}</mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</section>
 
-<mat-card>
-  <mat-card-actions>
-    <button mat-button (click)="logout()">Logout</button>
-  </mat-card-actions>
-</mat-card>
+<section class="purchased-courses-card">
+  <mat-card>
+    <mat-card-title>Corsi Acquistati</mat-card-title>
+    <mat-card-content>
+      <ul>
+        <li *ngFor="let corso of corsiAcquistati">{{ corso.nome }}</li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+</section>
+
+<section class="purchased-lessons-card">
+  <mat-card>
+    <mat-card-title>Lezioni Acquistate</mat-card-title>
+    <mat-card-content>
+      <ul>
+        <li *ngFor="let lezione of lezioniAcquistate">{{ lezione.titolo }}</li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+</section>
+
+<section class="event-attendance-card">
+  <mat-card>
+    <mat-card-title>Eventi a cui parteciperai</mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let evento of eventiIscritti">{{ evento }}</mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</section>
+
+<section class="account-settings-card">
+  <mat-card>
+    <mat-card-title>Impostazioni Account</mat-card-title>
+    <mat-card-content>
+      <button mat-button (click)="cambiaPassword()">Cambia Password</button>
+    </mat-card-content>
+
+    <div *ngIf="showChangePasswordForm">
+      <form #changePasswordForm="ngForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Password attuale</mat-label>
+          <input matInput type="password" [(ngModel)]="currentPassword" name="currentPassword">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Nuova Password</mat-label>
+          <input matInput type="password" [(ngModel)]="newPassword" name="newPassword">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Conferma Password</mat-label>
+          <input matInput type="password" [(ngModel)]="confirmPassword" name="confirmPassword">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="onSubmit()">Modifica</button>
+      </form>
+    </div>
+  </mat-card>
+</section>
+
+<section class="logout-card">
+  <mat-card>
+    <mat-card-content>
+      <button mat-button (click)="logout()">Logout</button>
+    </mat-card-content>
+  </mat-card>
+</section>
