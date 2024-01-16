@@ -150,20 +150,25 @@
   .favorite-lessons-card mat-card-title,
   .purchased-lessons-card mat-card-title,
   .event-attendance-card mat-card-title,
-  .testo-da-ridurre-font,
+  .testo-da-ridurre-font mat-card-title,
+  .account-settings-card mat-card-title,
   .corsi-acquistati mat-card-title { /* Aggiunto stile per la sezione Corsi Acquistati */
-    font-size: 0.8em; /* Font ancora più ridotto per dispositivi mobili */
+    font-size: 0.7em; /* Font ancora più ridotto per dispositivi mobili */
   }
 
   .info-label,
   .info-value,
   .testo-da-ridurre-font,
   .corsi-acquistati .testo-da-ridurre-font { /* Aggiunto stile per la sezione Corsi Acquistati */
-    font-size: 0.8em; /* Font ancora più ridotto per dispositivi mobili */
+    font-size: 0.7em; /* Font ancora più ridotto per dispositivi mobili */
   }
 
   .testo-da-ridurre-font,
   .corsi-acquistati .testo-da-ridurre-font { /* Aggiunto stile per la sezione Corsi Acquistati */
     text-align: center;
+    font-size: 0.7em;
+  }
+  .mat-card-title{
+    font-size: 0.5em;
   }
 }
