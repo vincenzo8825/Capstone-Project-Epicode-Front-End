@@ -71,7 +71,7 @@ export class LavoraConNoiComponent implements OnInit {
       if (nomeControl.valid && cognomeControl.valid && emailControl.valid && messaggioControl.valid) {
         // Tutti i campi sono validi
 
-        // Esegui il reset del form dopo l'invio con successo
+        // Esegue il reset del form dopo l'invio con successo
         form.reset();
 
         Swal.fire('Successo!', 'Abbiamo preso in carica la tua richiesta. Ti contatteremo appena possibile.', 'success');
@@ -86,6 +86,9 @@ export class LavoraConNoiComponent implements OnInit {
   onSubmitCandidatura(index: number) {
     const form = this.candidaturaForms[index];
     if (form.valid) {
+      // Esegue il reset del form dopo l'invio con successo
+      form.reset();
+
       Swal.fire(
         'Candidatura Inviata!',
         `La tua candidatura per "${this.posizioniAperte[index].titolo}" è stata inviata con successo.`,
@@ -96,6 +99,7 @@ export class LavoraConNoiComponent implements OnInit {
       Swal.fire('Errore!', 'Per favore, completa tutti i campi richiesti.', 'error');
     }
   }
+
 
   resetCandidaturaForm() {
     this.mostraFormCandidatura = false;
