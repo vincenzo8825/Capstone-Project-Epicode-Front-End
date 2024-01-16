@@ -6,12 +6,13 @@
 .purchased-lessons-card,
 .event-attendance-card,
 .account-settings-card,
-.logout-card {
-  background: white;
+.logout-card,
+.corsi-acquistati { /* Aggiunto stile per la sezione Corsi Acquistati */
+  background: #f7f7f7; /* Colore di sfondo personalizzato */
   border-radius: 12px;
-  margin: 25px auto;
+  margin: 20px auto; /* Margini leggermente ridotti */
   max-width: 90%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra leggermente ridotta */
   overflow: hidden;
   text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -25,17 +26,17 @@
 
   .info-item {
     display: flex;
-    justify-content:center;
+    justify-content: flex-start;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 8px; /* Margini inferiori leggermente ridotti */
 
     .info-label {
       font-weight: bold;
-      padding-right: 5px;
+      padding-right: 8px; /* Spaziatura tra etichetta e valore leggermente ridotta */
     }
 
     @media (max-width: 768px) {
-      margin-bottom: 10px;
+      margin-bottom: 6px; /* Margini inferiori più piccoli per dispositivi mobili */
     }
   }
 }
@@ -48,13 +49,14 @@
 .purchased-lessons-card mat-card-title,
 .event-attendance-card mat-card-title,
 .account-settings-card mat-card-title,
-.logout-card mat-card-title {
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+.logout-card mat-card-title,
+.testo-da-ridurre-font,
+.corsi-acquistati mat-card-title { /* Aggiunto stile per la sezione Corsi Acquistati */
+  background: #6a11cb; /* Colore di sfondo personalizzato */
   color: white;
-  padding: 15px 25px;
+  padding: 12px 20px; /* Spaziatura interna leggermente ridotta */
   margin: 0 auto;
   font-size: 1.2em;
-  width: fit-content;
   border-radius: 12px 12px 0 0;
   text-align: center;
 }
@@ -67,8 +69,9 @@
 .purchased-lessons-card mat-card-content,
 .event-attendance-card mat-card-content,
 .account-settings-card mat-card-content,
-.logout-card mat-card-content {
-  padding: 20px 25px;
+.logout-card mat-card-content,
+.corsi-acquistati mat-card-content { /* Aggiunto stile per la sezione Corsi Acquistati */
+  padding: 16px 20px; /* Spaziatura interna leggermente ridotta */
   line-height: 1.6;
   font-size: 1em;
   flex-grow: 1;
@@ -77,13 +80,15 @@
   justify-content: space-between;
 }
 
-/* Stili per i pulsanti */
+/* Stili per i pulsanti e il testo da ridurre il font */
 .user-info-card button,
 .favorite-courses-card button,
 .favorite-lessons-card button,
 .account-settings-card button,
-.logout-card button {
-  background-color: #fc4a1a;
+.logout-card button,
+.testo-da-ridurre-font,
+.corsi-acquistati button { /* Aggiunto stile per la sezione Corsi Acquistati */
+  background-color: #9281b8; /* Colore di sfondo personalizzato (blu verdastro) */
   color: white;
   padding: 10px 20px;
   border: none;
@@ -93,37 +98,40 @@
   align-self: center;
 
   &:hover {
-    background-color: #f7b733;
+    background-color: #067c8e; /* Cambio colore al passaggio del mouse (blu scuro verdastro) */
     transform: translateY(-2px);
   }
 }
 
-/* Stili per le liste */
+/* Stili per le liste e il testo da ridurre il font */
 .user-info-card ul,
 .favorite-courses-card ul,
 .favorite-lessons-card ul,
 .purchased-courses-card ul,
 .purchased-lessons-card ul,
-.event-attendance-card ul {
+.event-attendance-card ul,
+.corsi-acquistati ul { /* Aggiunto stile per la sezione Corsi Acquistati */
   list-style: none;
   margin: 0;
   padding: 0;
   flex-grow: 1;
 }
 
-/* Stili per gli elementi della lista */
+/* Stili per gli elementi della lista e il testo da ridurre il font */
 .user-info-card li,
 .favorite-courses-card li,
 .favorite-lessons-card li,
 .purchased-courses-card li,
 .purchased-lessons-card li,
-.event-attendance-card li {
-  padding: 15px 25px;
+.event-attendance-card li,
+.corsi-acquistati li { /* Aggiunto stile per la sezione Corsi Acquistati */
+  padding: 12px 20px; /* Spaziatura interna leggermente ridotta */
   border-bottom: 1px solid #eee;
   transition: background-color 0.3s;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 0.9em; /* Font ridotto */
 
   &:hover {
     background-color: #f6f6f6;
@@ -134,18 +142,28 @@
   }
 }
 
-@media (max-width: 400px) {
-  /* Riduzione del font-size per dispositivi con larghezza massima di 400px */
+/* Riduzione del font-size per dispositivi con larghezza massima di 400px e 768px */
+@media (max-width: 400px), (max-width: 768px) {
   .user-info-card mat-card-title,
   .favorite-courses-card mat-card-title,
   .purchased-courses-card mat-card-title,
   .favorite-lessons-card mat-card-title,
   .purchased-lessons-card mat-card-title,
   .event-attendance-card mat-card-title,
-  .account-settings-card mat-card-title,
-  .logout-card mat-card-title,
+  .testo-da-ridurre-font,
+  .corsi-acquistati mat-card-title { /* Aggiunto stile per la sezione Corsi Acquistati */
+    font-size: 0.8em; /* Font ancora più ridotto per dispositivi mobili */
+  }
+
   .info-label,
-  .info-value {
-    font-size: 1em;
+  .info-value,
+  .testo-da-ridurre-font,
+  .corsi-acquistati .testo-da-ridurre-font { /* Aggiunto stile per la sezione Corsi Acquistati */
+    font-size: 0.8em; /* Font ancora più ridotto per dispositivi mobili */
+  }
+
+  .testo-da-ridurre-font,
+  .corsi-acquistati .testo-da-ridurre-font { /* Aggiunto stile per la sezione Corsi Acquistati */
+    text-align: center;
   }
 }

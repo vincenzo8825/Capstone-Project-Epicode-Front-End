@@ -23,7 +23,9 @@
     <mat-card-title>Corsi Preferiti</mat-card-title>
     <mat-card-content>
       <mat-list>
-        <mat-list-item *ngFor="let corso of preferitiCorsi">{{ corso.nome }}</mat-list-item>
+        <mat-list-item *ngFor="let corso of preferitiCorsi">
+          <span class="testo-da-ridurre-font">{{ corso.nome }}</span>
+        </mat-list-item>
       </mat-list>
     </mat-card-content>
   </mat-card>
@@ -34,7 +36,9 @@
     <mat-card-title>Lezioni Preferite</mat-card-title>
     <mat-card-content>
       <mat-list>
-        <mat-list-item *ngFor="let lezione of preferitiLezioni">{{ lezione.titolo }}</mat-list-item>
+        <mat-list-item *ngFor="let lezione of preferitiLezioni">
+          <span class="testo-da-ridurre-font">{{ lezione.titolo }}</span>
+        </mat-list-item>
       </mat-list>
     </mat-card-content>
   </mat-card>
@@ -44,9 +48,11 @@
   <mat-card>
     <mat-card-title>Corsi Acquistati</mat-card-title>
     <mat-card-content>
-      <ul>
-        <li *ngFor="let corso of corsiAcquistati">{{ corso.nome }}</li>
-      </ul>
+      <mat-list>
+        <mat-list-item *ngFor="let corso of corsiAcquistati">
+          <span class="testo-da-ridurre-font">{{ corso.nome }}</span>
+        </mat-list-item>
+      </mat-list>
     </mat-card-content>
   </mat-card>
 </section>
@@ -55,9 +61,11 @@
   <mat-card>
     <mat-card-title>Lezioni Acquistate</mat-card-title>
     <mat-card-content>
-      <ul>
-        <li *ngFor="let lezione of lezioniAcquistate">{{ lezione.titolo }}</li>
-      </ul>
+      <mat-list>
+        <mat-list-item *ngFor="let lezione of lezioniAcquistate">
+          <span class="testo-da-ridurre-font">{{ lezione.titolo }}</span>
+        </mat-list-item>
+      </mat-list>
     </mat-card-content>
   </mat-card>
 </section>
@@ -67,7 +75,9 @@
     <mat-card-title>Eventi a cui parteciperai</mat-card-title>
     <mat-card-content>
       <mat-list>
-        <mat-list-item *ngFor="let evento of eventiIscritti">{{ evento }}</mat-list-item>
+        <mat-list-item *ngFor="let evento of eventiIscritti">
+          <span class="testo-da-ridurre-font">{{ evento }}</span>
+        </mat-list-item>
       </mat-list>
     </mat-card-content>
   </mat-card>
@@ -97,8 +107,8 @@
           <input matInput type="password" [(ngModel)]="confirmPassword" name="confirmPassword">
         </mat-form-field>
 
-        <button mat-raised-button color="primary" (click)="onSubmit()">Modifica</button>
       </form>
+      <button mat-raised-button color="primary" (click)="onSubmit()">Modifica</button>
     </div>
   </mat-card>
 </section>
