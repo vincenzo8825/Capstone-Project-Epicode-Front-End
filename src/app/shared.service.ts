@@ -40,16 +40,19 @@ export class SharedService {
   private lezioniAcquistateSubject = new BehaviorSubject<Lezione[]>([]);
   lezioniAcquistate$ = this.lezioniAcquistateSubject.asObservable();
   private eventiIscrittiSubject = new BehaviorSubject<string[]>([]);
-eventiIscritti$ = this.eventiIscrittiSubject.asObservable();
-
-isIscrizioneAvvenuta: boolean = false;
-constructor(private http: HttpClient, private snackBar: MatSnackBar, private router: Router) {
-  // Carica gli eventi iscritti dal localStorage
-  const eventiSalvati = localStorage.getItem('eventiIscritti');
-  if (eventiSalvati) {
-    this.eventiIscrittiSubject.next(JSON.parse(eventiSalvati));
+  eventiIscritti$ = this.eventiIscrittiSubject.asObservable();
+  private iscrizioni: { [eventName: string]: boolean } = {};
+  isIscrizioneAvvenuta: boolean = false;
+  constructor(private http: HttpClient, private snackBar: MatSnackBar, private router: Router) {
+    // Carica gli eventi iscritti dal localStorage
+    const eventiSalvati = localStorage.getItem('eventiIscritti');
+    if (eventiSalvati) {
+      this.eventiIscrittiSubject.next(JSON.parse(eventiSalvati));
+    }
+    const iscrizioniStorage = JSON.parse(localStorage.getItem('iscrizioni') || '{}');
+    this.iscrizioni = iscrizioniStorage;
   }
-}
+
 
   addToLezioni(lezione: Lezione): Observable<void> {
     const carrelloLezioni = this.carrelloLezioniSubject.value;
@@ -219,25 +222,35 @@ constructor(private http: HttpClient, private snackBar: MatSnackBar, private rou
     };
     localStorage.setItem('datiAcquisti', JSON.stringify(datiAcquisti));
   }
-sincronizzaDatiAcquistiConSubject(corsi: Corso[], lezioni: Lezione[]): void {
-  this.corsiAcquistatiSubject.next(corsi);
-  this.lezioniAcquistateSubject.next(lezioni);
-}
+  sincronizzaDatiAcquistiConSubject(corsi: Corso[], lezioni: Lezione[]): void {
+    this.corsiAcquistatiSubject.next(corsi);
+    this.lezioniAcquistateSubject.next(lezioni);
+  }
 
-aggiungiEventoIscritto(nomeEvento: string) {
-  const eventiIscritti = this.eventiIscrittiSubject.value;
-  const nuoviEventiIscritti = [...eventiIscritti, nomeEvento];
-  this.eventiIscrittiSubject.next(nuoviEventiIscritti);
+  aggiungiEventoIscritto(nomeEvento: string) {
+    const eventiIscritti = JSON.parse(localStorage.getItem('eventiIscritti') || '[]') as string[];
+    eventiIscritti.push(nomeEvento);
+    localStorage.setItem('eventiIscritti', JSON.stringify(eventiIscritti));
+    // Aggiungi l'evento alla lista degli eventi iscritti
+    this.iscrizioni[nomeEvento] = true;
+  }
 
-  // Salva l'elenco aggiornato nel localStorage
-  localStorage.setItem('eventiIscritti', JSON.stringify(nuoviEventiIscritti));
-}
 
 
-getEventiIscritti(): Observable<string[]> {
-  return this.eventiIscritti$;
-}
+  isEventoIscritto(name: string): boolean {
+    // Verifica se l'evento è presente nell'elenco delle iscrizioni
+    return !!this.iscrizioni[name];
+  }
 
+
+
+  getEventiIscritti(): Observable<string[]> {
+    return this.eventiIscritti$;
+  }
+  loadIscrizioniUtente(): void {
+    const eventiIscrittiStorage = JSON.parse(localStorage.getItem('eventiIscritti') || '{}') as { [nomeEvento: string]: boolean };
+    this.iscrizioni = eventiIscrittiStorage;
+  }
 
 }
 

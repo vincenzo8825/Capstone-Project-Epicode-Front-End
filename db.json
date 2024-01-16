@@ -20,6 +20,13 @@
       "nome": "vincenzo2",
       "cognome": "rocca2",
       "id": 3
+    },
+    {
+      "email": "vincenzo@kteam.it",
+      "password": "$2a$10$YW2/2/cGuookBWvEKYLrQuIM85L58kcj29XLez9/hUYOJ4HUs2j4a",
+      "nome": "vincenzo",
+      "cognome": "rocca",
+      "id": 4
     }
   ],
   "corsi": [

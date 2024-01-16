@@ -18,8 +18,7 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
   preferitiLezioni: Lezione[] = [];
   corsiAcquistati: Corso[] = [];
   lezioniAcquistate: Lezione[] = [];
-  attivitaRecenti: any; // Sostituisci con il tipo appropriato
-  feedbackUtente: any; // Sostituisci con il tipo appropriato
+
   subscriptions: Subscription[] = [];
   eventiIscritti: string[] = [];
   eventName!: string;
@@ -28,11 +27,16 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
   newPassword!: string;
   confirmPassword!: string;
   userCognome: string | null = null;
-  constructor(private authService: AuthService, private sharedService: SharedService) {}
+  iscrizioni: { [nomeEvento: string]: boolean; };
+  constructor(private authService: AuthService, private sharedService: SharedService) {
+    this.iscrizioni = {}; // Inizializza la variabile iscrizioni come un oggetto vuoto nel costruttore
+  }
+
 
   ngOnInit(): void {
     this.caricaDatiUtente();
     this.caricaDatiAcquisti();
+    this.caricaEventiIscritti();
     this.subscriptions.push(
       this.sharedService.preferitiCorsi$.subscribe(corsi => this.preferitiCorsi = corsi),
       this.sharedService.preferitiLezioni$.subscribe(lezioni => this.preferitiLezioni = lezioni),
@@ -43,6 +47,10 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
       })
 
     );
+  }
+  loadIscrizioniUtente(): void {
+    const eventiIscrittiStorage = JSON.parse(localStorage.getItem('eventiIscritti') || '{}') as { [nomeEvento: string]: boolean };
+    this.iscrizioni = eventiIscrittiStorage;
   }
 
 
@@ -106,4 +114,14 @@ onSubmit() {
     text: 'Password modificata con successo!'
   });
 }
+caricaEventiIscritti(): void {
+  const eventiIscrittiStorage = JSON.parse(localStorage.getItem('eventiIscritti') || '{}') as { [nomeEvento: string]: boolean };
+
+  // Filtra gli eventi a cui l'utente è iscritto
+  this.eventiIscritti = Object.keys(eventiIscrittiStorage)
+    .filter(nomeEvento => eventiIscrittiStorage[nomeEvento]);
+}
+
+
+
 }

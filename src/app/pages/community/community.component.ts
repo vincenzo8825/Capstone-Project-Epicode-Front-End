@@ -42,6 +42,7 @@ export class CommunityComponent implements OnInit {
     this.loadUpcomingEvents();
     this.loadFAQs();
     this.loadUserReviews();
+    this.loadIscrizioniUtente();
   }
 
 
@@ -125,22 +126,51 @@ export class CommunityComponent implements OnInit {
       }
       // Aggiungi altri eventi qui
     ];
-  }
-  registerForEvent(event: { name: string; }): void {
-    Swal.fire({
-      title: 'Iscrizione Confermata!',
-      text: `Ti sei iscritto con successo a "${event.name}"!`,
-      icon: 'success',
-      confirmButtonText: 'Ok'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.sharedService.aggiungiEventoIscritto(event.name);
-
+    this.upcomingEvents.forEach((event) => {
+      const isAlreadySubscribed = localStorage.getItem(`iscrizione_${event.name}`);
+      if (isAlreadySubscribed) {
         this.iscrizioni[event.name] = true;
       }
     });
   }
 
+  registerForEvent(event: { name: string; }): void {
+    const isAlreadySubscribed = this.sharedService.isEventoIscritto(event.name);
+
+    if (isAlreadySubscribed) {
+      Swal.fire({
+        title: 'Iscrizione già confermata',
+        text: `Sei già iscritto a "${event.name}"!`,
+        icon: 'info',
+        confirmButtonText: 'Ok'
+      });
+    } else {
+      Swal.fire({
+        title: 'Iscrizione Confermata!',
+        text: `Ti sei iscritto con successo a "${event.name}"!`,
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Salva l'iscrizione nella memoria persistente
+          this.sharedService.aggiungiEventoIscritto(event.name);
+
+          // Aggiorna il localStorage
+          const eventiIscrittiStorage = JSON.parse(localStorage.getItem('eventiIscritti') || '{}') as { [nomeEvento: string]: boolean };
+          eventiIscrittiStorage[event.name] = true;
+          localStorage.setItem('eventiIscritti', JSON.stringify(eventiIscrittiStorage));
+
+          // Disabilita il pulsante "Iscriviti" per questo evento
+          this.iscrizioni[event.name] = true;
+        }
+      });
+    }
+  }
+
+  loadIscrizioniUtente(): void {
+    const eventiIscrittiStorage = JSON.parse(localStorage.getItem('eventiIscritti') || '{}') as { [nomeEvento: string]: boolean };
+    this.iscrizioni = eventiIscrittiStorage;
+  }
 
 
   loadFAQs(): void {

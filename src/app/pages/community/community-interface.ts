@@ -22,6 +22,7 @@ export interface UserReview {
   rating: number;
 }
 export interface CommunityEvent {
+
   name: string;
   date: Date;
   description: string;
