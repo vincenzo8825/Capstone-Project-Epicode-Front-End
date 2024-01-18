@@ -1,122 +1,126 @@
-<section class="user-info-card">
-  <mat-card>
-    <mat-card-title>Informazioni Personali</mat-card-title>
-    <mat-card-content>
-      <div class="info-item">
-        <span class="info-label">Nome:</span>
-        <span class="info-value">{{ userName }}</span>
-      </div>
-      <div class="info-item">
-        <span class="info-label">Cognome:</span>
-        <span class="info-value">{{ userCognome }}</span>
-      </div>
-      <div class="info-item">
-        <span class="info-label">Email:</span>
-        <span class="info-value">{{ userEmail }}</span>
-      </div>
-    </mat-card-content>
-  </mat-card>
-</section>
+<mat-tab-group>
+  <!-- Sezione Informazioni Personali -->
+  <mat-tab label="Informazioni Personali">
+    <section class="user-info-card">
+      <mat-card class="info-card">
+        <mat-card-header>
+          <mat-card-title>Informazioni Personali</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="info-item">
+            <span class="info-label">Nome:</span>
+            <span class="info-value">{{ userName }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Cognome:</span>
+            <span class="info-value">{{ userCognome }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Email:</span>
+            <span class="info-value">{{ userEmail }}</span>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </section>
+  </mat-tab>
 
-<section class="favorite-courses-card">
-  <mat-card>
-    <mat-card-title>Corsi Preferiti</mat-card-title>
-    <mat-card-content>
-      <mat-list>
-        <mat-list-item *ngFor="let corso of preferitiCorsi">
-          <span class="testo-da-ridurre-font">{{ corso.nome }}</span>
-        </mat-list-item>
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
-</section>
 
-<section class="favorite-lessons-card">
-  <mat-card>
-    <mat-card-title>Lezioni Preferite</mat-card-title>
-    <mat-card-content>
-      <mat-list>
-        <mat-list-item *ngFor="let lezione of preferitiLezioni">
-          <span class="testo-da-ridurre-font">{{ lezione.titolo }}</span>
-        </mat-list-item>
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
-</section>
+  <!-- Sezione Corsi Acquistati -->
+  <mat-tab label="Corsi Acquistati">
+    <section class="purchased-courses-card">
+      <mat-card class="course-card">
+        <mat-card-header>
+          <mat-card-title>Corsi Acquistati</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="course-list">
+            <div *ngFor="let corso of corsiAcquistati" class="course-item">
+              <span>{{ corso.nome }}</span>
+              <!-- Altri dettagli del corso -->
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </section>
+  </mat-tab>
 
-<section class="purchased-courses-card">
-  <mat-card>
-    <mat-card-title>Corsi Acquistati</mat-card-title>
-    <mat-card-content>
-      <mat-list>
-        <mat-list-item *ngFor="let corso of corsiAcquistati">
-          <span class="testo-da-ridurre-font">{{ corso.nome }}</span>
-        </mat-list-item>
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
-</section>
+  <!-- Sezione Lezioni Acquistate -->
+  <mat-tab label="Lezioni Acquistate">
+    <section class="purchased-lessons-card">
+      <mat-card class="lesson-card">
+        <mat-card-header>
+          <mat-card-title>Lezioni Acquistate</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="lesson-list">
+            <div *ngFor="let lezione of lezioniAcquistate" class="lesson-item">
+              <span>{{ lezione.titolo }}</span>
+              <!-- Dettagli della lezione -->
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </section>
+  </mat-tab>
+  <!-- Sezione Eventi -->
+  <mat-tab label="Eventi">
+    <section class="event-attendance-card">
+      <mat-card class="event-card">
+        <mat-card-header>
+          <mat-card-title>Eventi a cui parteciperai</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="event-list">
+            <div *ngFor="let evento of eventiIscritti" class="event-item">
+              <span>{{ evento }}</span>
+              <!-- Dettagli dell'evento -->
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </section>
+  </mat-tab>
+  <mat-tab label="Impostazioni Account">
+    <section class="account-settings-card">
+      <mat-card class="settings-card">
+        <mat-card-header>
+          <mat-card-title>
+            Impostazioni Account
+            <button mat-icon-button (click)="toggleSettingsForm()">
+              <mat-icon>{{isSettingsFormVisible ? 'expand_less' : 'expand_more'}}</mat-icon>
+            </button>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content *ngIf="isSettingsFormVisible">
+          <form>
+            <mat-form-field appearance="fill">
+              <mat-label>Password attuale</mat-label>
+              <input matInput type="password" [(ngModel)]="currentPassword" name="currentPassword">
+            </mat-form-field>
 
-<section class="purchased-lessons-card">
-  <mat-card>
-    <mat-card-title>Lezioni Acquistate</mat-card-title>
-    <mat-card-content>
-      <mat-list>
-        <mat-list-item *ngFor="let lezione of lezioniAcquistate">
-          <span class="testo-da-ridurre-font">{{ lezione.titolo }}</span>
-        </mat-list-item>
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
-</section>
+            <mat-form-field appearance="fill">
+              <mat-label>Nuova Password</mat-label>
+              <input matInput type="password" [(ngModel)]="newPassword" name="newPassword">
+            </mat-form-field>
 
-<section class="event-attendance-card">
-  <mat-card>
-    <mat-card-title>Eventi a cui parteciperai</mat-card-title>
-    <mat-card-content>
-      <mat-list>
-        <mat-list-item *ngFor="let evento of eventiIscritti">
-          <span class="testo-da-ridurre-font">{{ evento }}</span>
-        </mat-list-item>
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
-</section>
+            <mat-form-field appearance="fill">
+              <mat-label>Conferma Nuova Password</mat-label>
+              <input matInput type="password" [(ngModel)]="confirmPassword" name="confirmPassword">
+            </mat-form-field>
 
-<section class="account-settings-card">
-  <mat-card>
-    <mat-card-title>Impostazioni Account</mat-card-title>
-    <mat-card-content>
-      <button mat-button (click)="cambiaPassword()">Cambia Password</button>
-    </mat-card-content>
-
-    <div *ngIf="showChangePasswordForm">
-      <form #changePasswordForm="ngForm" (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="fill">
-          <mat-label>Password attuale</mat-label>
-          <input matInput type="password" [(ngModel)]="currentPassword" name="currentPassword">
-        </mat-form-field>
-
-        <mat-form-field appearance="fill">
-          <mat-label>Nuova Password</mat-label>
-          <input matInput type="password" [(ngModel)]="newPassword" name="newPassword">
-        </mat-form-field>
-
-        <mat-form-field appearance="fill">
-          <mat-label>Conferma Password</mat-label>
-          <input matInput type="password" [(ngModel)]="confirmPassword" name="confirmPassword">
-        </mat-form-field>
-
-      </form>
-      <button mat-raised-button color="primary" (click)="onSubmit()">Modifica</button>
-    </div>
-  </mat-card>
-</section>
-
+            <button mat-raised-button color="primary" (click)="onSubmit()">Modifica</button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </section>
+  </mat-tab>
+<!-- Sezione Logout -->
 <section class="logout-card">
-  <mat-card>
-    <mat-card-content>
-      <button mat-button (click)="logout()">Logout</button>
-    </mat-card-content>
+  <mat-card class="logout-card-style">
+    <mat-card-actions>
+      <button mat-button (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon> Logout
+      </button>
+    </mat-card-actions>
   </mat-card>
 </section>

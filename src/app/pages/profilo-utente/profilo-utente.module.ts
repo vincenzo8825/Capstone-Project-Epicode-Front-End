@@ -1,4 +1,4 @@
-// Importa i moduli Angular Material necessari
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
@@ -6,6 +6,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatGridListModule } from '@angular/material/grid-list'; // Aggiunto per le griglie
+import { MatExpansionModule } from '@angular/material/expansion'; // Aggiunto per i pannelli espandibili
+
 @NgModule({
   declarations: [],
   imports: [
@@ -14,7 +20,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatButtonModule,
     MatListModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTabsModule,
+    MatIconModule,
+    MatDialogModule,
+    MatGridListModule,
+    MatExpansionModule
   ],
 })
 export class ProfiloUtenteModule { }

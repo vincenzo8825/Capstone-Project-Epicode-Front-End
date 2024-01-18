@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { AuthService } from './../auth/auth.service';
 import { SharedService } from '../../shared.service';
 import { Corso } from './../corsi/corso';
@@ -14,46 +15,59 @@ import Swal from 'sweetalert2';
 export class ProfiloUtenteComponent implements OnInit, OnDestroy {
   userName: string | null = null;
   userEmail: string | null = null;
+  userCognome: string | null = null;
   preferitiCorsi: Corso[] = [];
   preferitiLezioni: Lezione[] = [];
   corsiAcquistati: Corso[] = [];
   lezioniAcquistate: Lezione[] = [];
-
-  subscriptions: Subscription[] = [];
   eventiIscritti: string[] = [];
-  eventName!: string;
+  iscrizioni: { [nomeEvento: string]: boolean; };
+
   showChangePasswordForm = false;
   currentPassword!: string;
   newPassword!: string;
   confirmPassword!: string;
-  userCognome: string | null = null;
-  iscrizioni: { [nomeEvento: string]: boolean; };
-  constructor(private authService: AuthService, private sharedService: SharedService) {
+  isSettingsFormVisible: boolean = false;
+  private unsubscribe$ = new Subject<void>();
+  subscriptions: Subscription[] = [];
+
+  constructor(
+    private authService: AuthService,
+    private sharedService: SharedService
+  ) {
     this.iscrizioni = {}; // Inizializza la variabile iscrizioni come un oggetto vuoto nel costruttore
   }
-
 
   ngOnInit(): void {
     this.caricaDatiUtente();
     this.caricaDatiAcquisti();
     this.caricaEventiIscritti();
-    this.subscriptions.push(
-      this.sharedService.preferitiCorsi$.subscribe(corsi => this.preferitiCorsi = corsi),
-      this.sharedService.preferitiLezioni$.subscribe(lezioni => this.preferitiLezioni = lezioni),
-      this.sharedService.corsiAcquistati$.subscribe(corsi => this.corsiAcquistati = corsi),
-      this.sharedService.lezioniAcquistate$.subscribe(lezioni => this.lezioniAcquistate = lezioni),
-      this.sharedService.getEventiIscritti().subscribe(nomiEventi => {
-        this.eventiIscritti = nomiEventi;
-      })
 
+    this.subscriptions.push(
+      this.sharedService.preferitiCorsi$
+        .pipe(takeUntil(this.unsubscribe$))
+        .subscribe(corsi => this.preferitiCorsi = corsi),
+
+      this.sharedService.preferitiLezioni$
+        .pipe(takeUntil(this.unsubscribe$))
+        .subscribe(lezioni => this.preferitiLezioni = lezioni),
+
+      this.sharedService.corsiAcquistati$
+        .pipe(takeUntil(this.unsubscribe$))
+        .subscribe(corsi => this.corsiAcquistati = corsi),
+
+      this.sharedService.lezioniAcquistate$
+        .pipe(takeUntil(this.unsubscribe$))
+        .subscribe(lezioni => this.lezioniAcquistate = lezioni),
+
+      this.sharedService.getEventiIscritti()
+        .pipe(takeUntil(this.unsubscribe$))
+        .subscribe(nomiEventi => this.eventiIscritti = nomiEventi)
     );
   }
-  loadIscrizioniUtente(): void {
-    const eventiIscrittiStorage = JSON.parse(localStorage.getItem('eventiIscritti') || '{}') as { [nomeEvento: string]: boolean };
-    this.iscrizioni = eventiIscrittiStorage;
+  openChangePasswordDialog() {
+    this.showChangePasswordForm = true; // Apri il form di cambio password
   }
-
-
   caricaDatiUtente(): void {
     const userData = this.authService.getCurrentUser();
     if (userData) {
@@ -71,10 +85,14 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
     }
   }
 
-
+  caricaEventiIscritti(): void {
+    const eventiIscrittiStorage = JSON.parse(localStorage.getItem('eventiIscritti') || '{}') as { [nomeEvento: string]: boolean };
+    this.eventiIscritti = Object.keys(eventiIscrittiStorage).filter(nomeEvento => eventiIscrittiStorage[nomeEvento]);
+  }
 
   ngOnDestroy(): void {
-    this.subscriptions.forEach(subscription => subscription.unsubscribe());
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
   logout(): void {
@@ -82,46 +100,38 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
   }
 
   cambiaPassword() {
-    // Cambia lo stato di showChangePasswordForm da true a false e viceversa
     this.showChangePasswordForm = !this.showChangePasswordForm;
   }
-  // TypeScript
-onSubmit() {
-  // Verifica se la password attuale è corretta
-  if (this.currentPassword !== 'password') {
-    Swal.fire({
-      icon: 'error',
-      title: 'Errore',
-      text: 'Password non modificata, ricontrollare i dati inseriti.'
-    });
-    return;
+  toggleSettingsForm() {
+    this.isSettingsFormVisible = !this.isSettingsFormVisible;
   }
+  onSubmit() {
+    // Qui inserisci la logica per cambiare la password.
+    // Assicurati di integrare una valida verifica della password attuale e della conferma della nuova password.
+    // Ad esempio:
+    if (this.currentPassword !== 'password') {
+      Swal.fire({
+        icon: 'error',
+        title: 'Errore',
+        text: 'Password attuale non corretta.'
+      });
+      return;
+    }
 
-  // Verifica se la nuova password e la conferma password sono uguali
-  if (this.newPassword !== this.confirmPassword) {
+    if (this.newPassword !== this.confirmPassword) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Errore',
+        text: 'Le password non corrispondono.'
+      });
+      return;
+    }
+
+    // Qui assumiamo che la password sia stata cambiata con successo
     Swal.fire({
-      icon: 'error',
-      title: 'Errore',
-      text: 'Le password non corrispondono, riprova.'
+      icon: 'success',
+      title: 'Successo',
+      text: 'Password modificata con successo!'
     });
-    return;
   }
-
-  // Mostra il messaggio di successo
-  Swal.fire({
-    icon: 'success',
-    title: 'Successo',
-    text: 'Password modificata con successo!'
-  });
-}
-caricaEventiIscritti(): void {
-  const eventiIscrittiStorage = JSON.parse(localStorage.getItem('eventiIscritti') || '{}') as { [nomeEvento: string]: boolean };
-
-  // Filtra gli eventi a cui l'utente è iscritto
-  this.eventiIscritti = Object.keys(eventiIscrittiStorage)
-    .filter(nomeEvento => eventiIscrittiStorage[nomeEvento]);
-}
-
-
-
 }

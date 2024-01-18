@@ -6,23 +6,29 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarModule } from './pages/navbar/navbar.module';
 import { FooterModule } from './pages/footer/footer.module';
-import { CarrelloModule } from './pages/carrello/carrello.module'; // Importa il modulo Carrello
+import { CarrelloModule } from './pages/carrello/carrello.module';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PaymentModule } from './pages/payment/payment.module';
 import { CommunityModule } from './pages/community/community.module';
 import { TermsAndConditionsModule } from './pages/terms-and-conditions/terms-and-conditions.module';
+import { LavoraConNoiModule } from './pages/lavora-con-noi/lavora-con-noi.module';
+import { Pagina404Module } from './pages/pagina404/pagina404.module';
+import { ProfiloUtenteComponent } from './pages/profilo-utente/profilo-utente.component';
+
+// Angular Material Modules
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { LavoraConNoiModule } from './pages/lavora-con-noi/lavora-con-noi.module';
-import { ProfiloUtenteComponent } from './pages/profilo-utente/profilo-utente.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
 import { MatInputModule } from '@angular/material/input';
-import { Pagina404Module } from './pages/pagina404/pagina404.module';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatGridListModule } from '@angular/material/grid-list'; // Aggiunto per le griglie
+import { MatExpansionModule } from '@angular/material/expansion'; // Aggiunto per i pannelli espandibili
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,18 +47,20 @@ import { Pagina404Module } from './pages/pagina404/pagina404.module';
     PaymentModule,
     CommunityModule,
     TermsAndConditionsModule,
+    LavoraConNoiModule,
+    Pagina404Module,
+    // Angular Material Modules
     MatToolbarModule,
     MatIconModule,
-    LavoraConNoiModule,
     MatCardModule,
     MatButtonModule,
     MatListModule,
     MatFormFieldModule,
     MatInputModule,
-    Pagina404Module
-
-
-
+    MatTabsModule,
+    MatDialogModule,
+    MatGridListModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
