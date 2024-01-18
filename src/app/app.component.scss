@@ -1,4 +1,40 @@
 
-.welcome-message{
+.welcome-card {
+  width: 200px;
+  background-color: rgba(240, 240, 240, 0.8);
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+
+.welcome-message {
+  font-size: 16px;
+  text-align: center;
   color: rgb(158, 5, 172);
+}
+
+
+@media (max-width: 576px) {
+  .welcome-card {
+    width: 150px;
+    padding: 0.2em;
+  }
+
+  .welcome-message {
+    font-size: 12px;
+    padding: 0.2em;
+  }
+}
+
+
+@media (max-width: 400px) {
+  .welcome-card {
+    width: 120px;
+    padding: 0.1rem;
+  }
+
+  .welcome-message {
+    font-size: 12px;
+  }
 }
