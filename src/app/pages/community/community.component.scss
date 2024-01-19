@@ -32,20 +32,8 @@
       color: #777; /* Colore del testo per le informazioni di iscrizione */
     }
 
-    .join-button {
-      width: 60%;
-      font-size: 0.6rem;
-      padding: 1.4rem 1rem;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 30px;
-      transition: background-color 0.3s ease;
 
-      &:hover {
-        background-color: #0056b3;
-      }
+
 
       &.inactive-button {
         background-color: #f4f4f4; /* Colore di sfondo grigio chiaro */
@@ -55,7 +43,7 @@
       }
     }
   }
-}
+
 
 @media (max-width: 991px) {
   .discussion-topics-mobile,
@@ -193,3 +181,11 @@
     }
   }
 }
+@media (max-width: 769px) {
+  .center-button {
+    display: flex;
+    justify-content: center;
+
+  }
+}
+
