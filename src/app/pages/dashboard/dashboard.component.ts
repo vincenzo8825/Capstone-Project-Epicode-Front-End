@@ -1,7 +1,7 @@
-// dashboard.component.ts
 import { Component } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { SharedService } from '../../shared.service';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,11 +9,11 @@ import { SharedService } from '../../shared.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-  currentView: 'corsi' | 'lezioni' = 'corsi';
+  currentViewIndex: number = 0;
 
   constructor(private authService: AuthService, private sharedService: SharedService) {}
 
-  toggleView(view: 'corsi' | 'lezioni'): void {
-    this.currentView = view;
+  onTabChange(event: MatTabChangeEvent): void {
+    this.currentViewIndex = event.index;
   }
 }

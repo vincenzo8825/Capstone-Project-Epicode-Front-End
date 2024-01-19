@@ -1,40 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
-import { Announcement, CommunityEvent, DiscussionTopic, FAQ, UserReview, } from './community-interface';
+import { Announcement, CommunityEvent, DiscussionTopic, FAQ, UserReview } from './community-interface';
 import { SharedService } from '../../shared.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
+
 @Component({
   selector: 'app-community',
   templateUrl: './community.component.html',
   styleUrls: ['./community.component.scss']
 })
 export class CommunityComponent implements OnInit {
-  discussionTopics: DiscussionTopic[] = [
-
-  ];
-  announcements: Announcement[] = [
-    // Dati degli annunci
-  ];
-  upcomingEvents: CommunityEvent[] = [
-    // Dati degli eventi imminenti
-  ];
-  faqs: FAQ[] = [
-    // Dati delle FAQ
-  ];
-  userReviews: UserReview[] = [
-    // Recensioni degli utenti esistenti
-  ];
+  discussionTopics: DiscussionTopic[] = [];
+  announcements: Announcement[] = [];
+  upcomingEvents: CommunityEvent[] = [];
+  faqs: FAQ[] = [];
+  userReviews: UserReview[] = [];
   iscrizioni: { [eventName: string]: boolean } = {};
-  iscrizioneAvvenuta: boolean = false; // Aggiunto stato di iscrizione
-  isPulsanteAttivo: boolean = true;
+  iscrizioneAvvenuta: boolean = false;
   newReview: UserReview = { user: '', comment: '', rating: 0 };
-  sharedService: SharedService;
-  router: Router;
 
-  constructor(sharedService: SharedService, router: Router) {
-    this.sharedService = sharedService;
-    this.router = router;
-  }
+  constructor(
+    private sharedService: SharedService,
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.loadDiscussionTopics();
@@ -43,6 +33,14 @@ export class CommunityComponent implements OnInit {
     this.loadFAQs();
     this.loadUserReviews();
     this.loadIscrizioniUtente();
+    this.prepopulateNickname();
+  }
+
+  prepopulateNickname(): void {
+    const loggedInUser = this.authService.getCurrentUser(); // Utilizza getCurrentUser invece di getLoggedInUser
+    if (loggedInUser) {
+      this.newReview.user = loggedInUser.nome; // Usa la proprietà appropriata dell'oggetto utente
+    }
   }
 
 

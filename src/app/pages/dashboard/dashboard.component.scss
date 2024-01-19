@@ -2,123 +2,67 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  font-family: 'Roboto', sans-serif;
-  min-height: calc(100vh - 100px);
-  padding-top: 100px;
+  width: 100%;
 
-  h2 {
-    color: #512DA8;
-    font-size: 24px;
-    margin-bottom: 25px;
-    text-align: center;
-  }
-
-  .toggle-buttons {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 25px;
-    padding-bottom: 30px;
-
-    button {
-      padding: 12px 25px;
-      border: 2px solid transparent;
-      border-radius: 30px;
-      background-color: #512DA8;
-      color: #fff;
-      cursor: pointer;
-      font-size: 16px;
-      transition: all 0.2s ease-in-out;
-
-      &:hover {
-        background-color: #7B1FA2;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-      }
-
-      &.active {
-        background-color: #fff;
-        color: #4285f4;
-        border-color: #4285f4;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-    }
-  }
-
-  .content-container {
+  .tab-content-container {
     width: 100%;
-    max-width: 800px;
-    margin-top: 20px;
-    padding: 70px;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
 
-    h2 {
-      color: #512DA8;
-      font-size: 22px;
-      margin-bottom: 20px;
-      text-align: center;
+    @media (max-width: 1024px) {
+      max-width: 80%; // Larghezza massima come percentuale per tablet grandi
+      padding: 15px;
     }
 
-    div {
-      padding: 25px;
-      border-radius: 15px;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      margin-bottom: 25px;
-      transition: transform 0.2s ease-in-out;
+    @media (max-width: 768px) {
+      max-width: 95%; // Larghezza massima per tablet
+      padding: 10px;
+    }
 
-      &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    @media (max-width: 600px) {
+      max-width: 100%; // Utilizza l'intera larghezza per i dispositivi mobili
+      padding: 10px;
+    }
+  }
+
+  .dashboard-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    color: #673AB7;
+
+    mat-card {
+      font-size: 1.5rem;
+      padding: 20px;
+      box-shadow: none;
+
+      @media (max-width: 1024px) {
+        font-size: 1.3rem;
+        padding: 15px;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 1.2rem;
+        padding: 10px;
+      }
+
+      @media (max-width: 600px) {
+        font-size: 1.1rem;
+        padding: 8px;
+      }
+
+      @media (max-width: 400px) {
+        font-size: 1rem;
+        padding: 5px;
       }
     }
   }
 
-  @media screen and (max-width: 768px) {
-    .toggle-buttons {
-      flex-direction: column;
-      align-items: stretch;
+  .mat-tab-group {
+    width: 100%;
 
-      button {
-        width: 100%;
-        margin-bottom: 10px;
-      }
-    }
-
-    .content-container {
-      max-width: 95%;
-    }
-  }
-
-  @media screen and (max-width: 568px) {
-    /* Stile per dispositivi con larghezza massima di 568px (ad esempio, iPhone SE) */
-    .toggle-buttons {
-      flex-direction: column;
-      align-items: stretch;
-
-      button {
-        width: 100%;
-        margin-bottom: 10px;
-      }
-    }
-
-    .content-container {
-      max-width: 90%;
-    }
-  }
-
-  @media screen and (max-width: 400px) {
-    /* Stile per dispositivi con larghezza massima di 400px */
-    .toggle-buttons {
-      flex-direction: column;
-      align-items: stretch;
-
-      button {
-        width: 100%;
-        margin-bottom: 10px;
-      }
-    }
-
-    .content-container {
-      max-width: 85%;
-    }
   }
 }
