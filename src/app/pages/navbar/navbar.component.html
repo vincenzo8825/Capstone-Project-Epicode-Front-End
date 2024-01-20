@@ -18,7 +18,7 @@
     <a mat-button routerLink="/profilo-utente" routerLinkActive="active" *ngIf="isLoggedIn$ | async" (click)="sidenav.close()">
       <mat-icon>person</mat-icon> Profilo
     </a>
-<!-- Nome Utente e Logout nella Sidenav -->
+
 <ng-container *ngIf="isLoggedIn$ | async; let user">
   <div class="user-info" (click)="sidenav.close()">
     <a mat-button>
@@ -37,7 +37,7 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <!-- Navbar Ridotta con Pulsante di Apertura Sidenav a Destra -->
+
     <mat-toolbar color="primary">
       <span class="logo">
         <a routerLink="/">

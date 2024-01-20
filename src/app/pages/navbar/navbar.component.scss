@@ -2,11 +2,10 @@ mat-sidenav-container {
   height: 100%;
 
   mat-sidenav {
-    width: 300px; // Spazio maggiore per una navigazione confortevole
+    width: 300px;
     transition: all 0.5s ease-in-out;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-    background: #f9f9f9;  // Sfondo chiaro per contrasto ed eleganza
-
+    background: #f9f9f9;
     a, button {
       display: flex;
       align-items: center;
@@ -27,23 +26,23 @@ mat-sidenav-container {
       }
 
       mat-icon {
-        font-size: 24px;  // Icone leggermente più grandi
+        font-size: 24px;
         margin-right: 18px;
-        color: #1a237e;  // Colore icona scuro per coerenza
+        color: #1a237e;
         transition: all 0.4s ease;
         &:hover {
           transform: scale(1.2);
-          color: #283593;  // Cambio colore all'hover per enfasi
+          color: #283593;
         }
       }
     }
 
     .notification-badge {
       margin-left: 15px;
-      background-color: #c2185b;  // Colore badge più intenso
+      background-color: #c2185b;
       border-radius: 50%;
-      padding: 6px 10px; // Badge più grande per visibilità
-      font-size: 0.85em; // Testo del badge più leggibile
+      padding: 6px 10px;
+      font-size: 0.85em;
       color: white;
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
     }
@@ -79,19 +78,42 @@ mat-toolbar {
     cursor: pointer;
     transition: transform 0.5s ease;
     &:hover {
-      transform: rotate(-360deg); // Rotazione completa per effetto distintivo
+      transform: rotate(-360deg); // Rotazione completa
       .notification-badge {
         animation: shake 0.8s ease-in-out infinite;
       }
     }
 
     .notification-badge {
+      position: absolute;
       top: 3px;
       right: 3px;
-      width: 16px;
+      min-width: 16px;
       height: 16px;
+      background-color: red;
+      border-radius: 50%;
+      font-size: 10px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 4px;
+
+      animation: pulse 1.5s infinite;
     }
-  }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+      }
+    }
+
+
 }
 
 @keyframes shake {
@@ -174,4 +196,4 @@ mat-toolbar {
       font-size: 14px;
     }
   }
-}
+}}
