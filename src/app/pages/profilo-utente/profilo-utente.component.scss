@@ -55,7 +55,31 @@ body {
   }
 }
 
-/* Stili personalizzati per specifiche sezioni */
+/* Stili specifici per la sezione Appuntamenti */
+.appointment-card .appointment-card-style {
+  background: #fff8e1; // Sfondo chiaro per la sezione appuntamenti
+  border-left: 5px solid #ffd54f; // Bordo sinistro colorato per differenziare la sezione
+
+  .appointment-item {
+    margin-bottom: 15px; // Spazio tra gli appuntamenti
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fffde7; // Sfondo leggermente diverso per ogni appuntamento
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Ombra leggera per dare profondità
+
+    p {
+      margin: 0; // Rimuove il margine predefinito dei paragrafi
+      color: #666; // Colore testo
+      font-size: 16px; // Dimensione testo
+
+      &:first-child {
+        font-weight: 500; // Rende il nome del professore più in grassetto
+      }
+    }
+  }
+}
+
+/* Altri stili personalizzati per specifiche sezioni */
 .user-info-card .info-card {
   background: #eceff1;
   border-left: 5px solid #42a5f5;
