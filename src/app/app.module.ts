@@ -30,6 +30,7 @@ import { MatGridListModule } from '@angular/material/grid-list'; // Aggiunto per
 import { MatExpansionModule } from '@angular/material/expansion'; // Aggiunto per i pannelli espandibili
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatGridListModule,
     MatExpansionModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSidenavModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

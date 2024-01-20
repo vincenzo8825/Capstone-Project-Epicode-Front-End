@@ -1,124 +1,177 @@
-.mat-toolbar {
-  background-color: #512da8;
+mat-sidenav-container {
+  height: 100%;
+
+  mat-sidenav {
+    width: 300px; // Spazio maggiore per una navigazione confortevole
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    background: #f9f9f9;  // Sfondo chiaro per contrasto ed eleganza
+
+    a, button {
+      display: flex;
+      align-items: center;
+      margin: 14px 0;
+      padding: 20px;
+      border-radius: 15px; // Bordi molto arrotondati per uno stile morbido
+      background-color: transparent;
+      transition: all 0.4s ease;
+      font-weight: 600;
+      color: #3c3c3c;  // Colore del testo più scuro per contrasto
+      font-size: 18px;  // Testo più grande per leggibilità
+
+      &:hover {
+        background-color: #ffffff;
+        padding-left: 40px; // Maggiore spostamento al hover per effetto dinamico
+        color: #0d0d0d;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+      }
+
+      mat-icon {
+        font-size: 24px;  // Icone leggermente più grandi
+        margin-right: 18px;
+        color: #1a237e;  // Colore icona scuro per coerenza
+        transition: all 0.4s ease;
+        &:hover {
+          transform: scale(1.2);
+          color: #283593;  // Cambio colore all'hover per enfasi
+        }
+      }
+    }
+
+    .notification-badge {
+      margin-left: 15px;
+      background-color: #c2185b;  // Colore badge più intenso
+      border-radius: 50%;
+      padding: 6px 10px; // Badge più grande per visibilità
+      font-size: 0.85em; // Testo del badge più leggibile
+      color: white;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .user-info, .logout-link {
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 3px solid #e0e0e0;  // Separatore più definito
+      font-size: 19px;  // Testo più grande per importanza
+    }
+  }
+}
+
+mat-toolbar {
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 16px;
-  transition: background-color 0.3s ease;
-}
-.mat-toolbar .logo img {
-  height: 55px;
-  width: auto;
-  padding-left: 1px;
-    padding-right: 50px;
-}
+  padding: 0 35px;
+  background: linear-gradient(to right, #7e57c2, #673ab7);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 
-.mat-toolbar .logo, .mat-toolbar .nav-list a {
-  color: #fff;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  font-size: 0.55rem;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.mat-toolbar .hamburger-button {
-  display: none;
-}
-
-.mat-toolbar .hamburger-button mat-icon {
-  font-size: 2rem;
-}
-
-.mat-toolbar .nav-list {
-  display: flex;
-  gap: 16px;
-}
-
-.mat-toolbar .nav-list a {
-  display: inline-flex;
-  align-items: center;
-  position: relative;
-  transition: background-color 0.3s ease;
-  padding: 8px 12px;
-  border-radius: 4px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.mat-toolbar .nav-list a.mat-button {
-  color: #fff;
-}
-
-.mat-toolbar .nav-list a.mat-button:hover,
-.mat-toolbar .nav-list a.mat-button.active {
-  background-color: #4527a0;
-}
-
-.mat-toolbar .nav-list .notification-badge {
-  background-color: #ff3333;
-  color: white;
-  border-radius: 50%;
-  padding: 2px;
-  width: 18px;
-  height: 18px;
-  font-size: 10px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 8px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-}
-
-@media only screen and (max-width: 768px) {
-  .mat-toolbar .hamburger-button {
-    display: block;
+  .logo img {
+    height: 65px;
+    transition: all 0.5s ease;
+    &:hover {
+      transform: translateY(-8px) scale(1.12);
+      opacity: 0.85;
+    }
   }
 
-  .mat-toolbar .nav-list {
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 100%;
-    background-color: rgba(81, 45, 168, 0.9);
-    padding: 56px 16px 16px;
-    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-    display: none;
-  }
+  .toggle-sidenav-button {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    &:hover {
+      transform: rotate(-360deg); // Rotazione completa per effetto distintivo
+      .notification-badge {
+        animation: shake 0.8s ease-in-out infinite;
+      }
+    }
 
-  .mat-toolbar .nav-list.open {
-    display: flex;
-    transform: translateX(0);
-  }
-
-  .mat-toolbar .nav-list a {
-    font-size: 1rem;
-    text-align: center;
-    width: 100%;
-  }
-
-  .mat-toolbar .nav-list a.mat-button {
-    font-size: 1rem;
-    padding: 10px 15px;
+    .notification-badge {
+      top: 3px;
+      right: 3px;
+      width: 16px;
+      height: 16px;
+    }
   }
 }
 
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
-  transition: opacity 0.3s ease;
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-6px); }
+  20%, 40%, 60%, 80% { transform: translateX(6px); }
 }
 
-.overlay.open {
-  display: block;
-  opacity: 0.8;
+/* Responsive Design */
+@media (max-width: 1200px) {
+  mat-sidenav {
+    width: 280px; // Riduci leggermente la larghezza
+
+    a, button {
+      padding: 18px;
+      font-size: 17px;
+    }
+
+    .user-info, .logout-link {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  mat-sidenav {
+    width: 260px;
+
+    a, button {
+      padding: 16px;
+      font-size: 16px;
+    }
+
+    .user-info, .logout-link {
+      font-size: 17px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  mat-sidenav {
+    width: 240px;
+
+    a, button {
+      padding: 14px;
+      font-size: 15px;
+    }
+
+    .user-info, .logout-link {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 568px) {
+  mat-sidenav {
+    width: 220px;
+
+    a, button {
+      padding: 12px;
+      font-size: 14px;
+    }
+
+    .user-info, .logout-link {
+      font-size: 15px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  mat-sidenav {
+    width: 200px;
+
+    a, button {
+      padding: 10px;
+      font-size: 13px;
+    }
+
+    .user-info, .logout-link {
+      font-size: 14px;
+    }
+  }
 }

@@ -1,55 +1,58 @@
-<!-- navbar.component.html -->
-<mat-toolbar color="primary">
-  <nav>
-    <!-- Altri elementi della navbar -->
-    <span class="logo">
-      <a routerLink="/">
-          <img src="assets/18ac4c84ea3349639721f039c13c71f6.png" alt="Logo">
-      </a>
-  </span>
-    <!-- Altri elementi della navbar -->
-</nav>
-
-  <button mat-icon-button class="hamburger-button" (click)="toggleNavList()">
-    <mat-icon>menu</mat-icon>
-  </button>
-
-  <span class="nav-list" [class.open]="isNavListOpen">
-    <a mat-button routerLink="/" routerLinkActive="active" (click)="closeNavList()">
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="over" position="end" opened="false">
+    <!-- Contenuto della Sidenav -->
+    <a mat-button routerLink="/" routerLinkActive="active" (click)="sidenav.close()">
       <mat-icon>home</mat-icon> Home
     </a>
-
-    <a mat-button routerLink="/chi-siamo" routerLinkActive="active" (click)="closeNavList()">
+    <a mat-button routerLink="/chi-siamo" routerLinkActive="active" (click)="sidenav.close()">
       <mat-icon>info</mat-icon> Chi Siamo
     </a>
-
-    <a mat-button routerLink="/preferiti" routerLinkActive="active" *ngIf="isLoggedIn$ | async" (click)="closeNavList()">
+    <a mat-button routerLink="/preferiti" routerLinkActive="active" *ngIf="isLoggedIn$ | async" (click)="sidenav.close()">
       <mat-icon>favorite</mat-icon> Preferiti
       <span class="notification-badge" *ngIf="preferitiCount > 0">{{ preferitiCount }}</span>
-  </a>
-
-  <a mat-button routerLink="/carrello" routerLinkActive="active" *ngIf="isLoggedIn$ | async" (click)="closeNavList()">
+    </a>
+    <a mat-button routerLink="/carrello" routerLinkActive="active" *ngIf="isLoggedIn$ | async" (click)="sidenav.close()">
       <mat-icon>shopping_cart</mat-icon> Carrello
       <span class="notification-badge" *ngIf="carrelloCount > 0">{{ carrelloCount }}</span>
+    </a>
+    <a mat-button routerLink="/profilo-utente" routerLinkActive="active" *ngIf="isLoggedIn$ | async" (click)="sidenav.close()">
+      <mat-icon>person</mat-icon> Profilo
+    </a>
+<!-- Nome Utente e Logout nella Sidenav -->
+<ng-container *ngIf="isLoggedIn$ | async; let user">
+  <div class="user-info" (click)="sidenav.close()">
+    <a mat-button>
+      <mat-icon>account_circle</mat-icon>
+      {{ userName || 'Nome Utente' }}
+    </a>
+  </div>
+  <a mat-button (click)="onLogout()">
+    <mat-icon>exit_to_app</mat-icon> Logout
   </a>
-  <ng-container *ngIf="isLoggedIn$ | async; let user">
-    <button mat-button [matMenuTriggerFor]="userMenu">
-      <mat-icon>account_circle</mat-icon> {{ userName || 'Nome Utente' }}
-    </button>
-    <mat-menu #userMenu="matMenu">
-      <button mat-menu-item routerLink="/profilo-utente" (click)="closeNavList()">
-        <mat-icon>person</mat-icon> Profilo
-      </button>
-      <button mat-menu-item (click)="onLogout()">
-        <mat-icon>exit_to_app</mat-icon> Logout
-      </button>
-    </mat-menu>
-  </ng-container>
+</ng-container>
 
-
-
-    <a mat-button *ngIf="!(isLoggedIn$ | async)" routerLink="/auth" routerLinkActive="active" (click)="closeNavList()">
+    <a mat-button *ngIf="!(isLoggedIn$ | async)" routerLink="/auth" routerLinkActive="active" (click)="sidenav.close()">
       <mat-icon>lock_open</mat-icon> Login
     </a>
-  </span>
-</mat-toolbar>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <!-- Navbar Ridotta con Pulsante di Apertura Sidenav a Destra -->
+    <mat-toolbar color="primary">
+      <span class="logo">
+        <a routerLink="/">
+          <img src="assets/18ac4c84ea3349639721f039c13c71f6.png" alt="Logo">
+        </a>
+      </span>
+      <span class="toolbar-spacer"></span>
+      <button mat-icon-button class="toggle-sidenav-button" (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+        <span class="notification-badge" *ngIf="(preferitiCount + carrelloCount) > 0">
+          {{ preferitiCount + carrelloCount }}
+        </span>
+      </button>
+    </mat-toolbar>
+    <!-- Contenuto Principale -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

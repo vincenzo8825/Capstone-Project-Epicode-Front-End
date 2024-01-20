@@ -6,6 +6,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu'; // Importa MatMenuModule
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { NavbarComponent } from './navbar.component';
 
@@ -18,7 +19,8 @@ import { NavbarComponent } from './navbar.component';
     MatListModule,
     MatButtonModule,
     MatIconModule,
-    MatMenuModule // Aggiungi MatMenuModule agli imports
+    MatMenuModule,
+    MatSidenavModule
   ],
   exports: [NavbarComponent, RouterModule],
 })
