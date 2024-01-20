@@ -62,6 +62,24 @@
       </mat-card>
     </section>
   </mat-tab>
+  <mat-tab label="Appuntamenti">
+    <section class="appointment-card">
+      <mat-card class="appointment-card-style">
+        <mat-card-header>
+          <mat-card-title>Appuntamenti Prenotati</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div *ngFor="let appuntamento of appuntamenti" class="appointment-item">
+            <p>Professore: {{ appuntamento.professore }}</p>
+            <p>Orario: {{ appuntamento.orario }}</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </section>
+  </mat-tab>
+
+
+
   <!-- Sezione Eventi -->
   <mat-tab label="Eventi">
     <section class="event-attendance-card">

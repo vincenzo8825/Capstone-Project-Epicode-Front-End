@@ -3,6 +3,7 @@ import { MatTabChangeEvent } from '@angular/material/tabs';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { Corso } from '../corsi/corso';
 import { Lezione } from '../lezioni/lezione';
+import { SharedService } from '../../shared.service';
 import Swal from 'sweetalert2';
 export type ProfessoreSelezionato = {
   nome: string;
@@ -45,7 +46,8 @@ export class DashboardComponent implements OnInit {
   fasciaOrariaSelezionata: { inizio: string, fine: string, professore: string } | null = null;
   prenotazioni: Prenotazione[] = [];
 
-  constructor() {}
+  constructor(private sharedService: SharedService) { }
+
 
   ngOnInit(): void {
     this.popolaCalendarioDisponibilita();
@@ -136,27 +138,28 @@ export class DashboardComponent implements OnInit {
       this.fasceOrarieProfessoreSelezionato = [];
     }
   }
-
   prenotaAppuntamento(): void {
     if (this.selectedDate && this.professoreSelezionato && this.fasciaOrariaSelezionata) {
-      // Formatta la data selezionata per la visualizzazione
       const dataFormattata = this.selectedDate.toLocaleDateString();
-
-      // Costruisci il messaggio di conferma
       const messaggioConferma = `Ti sei prenotato con ${this.professoreSelezionato} per la fascia oraria dalle ${this.fasciaOrariaSelezionata.inizio} alle ${this.fasciaOrariaSelezionata.fine} il giorno ${dataFormattata}.`;
 
-      // Mostra l'alert di conferma
       Swal.fire({
         title: 'Prenotazione Confermata!',
         text: messaggioConferma,
         icon: 'success',
         confirmButtonText: 'Ok'
       }).then(() => {
-        // Dopo la conferma, resetta le selezioni per evitare prenotazioni duplicate
+        // Aggiungi un controllo extra per sicurezza
+        if (this.professoreSelezionato && this.fasciaOrariaSelezionata) {
+          this.sharedService.aggiungiAppuntamento({
+            professore: this.professoreSelezionato,
+            orario: `${this.fasciaOrariaSelezionata.inizio} - ${this.fasciaOrariaSelezionata.fine}`
+          });
+        }
+
         this.resetPrenotazione();
       });
     } else {
-      // Gestisci il caso in cui la prenotazione non può essere completata
       Swal.fire({
         title: 'Errore',
         text: 'Per favore, completa tutti i passaggi della prenotazione.',
@@ -166,13 +169,14 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  // Metodo per resettare le selezioni di prenotazione
-  resetPrenotazione() {
+
+  private resetPrenotazione() {
+    // Resetta le variabili di stato relative alla prenotazione
     this.selectedDate = null;
     this.professoreSelezionato = null;
     this.fasciaOrariaSelezionata = null;
-    // Aggiungi qui qualsiasi altra logica necessaria per resettare lo stato del componente
   }
+
 
   // Aggiungi qui ulteriori metodi come la prenotazione effettiva
 }

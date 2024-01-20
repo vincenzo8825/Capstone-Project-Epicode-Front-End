@@ -43,6 +43,9 @@ export class SharedService {
   eventiIscritti$ = this.eventiIscrittiSubject.asObservable();
   private iscrizioni: { [eventName: string]: boolean } = {};
   isIscrizioneAvvenuta: boolean = false;
+  private appuntamentiSubject = new BehaviorSubject<{ professore: string, orario: string }[]>([]);
+appuntamenti$ = this.appuntamentiSubject.asObservable();
+
   constructor(private http: HttpClient, private snackBar: MatSnackBar, private router: Router) {
     // Carica gli eventi iscritti dal localStorage
     const eventiSalvati = localStorage.getItem('eventiIscritti');
@@ -71,7 +74,10 @@ export class SharedService {
       }, 1000);
     });
   }
-
+aggiungiAppuntamento(appuntamento: { professore: string, orario: string }): void {
+  const appuntamentiCorrenti = this.appuntamentiSubject.value;
+  this.appuntamentiSubject.next([...appuntamentiCorrenti, appuntamento]);
+}
   addToFavoritesCorso(corso: Corso): Observable<void> {
     const preferiti = this.preferitiCorsiSubject.value;
 

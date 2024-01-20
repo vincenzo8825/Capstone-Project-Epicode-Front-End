@@ -22,6 +22,7 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
   lezioniAcquistate: Lezione[] = [];
   eventiIscritti: string[] = [];
   iscrizioni: { [nomeEvento: string]: boolean; };
+  appuntamenti: { professore: string, orario: string }[] = [];
 
   showChangePasswordForm = false;
   currentPassword!: string;
@@ -42,7 +43,13 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
     this.caricaDatiUtente();
     this.caricaDatiAcquisti();
     this.caricaEventiIscritti();
-
+    this.subscriptions.push(
+      this.sharedService.appuntamenti$
+        .pipe(takeUntil(this.unsubscribe$))
+        .subscribe(appuntamenti => {
+          this.appuntamenti = appuntamenti;
+        })
+    );
     this.subscriptions.push(
       this.sharedService.preferitiCorsi$
         .pipe(takeUntil(this.unsubscribe$))
