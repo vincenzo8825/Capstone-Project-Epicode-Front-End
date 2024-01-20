@@ -63,6 +63,77 @@
 
   .mat-tab-group {
     width: 100%;
+    // Altri stili personalizzati per i tab, se necessari
+  }
 
+  // Stili per la sezione "Prenota un Appuntamento"
+  .prenotazione-container {
+    background-color: #f8f9fa; // Sfondo leggero per distinguerlo
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    .data-selettore {
+      width: 100%;
+      margin-bottom: 20px;
+      .mat-form-field-flex {
+        border-radius: 4px;
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+    }
+
+    .lista-professori {
+      .card-professori, .card-fasce-orarie {
+        margin-bottom: 20px;
+        border-radius: 8px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        mat-card-content {
+          padding: 15px;
+
+          p {
+            font-size: 1.2rem;
+            color: #495057;
+            margin-bottom: 15px;
+          }
+
+          mat-list {
+            .professore-item, .fascia-oraria-item {
+              cursor: pointer;
+              padding: 12px;
+              margin: 5px 0;
+              border-radius: 4px;
+              transition: background-color 0.3s, box-shadow 0.3s;
+
+              &:hover {
+                background-color: #e9ecef;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+              }
+            }
+          }
+        }
+      }
+    }
+    .prenota-button {
+      margin-top: 15px;
+      padding: 10px 15px;
+      font-size: 0.6rem;
+      font-weight: bold;
+      border-radius: 4px;
+      color: #fff;
+      background-color: #673ab7;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+      &:hover {
+        background-color: darken(#673ab7, 5%);
+      }
+
+      &[disabled] {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+    }
   }
 }

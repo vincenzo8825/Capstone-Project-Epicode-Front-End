@@ -7,16 +7,66 @@
 
   <mat-tab-group [(selectedIndex)]="currentViewIndex" (selectedTabChange)="onTabChange($event)">
     <mat-tab label="Corsi">
-
       <div class="tab-content-container">
         <app-corsi></app-corsi>
       </div>
     </mat-tab>
     <mat-tab label="Lezioni">
-
       <div class="tab-content-container">
         <app-lezioni></app-lezioni>
       </div>
     </mat-tab>
-  </mat-tab-group>
-</div>
+
+    <mat-tab label="Prenota un Appuntamento">
+      <div class="tab-content-container prenotazione-container">
+        <!-- Selettore Data -->
+        <mat-form-field class="data-selettore">
+          <mat-label>Seleziona una data</mat-label>
+          <input matInput [matDatepicker]="picker" (dateChange)="handleDateSelection($event)">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <!-- Lista Professori Disponibili -->
+        <div *ngIf="selectedDate" class="lista-professori">
+          <mat-card *ngIf="professoriDisponibili.length > 0" class="card-professori">
+            <mat-card-content>
+              <p>Professori disponibili per il {{ selectedDate | date: 'dd/MM/yyyy' }}:</p>
+              <mat-list>
+                <mat-list-item *ngFor="let professore of professoriDisponibili"
+                               (click)="mostraFasceOrarie(professore)"
+                               class="professore-item">
+                  {{ professore }}
+                </mat-list-item>
+              </mat-list>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- Fasce Orarie del Professore Selezionato -->
+          <mat-card *ngIf="fasceOrarieProfessoreSelezionato" class="card-fasce-orarie">
+            <mat-card-content>
+              <p>Fasce orarie disponibili per {{ professoreSelezionato }}:</p>
+              <mat-list>
+                <mat-list-item *ngFor="let fasciaOraria of fasceOrarieProfessoreSelezionato"
+                               (click)="selezionaFasciaOraria(fasciaOraria)"
+                               class="fascia-oraria-item">
+                  {{ fasciaOraria.inizio }} - {{ fasciaOraria.fine }}
+                </mat-list-item>
+              </mat-list>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <button mat-raised-button color="primary" type="submit"
+                [disabled]="!fasciaOrariaSelezionata"
+                (click)="prenotaAppuntamento()"
+                class="prenota-button">
+          Prenota
+        </button>
+      </div>
+
+
+
+
+
+

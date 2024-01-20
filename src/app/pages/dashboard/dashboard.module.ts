@@ -14,7 +14,9 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { PreferitiModule } from '../preferiti/preferiti.module';
 import { LezioniModule } from '../lezioni/lezioni.module';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatListModule } from '@angular/material/list';
 @NgModule({
   declarations: [DashboardComponent],
   imports: [
@@ -29,7 +31,10 @@ import { LezioniModule } from '../lezioni/lezioni.module';
     MatTabsModule, // Assicurati di includere il modulo qui
     MatToolbarModule, // Assicurati di includere il modulo qui
     CorsiModule,
-    MatCardModule
+    MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatListModule
   ],
 })
 export class DashboardModule {}

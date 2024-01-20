@@ -28,6 +28,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatGridListModule } from '@angular/material/grid-list'; // Aggiunto per le griglie
 import { MatExpansionModule } from '@angular/material/expansion'; // Aggiunto per i pannelli espandibili
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import { MatExpansionModule } from '@angular/material/expansion'; // Aggiunto pe
     MatDialogModule,
     MatGridListModule,
     MatExpansionModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
