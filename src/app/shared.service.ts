@@ -54,8 +54,19 @@ appuntamenti$ = this.appuntamentiSubject.asObservable();
     }
     const iscrizioniStorage = JSON.parse(localStorage.getItem('iscrizioni') || '{}');
     this.iscrizioni = iscrizioniStorage;
+    this.caricaDatiSalvati();
   }
+  private caricaDatiSalvati() {
+    const eventiSalvati = localStorage.getItem('eventiIscritti');
+    if (eventiSalvati) {
+      this.eventiIscrittiSubject.next(JSON.parse(eventiSalvati));
+    }
 
+    const appuntamentiSalvati = localStorage.getItem('appuntamenti');
+    if (appuntamentiSalvati) {
+      this.appuntamentiSubject.next(JSON.parse(appuntamentiSalvati));
+    }
+  }
 
   addToLezioni(lezione: Lezione): Observable<void> {
     const carrelloLezioni = this.carrelloLezioniSubject.value;
@@ -74,10 +85,14 @@ appuntamenti$ = this.appuntamentiSubject.asObservable();
       }, 1000);
     });
   }
-aggiungiAppuntamento(appuntamento: { professore: string, orario: string }): void {
-  const appuntamentiCorrenti = this.appuntamentiSubject.value;
-  this.appuntamentiSubject.next([...appuntamentiCorrenti, appuntamento]);
-}
+  aggiungiAppuntamento(appuntamento: { professore: string, orario: string }): void {
+    const appuntamentiCorrenti = this.appuntamentiSubject.value;
+    const nuoviAppuntamenti = [...appuntamentiCorrenti, appuntamento];
+    this.appuntamentiSubject.next(nuoviAppuntamenti);
+
+    // Salvare gli appuntamenti nel localStorage
+    localStorage.setItem('appuntamenti', JSON.stringify(nuoviAppuntamenti));
+  }
   addToFavoritesCorso(corso: Corso): Observable<void> {
     const preferiti = this.preferitiCorsiSubject.value;
 
