@@ -65,10 +65,11 @@ mat-toolbar {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 
   .logo img {
-    height: 65px;
+    height: 55px;
+    margin-left:-30px;
     transition: all 0.5s ease;
     &:hover {
-      transform: translateY(-8px) scale(1.12);
+      transform: translateY(4px) scale(1);
       opacity: 0.85;
     }
   }
@@ -126,7 +127,14 @@ mat-toolbar {
 @media (max-width: 1200px) {
   mat-sidenav {
     width: 280px; // Riduci leggermente la larghezza
-
+    .logo img {
+      height: 75px;
+      transition: all 0.5s ease;
+      &:hover {
+        transform: translateY(-8px) scale(1.12);
+        opacity: 0.85;
+      }
+    }
     a, button {
       padding: 18px;
       font-size: 17px;
