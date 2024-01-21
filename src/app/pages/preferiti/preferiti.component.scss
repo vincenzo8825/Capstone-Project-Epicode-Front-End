@@ -1,41 +1,49 @@
-/* preferiti.component.scss */
+
 .corsi-container {
   max-width: 900px;
   margin: 20px auto;
   padding: 10px;
 
   h2 {
-    font-size: 12px; /* Aumentato ulteriormente il font size */
-    font-weight: bold; /* Aggiunto il font-weight in grassetto */
-    color: #512DA8;
-    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #673AB7; /* Colore più intenso */
+    margin-bottom: 25px;
     text-align: center;
   }
 
   .corso-card {
     width: 100%;
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc; /* Colore del bordo più morbido */
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 10px; /* Bordo più arrotondato */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Ombra più profonda */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px); /* Effetto hover per le card */
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
 
     mat-card {
       mat-card-header {
         .corso-image {
           mat-icon {
-            font-size: 48px; /* or your preferred size */
+            font-size: 50px; /* Dimensione icona */
+            color: #5E35B1; /* Colore icona */
           }
         }
 
         mat-card-title-group {
           mat-card-title {
-            font-size: 20px;
+            font-size: 22px;
             color: #333;
+            font-weight: 500; /* Peso del font per il titolo */
           }
 
           mat-card-subtitle {
-            font-size: 16px;
+            font-size: 18px;
             color: #555;
           }
         }
@@ -43,49 +51,43 @@
 
       mat-card-content {
         p {
-          font-size: 14px;
-          color: #555;
+          font-size: 16px;
+          color: #666;
 
-          &.livello {
-            font-size: 16px;
-          }
-
-          &.categoria {
-            font-size: 16px;
-            color: #555;
+          &.livello, &.categoria, &.durata {
+            font-weight: 500;
           }
 
           &.descrizione {
-            margin-bottom: 15px;
-          }
-
-          &.durata {
-            font-size: 16px;
+            margin-bottom: 20px;
           }
 
           &.prezzo {
-            font-size: 14px;
-            margin-bottom: 15px;
+            font-weight: bold;
+            margin-bottom: 20px;
           }
         }
       }
 
       mat-card-actions {
         button {
-          padding: 10px;
-          cursor: pointer;
-          border: none;
-          border-radius: 4px;
-          font-size: 14px;
+          padding: 12px 15px;
+          font-size: 16px;
+          border-radius: 5px;
+          transition: background-color 0.3s, transform 0.3s;
+
+          &:hover {
+            transform: scale(1.03); /* Effetto hover per i pulsanti */
+          }
 
           &.mat-button-base {
             &:first-child {
-              background-color: #dc3545;
+              background-color: #E91E63; /* Colore pulsante rimuovi */
               color: #fff;
             }
 
             &:last-child {
-              background-color: #28a745;
+              background-color: #4CAF50; /* Colore pulsante aggiungi */
               color: #fff;
             }
           }
