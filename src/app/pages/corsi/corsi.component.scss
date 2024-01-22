@@ -54,9 +54,12 @@
         .livello {
           font-size: 16px;
           color: #555;
+          font-weight: bold;
         }
       }
-
+.corso-image{
+  color: #512DA8;
+}
       .descrizione {
         font-size: 14px;
         color: #555;
@@ -67,6 +70,7 @@
         font-size: 14px;
         color: #555;
         margin-bottom: 15px;
+        font-weight: bold;
       }
 
       .corso-footer {
