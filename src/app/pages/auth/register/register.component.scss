@@ -1,8 +1,8 @@
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+.background-container {
+  background: url('https://source.unsplash.com/1920x1080/?e-book') center/cover no-repeat;
+  min-height: 100vh;
+  padding-top: 20px;
 }
-
 .registration-container {
   max-width: 300px;
   margin: auto;
@@ -60,6 +60,10 @@
       border-color: #fff;
     }
   }
+}
+@keyframes fadeIn {
+0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 /* Media Queries per dispositivi più piccoli */
