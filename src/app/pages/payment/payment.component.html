@@ -3,9 +3,9 @@
   <h2>Riepilogo dell'Ordine</h2>
   <p>Totale da pagare: {{ totaledapagare }}€</p>
 
-  <!-- Altri dettagli e logica di pagamento qui -->
 
-  <!-- Visualizza i dettagli dell'ordine, puoi personalizzare questa sezione a tuo piacimento -->
+
+  <!-- Visualizza i dettagli dell'ordine -->
   <div class="order-details">
     <!-- Dettagli dei corsi -->
     <div *ngFor="let corso of carrelloCorsi">
@@ -28,7 +28,6 @@
     <button (click)="selectPaymentMethod('paypal')" class="btn btn-pagamento">PayPal</button>
     <button (click)="selectPaymentMethod('iban')" class="btn btn-pagamento">IBAN</button>
 
-   <!-- Form per il pagamento con carta di credito -->
 <!-- Form per il pagamento con carta di credito -->
 <form *ngIf="selectedPaymentMethod === 'cartaDiCredito'" [formGroup]="cartaDiCreditoForm" (ngSubmit)="pagamentoCartaDiCredito()">
   <label for="ccNumber">Numero Carta di Credito</label>
@@ -37,7 +36,7 @@
   <label for="ccExpiry">Scadenza Carta di Credito (MM/AA)</label>
   <input type="text" id="ccExpiry" name="ccExpiry" formControlName="ccExpiry" placeholder="MM/AA" maxlength="5">
 
-  <!-- Aggiungi una guida visiva per il formato della data di scadenza -->
+  <!-- Aggiunge una guida visiva per il formato della data di scadenza -->
   <div *ngIf="cartaDiCreditoForm.get('ccExpiry')?.hasError('pattern') && cartaDiCreditoForm.get('ccExpiry')?.touched">
     <small>La data di scadenza deve essere nel formato MM/AA.</small>
   </div>

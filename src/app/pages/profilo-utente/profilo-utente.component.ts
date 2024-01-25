@@ -113,9 +113,8 @@ export class ProfiloUtenteComponent implements OnInit, OnDestroy {
     this.isSettingsFormVisible = !this.isSettingsFormVisible;
   }
   onSubmit() {
-    // Qui inserisci la logica per cambiare la password.
-    // Assicurati di integrare una valida verifica della password attuale e della conferma della nuova password.
-    // Ad esempio:
+    // Qui inserisco la logica per cambiare la password.
+
     if (this.currentPassword !== 'password') {
       Swal.fire({
         icon: 'error',

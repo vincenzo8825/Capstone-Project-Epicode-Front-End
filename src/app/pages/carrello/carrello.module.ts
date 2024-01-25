@@ -1,4 +1,4 @@
-// carrello.module.ts
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CarrelloComponent } from './carrello.component';
@@ -14,6 +14,6 @@ import { MatCardModule } from '@angular/material/card';
     MatIconModule,
     MatCardModule
   ],
-  exports: [CarrelloComponent]  // Assicurati di esportare il componente
+  exports: [CarrelloComponent]
 })
 export class CarrelloModule {}

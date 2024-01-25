@@ -1,8 +1,8 @@
-// dashboard-routing.module.ts
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
-import { LezioniComponent } from '../lezioni/lezioni.component'; // Importa il componente delle lezioni
+import { LezioniComponent } from '../lezioni/lezioni.component';
 const routes: Routes = [
   {
     path: '',
@@ -10,7 +10,7 @@ const routes: Routes = [
     children: [
       { path: 'preferiti', loadChildren: () => import('../preferiti/preferiti.module').then(m => m.PreferitiModule) },
       { path: 'lezione/:id', component: LezioniComponent },
-      // ... altri percorsi specifici della dashboard ...
+
     ]
   }
 ];

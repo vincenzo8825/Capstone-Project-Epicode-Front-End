@@ -71,7 +71,7 @@
   <div class="announcements-mobile">
     <mat-card *ngFor="let announcement of announcements" class="announcement-card">
       <mat-card-header>
-        <mat-icon class="announcement-icon">info</mat-icon> <!-- Aggiunta dell'icon Mat -->
+        <mat-icon class="announcement-icon">info</mat-icon>
         <mat-card-title>
           <h2 class="section-title">{{ announcement.title }}</h2>
         </mat-card-title>
@@ -86,7 +86,7 @@
   <mat-accordion class="announcements-desktop">
     <mat-expansion-panel *ngFor="let announcement of announcements">
       <mat-expansion-panel-header>
-        <mat-icon class="announcement-icon">info</mat-icon> <!-- Aggiunta dell'icon Mat -->
+        <mat-icon class="announcement-icon">info</mat-icon>
         <mat-panel-title>
           <h2 class="section-title">{{ announcement.title }}</h2>
         </mat-panel-title>
@@ -103,7 +103,7 @@
   <div class="events-container">
     <mat-card *ngFor="let event of upcomingEvents">
       <mat-card-header>
-        <mat-icon class="event-icon">event</mat-icon> <!-- Aggiunta dell'icona Mat -->
+        <mat-icon class="event-icon">event</mat-icon>
         <mat-card-title>{{ event.name }}</mat-card-title>
         <mat-card-subtitle>{{ event.date | date }}</mat-card-subtitle>
       </mat-card-header>
@@ -127,7 +127,7 @@
   <div class="faqs-mobile">
     <mat-card *ngFor="let faq of faqs" class="faq-card">
       <mat-card-header>
-        <mat-icon class="faq-icon">help</mat-icon> <!-- Aggiunta dell'icona Mat -->
+        <mat-icon class="faq-icon">help</mat-icon>
         <mat-card-title>
           <h2 class="section-title">{{ faq.question }}</h2>
         </mat-card-title>
@@ -142,7 +142,7 @@
   <mat-accordion class="faqs-desktop">
     <mat-expansion-panel *ngFor="let faq of faqs">
       <mat-expansion-panel-header>
-        <mat-icon class="faq-icon">help</mat-icon> <!-- Aggiunta dell'icona Mat -->
+        <mat-icon class="faq-icon">help</mat-icon>
         <mat-panel-title>
           <h2 class="section-title">{{ faq.question }}</h2>
         </mat-panel-title>

@@ -1,4 +1,4 @@
-/* terms-and-conditions.component.scss */
+
 
 $primary-color: #007bff; // Colore primario per i link
 
@@ -34,11 +34,10 @@ $primary-color: #007bff; // Colore primario per i link
     transition: color 0.3s ease-in-out;
 
     &:hover {
-      color: darken($primary-color, 20%); // Scurisci il colore del link al passaggio del mouse
+      color: darken($primary-color, 20%); // Scurisco il colore del link al passaggio del mouse
       text-decoration: underline;
     }
   }
 
-  // Aggiungi stili per la classe specifica se necessario
 
 }

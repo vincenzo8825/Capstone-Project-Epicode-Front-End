@@ -1,8 +1,7 @@
-// preferiti.component.ts
+
 import { Component } from '@angular/core';
 import { Corso } from '..//corsi/corso';
 import { Lezione } from '../lezioni/lezione';
-
 import { SharedService } from '../../shared.service';
 
 @Component({

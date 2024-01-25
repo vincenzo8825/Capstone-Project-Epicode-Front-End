@@ -52,7 +52,7 @@ export class LavoraConNoiComponent implements OnInit {
     if (form.valid) {
       // Logica per gestire l'invio del form
 
-      // Eseguire il reset del form dopo l'invio con successo
+      // Esegue il reset del form dopo l'invio con successo
       form.reset();
 
       Swal.fire('Successo!', `La tua ${tipo} è stata inviata con successo.`, 'success');

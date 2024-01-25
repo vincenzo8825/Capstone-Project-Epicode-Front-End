@@ -1,4 +1,4 @@
-// payment.component.ts
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -42,7 +42,7 @@ export class PaymentComponent implements OnInit {
     });
 
 
-    // Inizializzare i form per i metodi di pagamento
+    // Inizializza i form per i metodi di pagamento
 this.cartaDiCreditoForm = this.formBuilder.group({
   ccNumber: [
     '',
@@ -90,20 +90,12 @@ this.ibanForm = this.formBuilder.group({
   discountCodeIBAN: [''],
   quantityIBAN: [1, Validators.min(1)],
 });
-
-
-
-
 }
-
-
-
-
   // Funzione chiamata quando si conferma l'ordine
   confermaOrdine(): void {
     // Logica per confermare l'ordine
 
-    // Mostra la notifica di successo con SweetAlert2
+    // Mostra la notifica di successo con SweetAlert
     Swal.fire({
       icon: 'success',
       title: 'Acquisto avvenuto con successo!',
@@ -123,14 +115,14 @@ this.ibanForm = this.formBuilder.group({
       // Logica per il pagamento con carta di credito
       console.log('Pagamento con carta di credito confermato!');
 
-      // Mostra SweetAlert2 per il successo
+      // Mostra SweetAlert per il successo
       Swal.fire({
         icon: 'success',
         title: 'Pagamento effettuato correttamente!',
         text: 'Riceverai a breve una email di conferma.',
         confirmButtonText: 'Ok'
       }).then(() => {
-        // Aggiungi eventuali azioni da eseguire dopo che l'utente ha cliccato su "Ok"
+        // Aggiunge eventuali azioni da eseguire dopo che l'utente ha cliccato su "Ok"
       });
     } else {
       // Mostra un avviso di errore se il form non è valido
@@ -161,7 +153,7 @@ this.ibanForm = this.formBuilder.group({
 
     // Verifica la validità del form
     if (this.paypalForm.valid) {
-      // Mostra un avviso di successo usando SweetAlert2
+      // Mostra un avviso di successo usando SweetAlert
       Swal.fire({
         icon: 'success',
         title: 'Pagamento avvenuto con successo!',
@@ -172,7 +164,7 @@ this.ibanForm = this.formBuilder.group({
         this.pagamentoPayPal();
       });
     } else {
-      // Mostra un avviso di errore usando SweetAlert2
+      // Mostra un avviso di errore usando SweetAlert
       Swal.fire({
         icon: 'error',
         title: 'Errore',
@@ -194,14 +186,14 @@ this.ibanForm = this.formBuilder.group({
       // Logica per il pagamento con IBAN
       console.log('Pagamento con IBAN confermato!');
 
-      // Mostra la notifica di successo con SweetAlert2
+      // Mostra la notifica di successo con SweetAlert
       Swal.fire({
         icon: 'success',
         title: 'Pagamento avvenuto con successo!',
         text: 'Grazie per il tuo acquisto. Riceverai una conferma via email.',
         confirmButtonText: 'Ok'
       }).then(() => {
-        // Puoi aggiungere qui eventuali azioni da eseguire dopo che l'utente ha cliccato su "Ok"
+
       });
     } else {
       // Mostra un messaggio di errore se il form non è valido

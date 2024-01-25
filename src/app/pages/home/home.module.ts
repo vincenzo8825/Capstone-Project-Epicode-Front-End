@@ -10,9 +10,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
-
-
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { CommunityModule } from '../community/community.module';

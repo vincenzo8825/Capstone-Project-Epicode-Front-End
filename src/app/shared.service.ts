@@ -90,7 +90,7 @@ appuntamenti$ = this.appuntamentiSubject.asObservable();
     const nuoviAppuntamenti = [...appuntamentiCorrenti, appuntamento];
     this.appuntamentiSubject.next(nuoviAppuntamenti);
 
-    // Salvare gli appuntamenti nel localStorage
+    // Salva gli appuntamenti nel localStorage
     localStorage.setItem('appuntamenti', JSON.stringify(nuoviAppuntamenti));
   }
   addToFavoritesCorso(corso: Corso): Observable<void> {
@@ -239,7 +239,7 @@ appuntamenti$ = this.appuntamentiSubject.asObservable();
     const datiAcquisti = {
       carrelloCorsi: corsi,
       carrelloLezioni: lezioni
-      // Aggiungi altre informazioni necessarie, come il totale, se necessario
+
     };
     localStorage.setItem('datiAcquisti', JSON.stringify(datiAcquisti));
   }
@@ -252,7 +252,7 @@ appuntamenti$ = this.appuntamentiSubject.asObservable();
     const eventiIscritti = JSON.parse(localStorage.getItem('eventiIscritti') || '[]') as string[];
     eventiIscritti.push(nomeEvento);
     localStorage.setItem('eventiIscritti', JSON.stringify(eventiIscritti));
-    // Aggiungi l'evento alla lista degli eventi iscritti
+    // Aggiunge l'evento alla lista degli eventi iscritti
     this.iscrizioni[nomeEvento] = true;
   }
 

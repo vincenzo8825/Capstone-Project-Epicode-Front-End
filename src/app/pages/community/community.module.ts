@@ -12,8 +12,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
-import { MatExpansionModule } from '@angular/material/expansion'; // Aggiunto per gli accordion
-import { MatChipsModule } from '@angular/material/chips'; // Aggiunto per i chip
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatChipsModule } from '@angular/material/chips';
 import { CommunityComponent } from './community.component';
 
 @NgModule({
@@ -35,8 +35,8 @@ import { CommunityComponent } from './community.component';
     FormsModule,
     ReactiveFormsModule,
     MatListModule,
-    MatExpansionModule, // Aggiungi qui MatExpansionModule
-    MatChipsModule // Aggiungi qui MatChipsModule
+    MatExpansionModule,
+    MatChipsModule
   ]
 })
 export class CommunityModule { }

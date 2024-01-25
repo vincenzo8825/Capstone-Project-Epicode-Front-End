@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router'; // Aggiungi questa riga
+import { RouterModule } from '@angular/router';
 import { Pagina404Component } from './pagina404.component';
 
 @NgModule({
@@ -9,7 +9,7 @@ import { Pagina404Component } from './pagina404.component';
   ],
   imports: [
     CommonModule,
-    RouterModule // Aggiungi RouterModule qui
+    RouterModule
   ]
 })
 export class Pagina404Module { }

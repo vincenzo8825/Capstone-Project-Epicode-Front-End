@@ -37,9 +37,9 @@ export class CommunityComponent implements OnInit {
   }
 
   prepopulateNickname(): void {
-    const loggedInUser = this.authService.getCurrentUser(); // Utilizza getCurrentUser invece di getLoggedInUser
+    const loggedInUser = this.authService.getCurrentUser();
     if (loggedInUser) {
-      this.newReview.user = loggedInUser.nome; // Usa la proprietà appropriata dell'oggetto utente
+      this.newReview.user = loggedInUser.nome;
     }
   }
 
@@ -86,7 +86,7 @@ export class CommunityComponent implements OnInit {
         content: 'Analisi degli strumenti e delle strategie per il lavoro con Big Data, inclusi sistemi di gestione del database e tecniche di visualizzazione.',
         isClosed: false
       }
-      // Aggiungi altri topic qui
+
     ];
   }
 
@@ -96,7 +96,7 @@ export class CommunityComponent implements OnInit {
     this.announcements = [
       { title: 'Nuovo Corso Avanzato di JavaScript', content: 'Esplora funzionalità avanzate di JavaScript...' },
       { title: 'Workshop su Python per Data Science', content: 'Partecipa al nostro workshop intensivo...' },
-      // Aggiungi altri annunci qui
+
     ];
   }
 
@@ -122,7 +122,7 @@ export class CommunityComponent implements OnInit {
         date: new Date(2024, 8, 5),
         description: 'Immergiti nel mondo della data science con il nostro corso intensivo, che copre argomenti da analisi dei dati a machine learning.'
       }
-      // Aggiungi altri eventi qui
+
     ];
     this.upcomingEvents.forEach((event) => {
       const isAlreadySubscribed = localStorage.getItem(`iscrizione_${event.name}`);
@@ -197,7 +197,7 @@ export class CommunityComponent implements OnInit {
         question: 'Ci sono opportunità di apprendimento pratico?',
         answer: 'Sì, tutti i nostri corsi includono progetti pratici per mettere in pratica ciò che hai appreso. Questo include lo sviluppo di applicazioni web, analisi di dataset reali, creazione di prototipi di design e molto altro.'
       }
-      // Continua ad aggiungere altre FAQ qui
+
     ];
   }
 
@@ -205,7 +205,7 @@ export class CommunityComponent implements OnInit {
     this.userReviews = [
       { user: 'Alice', comment: 'Fantastico corso su React!', rating: 5 },
       { user: 'Bob', comment: 'Molto utile per capire i fondamenti del machine learning.', rating: 4 },
-      // Aggiungi altre recensioni qui
+
     ];
   }
 

@@ -1,4 +1,4 @@
-// pages/lezioni/lezione.interface.ts
+
 export interface Lezione {
 
 

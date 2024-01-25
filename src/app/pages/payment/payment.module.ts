@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule  // Aggiungi questa riga per importare il modulo ReactiveFormsModule
+    ReactiveFormsModule
   ]
 })
 export class PaymentModule { }

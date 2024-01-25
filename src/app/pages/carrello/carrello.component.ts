@@ -62,10 +62,9 @@ export class CarrelloComponent implements OnDestroy {
   calcolaTotaleGenerale(): void {
     const totaleCorsi = this.calcolaTotaleCorsi();
 
-    // Usa toFixed per arrotondare il totale a due decimali
     this.totaleGenerale = parseFloat(totaleCorsi.toFixed(2));
 
-    // Aggiorna il totale generale nel servizio condiviso
+    // Aggiorna il totale generale nello shared service
     this.sharedService.updateTotaleGenerale(this.totaleGenerale);
   }
 

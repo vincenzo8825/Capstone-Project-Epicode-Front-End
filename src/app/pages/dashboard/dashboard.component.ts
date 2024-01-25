@@ -69,7 +69,7 @@ export class DashboardComponent implements OnInit {
       const chiaveData = data.toISOString().split('T')[0];
       this.calendarioFasceOrarie[chiaveData] = [];
 
-      // Mescolare e selezionare un sottoinsieme casuale di tutor
+      // Mescolo e seleziono un sottoinsieme casuale di tutor
       const professoriMescolati = this.mescolaArray(this.professoriTotali);
       const numProfessoriPerGiorno = Math.floor(Math.random() * this.professoriTotali.length) + 1; // Da 1 a numero totale di professori
       const professoriSelezionati = professoriMescolati.slice(0, numProfessoriPerGiorno);
@@ -149,7 +149,7 @@ export class DashboardComponent implements OnInit {
         icon: 'success',
         confirmButtonText: 'Ok'
       }).then(() => {
-        // Aggiungi un controllo extra per sicurezza
+        // Aggiungo un controllo extra per sicurezza
         if (this.professoreSelezionato && this.fasciaOrariaSelezionata) {
           this.sharedService.aggiungiAppuntamento({
             professore: this.professoreSelezionato,
@@ -178,5 +178,5 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  // Aggiungi qui ulteriori metodi come la prenotazione effettiva
+
 }

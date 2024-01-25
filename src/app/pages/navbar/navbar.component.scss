@@ -51,7 +51,7 @@ mat-sidenav-container {
       margin-top: 40px;
       padding-top: 30px;
       border-top: 3px solid #e0e0e0;  // Separatore più definito
-      font-size: 19px;  // Testo più grande per importanza
+      font-size: 19px;
     }
   }
 }
@@ -126,7 +126,7 @@ mat-toolbar {
 /* Responsive Design */
 @media (max-width: 1200px) {
   mat-sidenav {
-    width: 280px; // Riduci leggermente la larghezza
+    width: 280px; // Riduce leggermente la larghezza
     .logo img {
       height: 75px;
       transition: all 0.5s ease;

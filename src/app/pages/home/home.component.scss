@@ -61,7 +61,7 @@
   @media screen and (max-width: 768px) {
     .features-section {
       flex-direction: column; /* Per far scendere le card una sotto l'altra nella versione mobile */
-      align-items: center; /* Centra le card orizzontalmente nella versione mobile */
+      align-items: center; /* Centro le card orizzontalmente nella versione mobile */
 
       .feature {
         width: 100%; /* La card occupa l'intera larghezza nella versione mobile */
@@ -71,7 +71,6 @@
   }
 
   @media screen and (max-width: 568px) {
-    /* Stile per dispositivi con larghezza massima di 568px (ad esempio, iPhone SE) */
     .features-section {
       /* Le card saranno una sotto l'altra in questa larghezza */
       flex-direction: column;
@@ -85,7 +84,6 @@
   }
 
   @media screen and (max-width: 400px) {
-    /* Stile per dispositivi con larghezza massima di 400px */
     .features-section {
       /* Le card saranno una sotto l'altra in questa larghezza */
       flex-direction: column;

@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-// Importa i moduli Angular Material necessari
+
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
-import { MatTabsModule } from '@angular/material/tabs'; // Aggiunto per i tabs
-import { MatToolbarModule } from '@angular/material/toolbar'; // Aggiunto per la toolbar
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { CorsiModule } from '../corsi/corsi.module';
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -28,8 +28,8 @@ import { MatListModule } from '@angular/material/list';
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
-    MatTabsModule, // Assicurati di includere il modulo qui
-    MatToolbarModule, // Assicurati di includere il modulo qui
+    MatTabsModule,
+    MatToolbarModule,
     CorsiModule,
     MatCardModule,
     MatDatepickerModule,

@@ -4,7 +4,7 @@ import { FooterComponent } from './footer.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { MatButtonModule } from '@angular/material/button'; // Aggiungi questa importazione
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -15,8 +15,8 @@ import { MatButtonModule } from '@angular/material/button'; // Aggiungi questa i
     MatToolbarModule,
     MatIconModule,
     MatListModule,
-    MatButtonModule // Aggiungi il modulo MatButtonModule
+    MatButtonModule
   ],
-  exports: [FooterComponent]  // Assicurati di esportare
+  exports: [FooterComponent]
 })
 export class FooterModule { }

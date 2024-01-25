@@ -28,7 +28,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatCardModule,
     MatInputModule,
     MatGridListModule,
-    MatIconModule // Aggiunto MatGridListModule
+    MatIconModule
   ]
 })
 export class AuthModule { }

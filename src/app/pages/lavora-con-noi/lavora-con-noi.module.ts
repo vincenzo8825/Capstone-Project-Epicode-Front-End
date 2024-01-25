@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms'; // Per la gestione dei form
+import { ReactiveFormsModule } from '@angular/forms';
 import { LavoraConNoiComponent } from './lavora-con-noi.component';
-
-// Importazioni di Angular Material
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,13 +14,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule, // Aggiungi questo per la gestione dei form
+    ReactiveFormsModule,
     MatCardModule,
     MatInputModule,
     MatButtonModule,
     MatExpansionModule,
     MatFormFieldModule,
-    // Altri moduli di Angular Material necessari
+
   ]
 })
 export class LavoraConNoiModule { }

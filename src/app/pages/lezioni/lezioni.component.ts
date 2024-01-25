@@ -1,4 +1,4 @@
-// lezioni.component.ts
+
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../shared.service';
 import { Lezione } from './lezione';
@@ -23,7 +23,7 @@ export class LezioniComponent implements OnInit {
 
     this.sharedService.getElencoLezioni()
       .subscribe(data => {
-        this.lezioni = data; // Assicurati che i dati siano assegnati correttamente
+        this.lezioni = data;
         this.categorieList = Array.from(new Set(this.lezioni.map(lezione => lezione.categoria)));
         this.lezioniFiltrate = [...this.lezioni];
       });
@@ -50,7 +50,7 @@ export class LezioniComponent implements OnInit {
       console.log(`Aggiunto ai preferiti: ${lezione.titolo}`);
       this.sharedService.aggiungiAiPreferitiLezione(lezione);
 
-      // Aggiungi notifica alla navbar
+      // Aggiunge notifica alla navbar
       this.sharedService.getLezioniUpdated().next();
       this.showNotification('Hai aggiunto una lezione ai preferiti');
     } else {
@@ -65,7 +65,7 @@ export class LezioniComponent implements OnInit {
       this.sharedService.aggiungiAlCarrelloLezione(lezione);
       console.log('Prezzo della lezione:', lezione.prezzo);
       console.log('Carrello delle lezioni:', this.lezioni);
-      // Aggiungi notifica alla navbar
+      // Aggiunge notifica alla navbar
       this.sharedService.getLezioniUpdated().next();
       this.showNotification('Hai aggiunto una lezione al carrello');
     } else {
@@ -74,7 +74,7 @@ export class LezioniComponent implements OnInit {
   }
 
   private showNotification(message: string): void {
-    // Chiamare un metodo nella tua NavbarComponent per visualizzare la notifica
+
     this.sharedService.showNotification(message);
   }
 }
