@@ -22,11 +22,10 @@ Esplora opportunità di lavoro con la nostra sezione "Lavora con Noi".
 Candidati per posizioni aperte o invia la tua autocandidatura.
 Acquista corsi e lezioni sul mondo della tecnologia e dello sviluppo web.
 Effettua pagamenti tramite carta di credito, IBAN o PayPal.
-🛠 Tecnologie Utilizzate:
 
+### 🛠 Tecnologie Utilizzate:
 Angular:
 Sviluppato con Angular per un'esperienza utente reattiva e all'avanguardia.
-
 Angular Material:
 Utilizzato per un design moderno, pulito ed elegante.
 
