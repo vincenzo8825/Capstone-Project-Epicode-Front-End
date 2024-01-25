@@ -1,4 +1,5 @@
-Progetto "TutoringPlatform"
+Capstone-Project-Epicode-Front-End Progetto "TutoringPlatform"
+
 🚀 Benvenuti in TutoringPlatform!
 
 Siete pronti a esplorare un'avventura educativa unica? Questa è la repository del mio entusiasmante Capstone Project, "TutoringPlatform"! Lasciatevi guidare attraverso questa piattaforma di tutoraggio online innovativa, progettata per offrire un'esperienza di apprendimento personalizzata e dinamica. 📚✨
