@@ -31,27 +31,22 @@ Utilizzato per un design moderno, pulito ed elegante.
 
 ### 🚀 Come Iniziare:
 
-Clona la Repository:
+#### Clona la Repository:
 
-bash
-Copy code
+
+
 git clone https://github.com/vincenzo8825/Capstone-Project-Epicode-Front-End.git
-Entra nella Directory del Progetto:
 
-bash
-Copy code
+#### Entra nella Directory del Progetto:
+
 cd Capstone-Project-Epicode-Front-End
-Installa le Dipendenze:
+#### Installa le Dipendenze:
 
-bash
-Copy code
 npm install
 Avvia l'Applicazione:
 
-bash
-Copy code
 ng serve
-Apri il Browser e Vai a:
+#### Apri il Browser e Vai a:
 http://localhost:4200/
 
 ### 🌈 Contribuisci e Fai Parte dell'Avventura:
