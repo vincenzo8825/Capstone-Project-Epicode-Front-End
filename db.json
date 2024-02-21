@@ -34,6 +34,13 @@
       "nome": "maria ",
       "cognome": "pulice",
       "id": 5
+    },
+    {
+      "email": "mariorossi@esempio.it",
+      "password": "$2a$10$e1zYhopWWbJMU7EwALoZHO5HCZ0kSkreEpRPPCaM/IfpPcAqxO1QC",
+      "nome": "mario",
+      "cognome": "rossi",
+      "id": 6
     }
   ],
   "corsi": [
