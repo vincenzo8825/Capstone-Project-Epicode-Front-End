@@ -8,6 +8,6 @@
   ],
   "install": {
     "include": ["package.json"],
-    "npm": "npm install && npm run backend"
+    "npm": "npm run backend"
   }
 }
