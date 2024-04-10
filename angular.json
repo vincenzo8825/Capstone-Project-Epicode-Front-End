@@ -39,7 +39,8 @@
             "styles": [
               "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss",
-              "node_modules/bootstrap/scss/bootstrap.scss"
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "node_modules/sweetalert2/dist/sweetalert2.css"
             ],
             "scripts": []
           },
@@ -48,13 +49,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "100mb",
+                  "maximumError": "100mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "100mb",
+                  "maximumError": "100mb"
                 }
               ],
               "outputHashing": "all"

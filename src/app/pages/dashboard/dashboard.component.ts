@@ -5,6 +5,7 @@ import { Corso } from '../corsi/corso';
 import { Lezione } from '../lezioni/lezione';
 import { SharedService } from '../../shared.service';
 import Swal from 'sweetalert2';
+
 export type ProfessoreSelezionato = {
   nome: string;
   tipo: 'autore' | 'istruttore';
